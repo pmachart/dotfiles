@@ -1,0 +1,32 @@
+#! /bin/bash
+
+alias cdt='cd $(git rev-parse --show-toplevel)'
+alias gd='git d '
+alias gdf='git df '
+alias gp='git pull'
+alias ga='git add '
+alias gada='git add .'
+alias gs='git ls'
+alias gl='git lg'
+alias gpom='git push origin master'
+alias gpod='git push origin dev'
+alias gcm='git stash && git checkout master && git stash pop'
+
+alias g='. ~/git/perso/gman.sh'
+alias ng='nano ~/git/perso/gman.sh'
+
+function nb() {
+  local workdir=$PWD
+  local branch=$1
+
+  git stash &&
+  git co master &&
+  git pull &&
+  git stash pop &&
+  git checkout -b $branch &&
+  git pn &&
+  git branch --set-upstream-to=origin/$branch $branch
+
+  cd $workdir
+}
+

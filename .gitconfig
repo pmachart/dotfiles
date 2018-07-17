@@ -1,0 +1,102 @@
+[user]
+	name = Pierre-Marie Achart
+	email = pierremarie.achart@gmail.com
+
+[core]
+	editor = nano
+  pager = most
+
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  ui = true
+
+[push]
+  default = current
+
+[pull]
+  default = current
+  rebase = true
+
+[fetch]
+	prune = true
+
+[diff]
+	tool = icdiff
+
+[difftool]
+  cmd=icdiff
+  prompt=false
+
+[alias]
+	git = !exec git
+  aliases = "!git config -l | grep alias | cut -c 7-"
+  a = add
+  aa = add .
+  addalltoprevcommit = commit -a --amend -C HEAD
+
+  fp = fetch -p
+  prb = pull --rebase
+  prp = pull --rebase=preserve
+  prod = pull --rebase origin dev
+  prom = pull --rebase origin master
+	st = status -s
+	co = checkout
+  cob = checkout -b
+	br = branch
+  brd = branch -D
+  cp = cherry-pick
+  bra = "!f(){ git fetch; git branch -a; };f"
+
+  rc = rebase --continue
+  continue = rebase --continue
+  cont = rebase --continue
+  abort = rebase --abort
+  skip = rebase --skip
+  rbi = rebase -i
+  rsm = !git stash && git pull --rebase origin master && git stash pop
+  rsd = !git stash && git pull --rebase origin dev && git stash pop
+
+  chg = diff --name-status
+  changes = "!git log --name-status HEAD.."
+
+  unpushedbranches = "log --branches --not --remotes --simplify-by-decoration --decorate --oneline"
+  ignored = !git ls-files -v|grep --color '^h'
+
+	ci = commit
+	cm  = "!f(){ git commit             -m \"$(git rev-parse --abbrev-ref HEAD) : ${@}\"; };f"
+	cmn = "!f(){ git commit --no-verify -m \"$(git rev-parse --abbrev-ref HEAD) : ${@}\"; };f"
+  sq = "!f(){ git reset --soft HEAD~${1} && git commit --edit -m\"$(git log --format=%B --reverse HEAD..HEAD@{1})\"; };f"
+  amend = commit --amend
+  ammend = commit --amend
+  oops = commit --amend --no-edit --no-verify
+
+  pn = push --no-verify
+  pf = push --force-with-lease
+  pfn = push --no-verify --force-with-lease
+
+	dl = diff --stat
+	d = diff --unified=0 --ignore-space-at-eol --color-words='[[:alnum:]]+|[^[:space:]]'
+	df = diff
+  dc = diff --cached
+
+  undo = "!f(){ git reset HEAD ${1}; git checkout ${1} };f"
+  undolastcommitandkeep = reset --soft HEAD^1
+	undoall = reset --hard HEAD
+
+  lg =  log --graph --oneline --decorate --all --color
+  lgn = log --graph --oneline --decorate --all --color --name-status
+  hist = log --pretty=oneline --abbrev-commit --graph --decorate
+  histo = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --decorate
+
+  fire = "!git add -A && git commit -m 'This is a fire alert push by @pma. DO NOT delete this branch.' && git push origin fire-alert-branch"
+	willpull = log --stat --pretty="" HEAD..origin
+	willrebase = log --stat --pretty="" HEAD..origin/master
+
+	fl = log -u
+	ls = log --pretty=format:"%n\\ %h\\ %C(red)%ad\\ -\\ %ar\\ %C(yellow)%s%Creset\\ [%an/%cn]" --decorate --stat --date=short
+  f = "!git ls-files | fzf"
+
+[icdiff]
+	options = --highlight --line-numbers

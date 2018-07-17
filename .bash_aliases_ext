@@ -1,0 +1,40 @@
+#! /bin/bash
+
+alias cdg='cd ~/git;l'
+alias cdw='cd /var/www'
+
+alias nr='npm run'
+alias nrd='npm run dev || npm run develop'
+alias nrbl='npm run build:lib'
+
+alias ni='npm install'
+alias ni='npm install --verbose'
+alias nig='npm install -g'
+
+alias nu='npm update'
+alias ninu='ni & wait; nu'
+
+alias y='yarn'
+alias yi='yarn install'
+alias ys='yarn start'
+
+alias gi='git '
+alias got='git '
+alias gut='git '
+
+alias apache='sudo service apache2 '
+
+matin() {
+  (slack 1>/dev/null 2>&1 &)
+#  (gitkraken 1>/dev/null 2>&1 &)
+  (google-chrome 1>/dev/null 2>&1 &)
+  (code 1>/dev/null 2>&1 &)
+  . ~/git/dotfiles/tmuxinit.sh
+}
+
+alias sauce='git add .;git commit -m sauce;git push origin master;'
+
+alias rmjestcache='rm -rf /tmp/jest_rs/'
+
+alias tm='. ~/git/dotfiles/tmuxinit.sh'
+alias ntm='nano ~/git/dotfiles/tmuxinit.sh'
