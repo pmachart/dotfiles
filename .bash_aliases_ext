@@ -18,10 +18,6 @@ alias y='yarn'
 alias yi='yarn install'
 alias ys='yarn start'
 
-alias gi='git '
-alias got='git '
-alias gut='git '
-
 alias apache='sudo service apache2 '
 
 matin() {
@@ -32,9 +28,4 @@ matin() {
   . ~/git/dotfiles/tmuxinit.sh
 }
 
-alias sauce='git add .;git commit -m sauce;git push origin master;'
-
 alias rmjestcache='rm -rf /tmp/jest_rs/'
-
-alias tm='. ~/git/dotfiles/tmuxinit.sh'
-alias ntm='nano ~/git/dotfiles/tmuxinit.sh'

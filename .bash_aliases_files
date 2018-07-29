@@ -1,0 +1,42 @@
+#!/bin/bash
+
+function scriptmove() {
+  local ORIG=$1
+  shift
+  rm -f $@ && ln -s ~/git/$ORIG/$@ $@;
+}
+
+atompackagelist(){ ls ~/.atom/packages | tee ~/git/dotfiles/misc/atom_packagelist; }
+vscodepackagelist(){ ls ~/.vscode/extensions | tee ~/git/dotfiles/misc/vscode_packagelist; }
+
+alias bashrc='nano ~/.bashrc'
+alias nanorc='nano ~/.nanorc'
+alias inputrc='nano ~/.inputrc'
+alias tmuxconf='nano ~/.tmux.conf'
+alias tc=tmuxconf
+alias gitconfig='nano ~/.gitconfig'
+alias gc=gitconfig
+alias als='nano ~/.bash_aliases'
+alias alx='nano ~/.bash_aliases_ext'
+alias alg='nano ~/.bash_aliases_git'
+alias alj='nano ~/.bash_aliases_job'
+alias alp='nano ~/.bash_aliases_perso'
+alias profile='nano ~/.bash_profile'
+alias r='source ~/.bashrc'
+
+alias todos='ls ~/git/perso/todo* -1 -b | xargs atom'
+alias notes='ls ~/git/perso/note* -1 -b | xargs atom'
+alias wtfs='ls ~/git/perso/wtf* -1 -b | xargs atom'
+alias todays='ls ~/git/perso/today* -1 -b | xargs atom'
+
+alias todo='echo "$@" >> ~/git/perso/todo'
+alias note='echo "$@" >> ~/git/perso/notes'
+alias wtf='echo "$@" >> ~/git/perso/wtf'
+alias today='echo "$(date +%F) : $@" >> ~/git/perso/today'
+alias yesterday='echo "$(date -d yesterday +%F) : $@" >> ~/git/perso/today'
+
+alias g='. ~/git/perso/gman.sh'
+alias ng='nano ~/git/perso/gman.sh'
+
+alias tm='. ~/git/dotfiles/tmuxinit.sh'
+alias ntm='nano ~/git/dotfiles/tmuxinit.sh'

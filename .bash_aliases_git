@@ -1,5 +1,9 @@
 #! /bin/bash
 
+alias gi='git '
+alias got='git '
+alias gut='git '
+
 alias cdt='cd $(git rev-parse --show-toplevel)'
 alias gd='git d '
 alias gdf='git df '
@@ -12,8 +16,7 @@ alias gpom='git push origin master'
 alias gpod='git push origin dev'
 alias gcm='git stash && git checkout master && git stash pop'
 
-alias g='. ~/git/perso/gman.sh'
-alias ng='nano ~/git/perso/gman.sh'
+alias sauce='git add .;git commit -m sauce;git push origin master;'
 
 function nb() {
   local workdir=$PWD
@@ -29,4 +32,3 @@ function nb() {
 
   cd $workdir
 }
-

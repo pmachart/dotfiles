@@ -27,7 +27,7 @@
 # set backup
 
 ## The directory to put unique backup files in.
-set backupdir "/home/pma/.nanobackups"
+set backupdir "~/.nanobackups"
 
 ## Do backwards searches by default.
 # set backwards

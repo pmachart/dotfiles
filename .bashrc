@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 #[ -z "$TMUX" ] && ( tmux a || tmux )
 [ -f ~/.bash_env ] && source ~/.bash_env
 
@@ -8,7 +9,9 @@ export PATH=~/.local/bin:~/.bin:~/bin:$PATH
 export PATH=./node_modules/.bin/:$PATH
 export PATH=~/.linuxbrew/bin:$PATH
 export PATH=~/.npm-global/bin:$PATH
-[ -f $(brew --prefix nvm)/nvm.sh ] && source $(brew --prefix nvm)/nvm.sh
+if [[ -n "$(which brew)" ]] ; then
+  [ -f $(brew --prefix nvm)/nvm.sh ] && source $(brew --prefix nvm)/nvm.sh
+fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -41,10 +44,10 @@ export EDITOR=/usr/bin/nano
 export PAGER=/usr/bin/most
 
 # Make directory commands see only directories
-complete -d cd mkdir rmdir pushd
+complete -d cd mkdir rm rmdir pushd
 
 # Make file commands see only files
-complete -f cat less more chown ln strip nano
+complete -f cat less more most tail tf head strip nano sn n
 
 # If not running interactively, don't do anything
 case $- in
@@ -107,11 +110,12 @@ MYCOLORS="${BLACK}BLACK ${RED}RED ${GREEN}GREEN ${YELLOW}YELLOW ${BLUE}BLUE ${MA
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias initialization.
-if [ -f ~/.bash_aliases ];        then . ~/.bash_aliases ;         fi
-if [ -f ~/.bash_aliases_ext ];    then . ~/.bash_aliases_ext ;     fi
-if [ -f ~/.bash_aliases_git ];    then . ~/.bash_aliases_git ;     fi
-if [ -f ~/.bash_aliases_job ];    then . ~/.bash_aliases_job ;     fi
-if [ -f ~/.bash_aliases_perso ];  then . ~/.bash_aliases_perso ; fi
+if [ -f ~/.bash_aliases ];       then . ~/.bash_aliases ;       fi
+if [ -f ~/.bash_aliases_ext ];   then . ~/.bash_aliases_ext ;   fi
+if [ -f ~/.bash_aliases_git ];   then . ~/.bash_aliases_git ;   fi
+if [ -f ~/.bash_aliases_job ];   then . ~/.bash_aliases_job ;   fi
+if [ -f ~/.bash_aliases_files ]; then . ~/.bash_aliases_files ; fi
+if [ -f ~/.bash_aliases_perso ]; then . ~/.bash_aliases_perso ; fi
 
 # enable color support of ls grep and stuff
 if [ -x /usr/bin/dircolors ]; then
