@@ -1,1 +1,290 @@
-/home/pma/git/dotfiles/.atom/styles.less
+@import "ui-variables";
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-text-stroke: .5px;
+  -webkit-font-smoothing: antialiased;
+}
+.tree-view {
+  text-rendering: optimizeLegibility;
+  -webkit-text-stroke: 0px;
+}
+.editor {
+  text-rendering : optimizeLegibility;
+  background-color: darken(#282c34, 5%);
+}
+
+.tree-view {
+  font-size: 15px;
+  .list-item {
+    line-height: 18px !important;
+    letter-spacing: .4px;
+  }
+  .status-modified {
+    color: #d19a66 !important;
+  }
+  .selected:before, .selected:before {
+    height: 18px !important;
+  }
+  .icon:before {
+    font-size: 14px;
+    width: 10px;
+    height: 10px;
+    position: relative;
+    top: 0px;
+    left: -4px;
+  }
+  .icon-file-directory{ // folder
+    color: #bbb;
+  }
+  .icon-file-text{
+    margin-left: -2px;
+  }
+  .icon-file-directory:before{ // folders
+    left: 0 !important;
+    opacity: .7;
+    font-size: 12px;
+  }
+  .header:before { // folders
+    font-size: 15px !important;
+    position: relative;
+    top: 1px !important;
+    left: -2px;
+    opacity: .7;
+    margin-right: 3px !important;
+  }
+}
+.tree-view:focus .list-item.selected,
+.tree-view:focus .list-nested-item.selected>.list-item
+{ // item selected when treeview focused
+  // border-top: 1px solid yellow !important;
+  // border-bottom: 1px solid yellow !important;
+  outline: 1px solid yellow;
+}
+.tree-view:focus .selected:before{
+  background-color: transparent!important;
+}
+.atom-dock-toggle-button-visible { // treeview mouseover tab
+  display: none;
+}
+
+.modal.overlay.from-top {
+  .select-list ol.list-group {
+    max-height: 1250px;
+    overflow-x: hidden;
+  }
+}
+
+atom-text-editor {
+  .leading-whitespace{
+    // letter-spacing: 6px;
+  }
+  .cursor{ // fat, recentered cursor
+    border-color: yellow;
+    border-width: 4px;
+    margin-left: -2px;
+  }
+  .line.cursor-line { // right side thingy
+    border-right: 5px solid yellow !important;
+  }
+  .gutter{
+      background-color: darken(#282c34, 12%);
+    .line-number{
+      // padding: 0 0 0 .25em;
+      .icon-right{
+        padding-right : 0;
+      }
+    }
+    .line-number.mixed-indent-incorrect{ // less ugly mixed indent warnings
+      background-color: inherit;
+      color: inherit;
+    }
+    .line-number.git-line-added {
+      color: #43d08a !important;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+    .line-number.git-line-modified {
+      color: orange !important;
+      border-left-color: orange !important;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+    .line-number.git-line-removed:before {
+      border-left-color: red !important;
+      border-width: 10px;
+      top: 12px;
+    }
+    .line-number.git-line-removed:after {
+      border-bottom: 2px dotted red !important;
+    }
+  }
+
+  .bracket-matcher .region{ // funky bracket-matcher
+    border: 2px solid black;
+    outline: 1px dotted yellow;
+    background-color: black;
+    color:white !important;
+    padding:3px;
+  }
+  .highlights .highlight-selected .region { // highlights for matched selection
+    border: 2px solid red !important;
+    outline:0 !important;
+  }
+  .vertical-scrollbar { // left side editor vertical scrollbars
+    left:-8px;
+    width:3px !important;
+    border-width: 3px !important;
+  }
+  .horizontal-scrollbar {
+    display: none;
+  }
+}
+
+atom-pane-resize-handle.horizontal {
+  background-color: darken(#282c34, 12%) !important;
+}
+
+.tree-view-resizer .tree-view-resize-handle {
+  width: 0!important;
+}
+.scrollbars-visible-always /deep/ ::-webkit-scrollbar {
+    width: 10px;
+    &-thumb {
+      background-color: darken(white, 70%) !important;
+      border: 0px !important;
+      height: 0 !important;
+    }
+}
+
+atom-pane-container {
+  padding-top:1px !important;
+}
+
+.pane.active{
+  .tab.active{
+    border:1px solid darken(yellow,15%) !important;
+    outline:1px solid darken(yellow,15%) !important;
+  }
+  .tab.modified{
+    border: 1px solid red !important;
+    outline: 1px solid red !important;
+  }
+}
+.tab-bar{
+  .tab {
+    .folder{
+      right: 10px !important;
+      font-size: 11px;
+      top: -11px;
+    }
+    .file{
+      left: 0;
+      font-size: 12px;
+      top: 8px;
+    }
+    .title{
+      margin: auto 3px;
+    }
+    .title::before{ // file icon
+      margin:0;
+      top:-6px;
+    }
+  }
+  .tab.active{
+    &:before{
+      background: none !important; /* ugly vertical blue bar in tabs */
+    }
+    .folder{
+      color: darken(white, 40%);
+    }
+    .file{
+      color: white;
+    }
+  }
+  .tab:not(.active){
+    .folder{
+      color: darken(white, 40%);
+    }
+    .file{
+      color: darken(white, 20%);
+    }
+  }
+  .tab.modified{
+    border: 1px solid red !important;
+    outline: 1px solid red !important;
+    color: lighten(red, 15%) !important;
+  }
+  .close-icon{
+    display: none; // hides both dot and cross
+  }
+}
+
+atom-text-editor atom-text-editor-minimap .minimap-visible-area,
+atom-text-editor atom-text-editor-minimap .minimap-visible-area {
+  // border-left: 2px dashed darken(yellow, 20%) !important;
+  outline: 1px solid darken(yellow, 20%) !important;
+  border-left: 1px solid darken(yellow, 20%) !important;
+}
+minimap-codeglance {
+  border:1px dotted yellow;
+  margin: 22px 5px 0 40px;
+}
+.minimap .search-result {
+  background: yellow;
+}
+.minimap .highlight-selected {
+  background: red;
+}
+.minimap-selection .region,
+.minimap-selection .cursor-line {
+  background: #ddd;
+}
+// atom-text-editor { // minimap only visible on active pane
+//   & {
+//     atom-text-editor-minimap {
+//       opacity: 0;
+//     }
+//   }
+//   &.is-focused {
+//     & {
+//       atom-text-editor-minimap {
+//         opacity: 1;
+//       }
+//     }
+//   }
+// }
+
+.indent-guide-improved { // dynamically colored indent guide
+  background-color: darken(white, 70%);
+  &.indent-guide-stack {
+    background-color: darken(white, 30%);
+    &.indent-guide-active {
+      background-color: darken(yellow, 10%);
+    }
+  }
+}
+
+atom-text-editor /deep/ {
+  .jumpy-label {
+    background-color: black;
+    color: yellow;
+    &.high-contrast {
+      background-color: yellow;
+      color: black;
+    }
+  }
+}
+
+status-bar .highlight-selected-status {
+  color: lighten(yellow, 10%);
+  font-weight: bold;
+}
+
+atom-workspace atom-panel.modal:after {
+  opacity: .4 !important;
+  -webkit-animation: initial !important;
+  animation: initial !important;
+  transform: initial !important;
+  transition-property: initial !important;
+}
