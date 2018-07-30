@@ -13,7 +13,7 @@
     "editor.formatOnSave": true,
     "editor.fontFamily": "Iosevka",
     "editor.fontSize": 16,
-    "editor.letterSpacing": 0.3,
+    "editor.letterSpacing": 0,
     "editor.minimap.maxColumn": 80,
     "editor.minimap.showSlider": "always",
     "editor.quickSuggestionsDelay": 50,
@@ -47,12 +47,17 @@
         "'",
         "`"
     ],
-    "window.zoomLevel": 0,
+    "window.zoomLevel": 1,
     "workbench.editor.showTabs": true,
-    "editor.minimap.enabled": false,
+    "editor.minimap.enabled": true,
     "workbench.activityBar.visible": false,
     "gitlens.advanced.telemetry.enabled": false,
     "gitlens.codeLens.authors.enabled": false,
     "gitlens.codeLens.enabled": false,
+    "gitlens.currentLine.enabled": false,
     "local-history.path": "~/.vscode_localhistory/",
+    "shellcheck.exclude": [
+        2116, // useless echo
+        2164, // cd
+    ],
 }
