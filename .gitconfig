@@ -1,19 +1,22 @@
-[user]
-	name = Pierre-Marie Achart
-	email = pierremarie.achart@gmail.com
+[include] # separate file for personal stuff
+  path = ~/git/perso/.gitconfig_ext
 
 [core]
 	editor = nano
-  pager = most
+	pager = diff-so-fancy | less --tabs=2
+  excludesfile = ~/.gitignore_global
 
 [color]
   diff = auto
   status = auto
   branch = auto
-  ui = true
+	ui = true
 
 [push]
   default = current
+
+[commit]
+  gpgsign = true
 
 [pull]
   default = current
@@ -43,6 +46,7 @@
   prom = pull --rebase origin master
 	st = status -s
 	co = checkout
+  zco = "!f() { git checkout $(git bls \"$@\"|grep -v '^*'|fzf|awk '{print $1}'); }; f"
   cob = checkout -b
 	br = branch
   brd = branch -D
@@ -100,3 +104,17 @@
 
 [icdiff]
 	options = --highlight --line-numbers
+
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+
+[color "diff"]
+	meta = yellow
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse

@@ -1,0 +1,10 @@
+*~
+*.swp
+.idea
+.rsync_cache
+*.bak
+*.orig
+.DS_Store
+*.idea
+.cache
+.vimproject

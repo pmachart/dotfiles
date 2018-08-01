@@ -15,6 +15,7 @@ scriptmove .bash_aliases_git
 scriptmove .bash_aliases_files
 scriptmove .fzf.bash
 scriptmove .gitconfig
+scriptmove .gitignore_global
 scriptmove .inputrc
 scriptmove .nanorc
 scriptmove .tmux.conf
