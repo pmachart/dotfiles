@@ -21,6 +21,8 @@ scriptmove .nanorc
 scriptmove .tmux.conf
 scriptmove .vimrc
 
+scriptmove .config/htop/htoprc
+
 if [ -d ".atom" ]; then
   scriptmove .atom/config.cson
   scriptmove .atom/init.coffee

@@ -121,23 +121,10 @@ function extract() {
     fi
 }
 
-function n() {
-  local file=''
-  if [[ $# == 0 ]] ; then
-    file=$('fzf')
-  else
-    file=$@
-  fi
-  echo $PWD/$file
-  echo -e "$PWD/$file\n$(cat ~/.nanohistory)" > ~/.nanohistory
-  sed -i '21,$ d' ~/.nanohistory
-  nano $file
-}
-
 function nn() {
   if [ -z "$1" ]; then
     cat -n ~/.nanohistory
   else
-    nano $(awk "NR == n {print; exit}" n=$1 ~/.nanohistory)
+    nano "$(awk \"NR == n {print; exit}\" n=$1 ~/.nanohistory)"
   fi
 }
