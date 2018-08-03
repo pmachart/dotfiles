@@ -9,6 +9,7 @@ export PATH=~/.local/bin:~/.bin:~/bin:$PATH
 export PATH=./node_modules/.bin/:$PATH
 export PATH=~/.linuxbrew/bin:$PATH
 export PATH=~/.npm-global/bin:$PATH
+export PATH=~/.cabal/bin:$PATH
 if [[ -n "$(which brew)" ]] ; then
   [ -f $(brew --prefix nvm)/nvm.sh ] && source $(brew --prefix nvm)/nvm.sh
 fi

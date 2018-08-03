@@ -104,11 +104,11 @@
   },
   {
     "key": "alt+[",
-    "command": "workbench.action.splitEditorRight"
+    "command": "workbench.action.splitEditorDown"
   },
   {
     "key": "alt+]",
-    "command": "workbench.action.splitEditorDown"
+    "command": "workbench.action.splitEditorRight"
   },
   {
     "key": "ctrl+\\",

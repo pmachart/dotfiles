@@ -47,10 +47,10 @@
         "'",
         "`"
     ],
-    "window.zoomLevel": 1,
+    "window.zoomLevel": -1,
     "workbench.editor.showTabs": true,
     "editor.minimap.enabled": true,
-    "workbench.activityBar.visible": false,
+    "workbench.activityBar.visible": true,
     "gitlens.advanced.telemetry.enabled": false,
     "gitlens.codeLens.authors.enabled": false,
     "gitlens.codeLens.enabled": false,

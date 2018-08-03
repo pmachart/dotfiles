@@ -12,9 +12,8 @@ fi
 # ------------
 source "/home/pma/.fzf/shell/key-bindings.bash"
 
-export FZF_DEFAULT_COMMAND='
-  (git ls-tree -r --name-only HEAD ||
-   find . -path "*/\.*" -prune -o -type f -print -o -type l -print |
-      sed s/^..//) 2> /dev/null'
-
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 export FZF_DEFAULT_OPTS='--reverse --border --height 33%'
+
+#export FZF_CTRL_T_COMMAND=
+export FZF_CTRL_T_OPTS="--preview-window right:60% --preview 'head -n20 {}'"
