@@ -50,6 +50,7 @@ alias mv='mv -i'
 alias p='pwd'
 alias psg='grc ps -aux | grep -v grep | grep -i '
 alias pong='grc ping -c4'
+alias m='most'
 
 pt()  { port=$(sudo lsof -t -i:$1);
   echo -e $1" : \c";

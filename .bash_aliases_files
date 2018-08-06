@@ -16,6 +16,7 @@ alias inputrc='nano ~/.inputrc'
 alias tmuxconf='nano ~/.tmux.conf'
 alias tc=tmuxconf
 alias gitconfig='nano ~/.gitconfig'
+alias giti='nano ~/.gitignore_global'
 alias gc=gitconfig
 alias als='nano ~/.bash_aliases'
 alias alx='nano ~/.bash_aliases_ext'

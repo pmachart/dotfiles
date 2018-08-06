@@ -18,6 +18,8 @@ alias y='yarn'
 alias yi='yarn install'
 alias ys='yarn start'
 
+alias dc='docker-compose'
+
 alias apache='sudo service apache2 '
 
 matin() {
