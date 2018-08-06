@@ -3,19 +3,21 @@
 function n() {
   local ARGS=( "$@" )
   local ARG=''
-  local FILES=''
+  local FILES=()
+  local FILE=''
 
   if [[ $# == 0 ]] ; then
-    ARGS="$('fzf')"
+    ccat ~/.nanohistory
+    exit 1
   fi
 
   for ARG in ${ARGS[@]} ; do
     echo -e "$PWD/$ARG\n$(cat ~/.nanohistory)" > ~/.nanohistory
-    FILES+="$ARG"
+    FILES=($(echo ${FILES[@]}) "$ARG") # array.push in bash :)
   done
 
-  sed -i '21,$ d' ~/.nanohistory
-  nano "$FILES"
+  sed -i '8,$ d' ~/.nanohistory # truncate excessive lines
+  nano "${FILES[@]}"
 }
 
 n $@
