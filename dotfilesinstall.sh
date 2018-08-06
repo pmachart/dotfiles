@@ -20,6 +20,7 @@ scriptmove .inputrc
 scriptmove .nanorc
 scriptmove .tmux.conf
 scriptmove .vimrc
+scriptmove .taskbook.json
 
 scriptmove .config/htop/htoprc
 

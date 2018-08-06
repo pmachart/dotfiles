@@ -1,7 +1,7 @@
 #!/bin/bash
 
-
 #[ -z "$TMUX" ] && ( tmux a || tmux )
+
 [ -f ~/.bash_env ] && source ~/.bash_env
 
 export CDPATH=.:~:~/git:/var/lib/deluge/
@@ -67,7 +67,7 @@ HISTCONTROL="ignoredups:ignoreboth"
 shopt -s histappend
 HISTSIZE=100000
 HISTFILESIZE=100000
-HISTIGNORE="fuck:cl:r:matin:note:notes:todo:todos:wtf:wtfs:today:todays:yesterday:x:exit"
+HISTIGNORE="fuck:cl:r:matin:today:todays:yesterday:x:exit"
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.

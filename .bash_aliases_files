@@ -27,14 +27,8 @@ alias alp='nano ~/.bash_aliases_perso'
 alias profile='nano ~/.bash_profile'
 alias r='source ~/.bashrc'
 
-alias todos='ls ~/git/perso/todo* -1 -b | xargs atom'
-alias notes='ls ~/git/perso/note* -1 -b | xargs atom'
-alias wtfs='ls ~/git/perso/wtf* -1 -b | xargs atom'
 alias todays='ls ~/git/perso/today* -1 -b | xargs atom'
 
-alias todo='echo "$@" >> ~/git/perso/todo'
-alias note='echo "$@" >> ~/git/perso/notes'
-alias wtf='echo "$@" >> ~/git/perso/wtf'
 alias today='echo "$(date +%F) : $@" >> ~/git/perso/today'
 alias yesterday='echo "$(date -d yesterday +%F) : $@" >> ~/git/perso/today'
 
