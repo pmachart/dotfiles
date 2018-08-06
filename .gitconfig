@@ -20,17 +20,9 @@
 
 [pull]
   default = current
-  rebase = true
 
 [fetch]
 	prune = true
-
-[diff]
-	tool = icdiff
-
-[difftool]
-  cmd=icdiff
-  prompt=false
 
 [alias]
 	git = !exec git
