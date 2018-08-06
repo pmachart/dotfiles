@@ -5,12 +5,13 @@
 [ -f ~/.bash_env ] && source ~/.bash_env
 
 export CDPATH=.:~:~/git:/var/lib/deluge/
-export PATH=~/.local/bin:~/.bin:~/bin:$PATH
-export PATH=./node_modules/.bin/:$PATH
-export PATH=~/.linuxbrew/bin:$PATH
-export PATH=~/.npm-global/bin:$PATH
-export PATH=~/.cabal/bin:$PATH
+export PATH=$PATH:~/.local/bin:~/.bin:~/bin
+export PATH=$PATH:./node_modules/.bin/
+export PATH=$PATH:~/.linuxbrew/bin
+export PATH=$PATH:~/.npm-global/bin
+export PATH=$PATH:~/.cabal/bin
 if [[ -n "$(which brew)" ]] ; then
+  export PATH=$PATH:/home/pma/.linuxbrew/opt/go/libexec/bin
   [ -f $(brew --prefix nvm)/nvm.sh ] && source $(brew --prefix nvm)/nvm.sh
 fi
 
