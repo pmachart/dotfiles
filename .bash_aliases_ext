@@ -19,15 +19,28 @@ alias yi='yarn install'
 alias ys='yarn start'
 
 alias dc='docker-compose'
+docker-compose-watch() {
+  local TIME=2
+  if [[ -n $1 ]]; then
+    TIME=$1
+  fi
+  while true; do
+    docker-compose ps
+    sleep $TIME
+  done
+}
+alias dcw='docker-compose-watch'
 
 alias apache='sudo service apache2 '
+
+alias rmjestcache='rm -rf /tmp/jest_rs/'
 
 matin() {
   (slack 1>/dev/null 2>&1 &)
 #  (gitkraken 1>/dev/null 2>&1 &)
   (google-chrome 1>/dev/null 2>&1 &)
   (code 1>/dev/null 2>&1 &)
-  . ~/git/dotfiles/tmuxinit.sh
+  tb # taskbook !
+#  . ~/git/dotfiles/tmuxinit.sh
 }
 
-alias rmjestcache='rm -rf /tmp/jest_rs/'
