@@ -57,6 +57,7 @@
   chg = diff --name-status
   changes = "!git log --name-status HEAD.."
 
+  parentbranch = !"git show-branch -a 2> /dev/null | grep '\\*' | grep -v \"`git rev-parse --abbrev-ref HEAD`\" | head -n1 | sed 's/.*\\[\\(.*\\)\\].*/\\1/' | sed 's/[\\^~].*//'"
   unpushedbranches = "log --branches --not --remotes --simplify-by-decoration --decorate --oneline"
   ignored = !git ls-files -v|grep --color '^h'
 
