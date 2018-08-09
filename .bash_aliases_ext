@@ -43,3 +43,4 @@ matin() {
   . ~/git/dotfiles/tmuxinit.sh
 }
 
+md() { pandoc "$@" | lynx -stdin; } # the ultimate markdowm reading combo !
