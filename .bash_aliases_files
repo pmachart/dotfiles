@@ -33,6 +33,7 @@ alias todays='ls ~/git/perso/today* -1 -b | xargs atom'
 
 alias today='echo "$(date +%F) : $@" >> ~/git/perso/today'
 alias yesterday='echo "$(date -d yesterday +%F) : $@" >> ~/git/perso/today'
+alias ntoday='nano ~/git/perso/today'
 
 alias g='. ~/git/perso/gman.sh'
 alias ng='nano ~/git/perso/gman.sh'

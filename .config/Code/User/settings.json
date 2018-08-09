@@ -16,6 +16,7 @@
     "editor.letterSpacing": 0,
     "editor.minimap.maxColumn": 80,
     "editor.minimap.showSlider": "always",
+    "editor.minimap.renderCharacters": false,
     "editor.quickSuggestionsDelay": 50,
     "editor.renderLineHighlight": "all",
     "editor.snippetSuggestions": "top",
@@ -47,9 +48,9 @@
         "'",
         "`"
     ],
-    "window.zoomLevel": -1,
+    "window.zoomLevel": 0,
     "workbench.editor.showTabs": true,
-    "editor.minimap.enabled": true,
+    "editor.minimap.enabled": false,
     "workbench.activityBar.visible": true,
     "gitlens.advanced.telemetry.enabled": false,
     "gitlens.codeLens.authors.enabled": false,
@@ -60,4 +61,5 @@
         2116, // useless echo
         2164, // cd
     ],
+    "tslint.autoFixOnSave": true,
 }
