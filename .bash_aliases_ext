@@ -40,7 +40,6 @@ matin() {
 #  (gitkraken 1>/dev/null 2>&1 &)
   (google-chrome 1>/dev/null 2>&1 &)
   (code 1>/dev/null 2>&1 &)
-  tb # taskbook !
-#  . ~/git/dotfiles/tmuxinit.sh
+  . ~/git/dotfiles/tmuxinit.sh
 }
 
