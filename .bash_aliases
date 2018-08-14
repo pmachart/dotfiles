@@ -126,6 +126,7 @@ function nn() {
   if [ -z "$1" ]; then
     cat -n ~/.nanohistory
   else
-    nano "$(awk \"NR == n {print; exit}\" n=$1 ~/.nanohistory)"
+    local file=$(sed -n "${1}p" < ~/.nanohistory)
+    nano "$file"
   fi
 }
