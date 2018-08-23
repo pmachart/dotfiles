@@ -17,7 +17,7 @@ function n() {
   done
 
   sed -i '8,$ d' ~/.nanohistory # truncate excessive lines
-  nano "${FILES[@]}"
+  eval nano ${FILES[@]}
 }
 
 n $@
