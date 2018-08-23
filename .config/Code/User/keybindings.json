@@ -208,5 +208,15 @@
   {
     "key": "ctrl+shift+p",
     "command": "-workbench.action.showCommands"
+  },
+  {
+    "key": "ctrl+b",
+    "command": "gitlens.toggleFileBlame",
+    "when": "editorTextFocus && gitlens:keymap == 'chorded' && gitlens:activeFileStatus =~ /blameable/"
+  },
+  {
+    "key": "ctrl+shift+g b",
+    "command": "-gitlens.toggleFileBlame",
+    "when": "editorTextFocus && gitlens:keymap == 'chorded' && gitlens:activeFileStatus =~ /blameable/"
   }
 ]
