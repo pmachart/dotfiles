@@ -18,7 +18,7 @@
     "editor.minimap.showSlider": "always",
     "editor.minimap.renderCharacters": false,
     "editor.quickSuggestionsDelay": 50,
-    "editor.renderLineHighlight": "all",
+    "editor.renderLineHighlight": "gutter",
     "editor.snippetSuggestions": "top",
     "editor.scrollBeyondLastLine": false,
     "editor.tabCompletion": true,

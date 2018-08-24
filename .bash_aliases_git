@@ -5,16 +5,13 @@ alias got='git '
 alias gut='git '
 
 alias cdt='cd $(git rev-parse --show-toplevel)'
-alias gd='git d '
-alias gdf='git df '
 alias gp='git pull'
 alias ga='git add '
 alias gada='git add .'
 alias gs='git ls'
 alias gl='git lg'
-alias gpom='git push origin master'
-alias gpod='git push origin dev'
 alias gcm='git stash && git checkout master && git stash pop'
+alias gcd='git stash && git checkout develop && git stash pop'
 
 alias sauce='git add .;git commit -m sauce;git push origin master;'
 
@@ -23,12 +20,11 @@ function nb() {
   local branch=$1
 
   git stash &&
-  git co master &&
+  git co develop &&
   git pull &&
-  git stash pop &&
   git checkout -b $branch &&
-  git pn &&
-  git branch --set-upstream-to=origin/$branch $branch
+  git push -u --no-verify origin $branch &&
+  git stash pop
 
   cd $workdir
 }

@@ -72,6 +72,7 @@
   pn = push --no-verify
   pf = push --force-with-lease
   pfn = push --no-verify --force-with-lease
+  pnf = push --no-verify --force-with-lease
 
 	dl = diff --stat
 	d = diff --unified=0 --ignore-space-at-eol --color-words='[[:alnum:]]+|[^[:space:]]'
