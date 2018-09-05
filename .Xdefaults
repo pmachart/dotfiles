@@ -1,0 +1,8 @@
+XTerm*metaSendsEscape: true
+XTerm*eightBitInput: false
+XTerm*borderWitdh:0
+XTerm*pointerColor:yellow
+XTerm*background:#111
+XTerm*foreground:#eee
+XTerm*faceSize: 9
+XTerm*faceName: Iosevka Term

@@ -13,6 +13,7 @@ alias hosts='sudo nano /etc/hosts'
 alias bashrc='nano ~/.bashrc'
 alias nanorc='nano ~/.nanorc'
 alias inputrc='nano ~/.inputrc'
+alias xdefaults='nano ~/.Xdefaults'
 alias tmuxconf='nano ~/.tmux.conf'
 alias tc=tmuxconf
 alias gitconfig='nano ~/.gitconfig'
@@ -28,8 +29,6 @@ alias alj='nano ~/.bash_aliases_job'
 alias alp='nano ~/.bash_aliases_perso'
 alias profile='nano ~/.bash_profile'
 alias r='source ~/.bashrc'
-
-alias todays='ls ~/git/perso/today* -1 -b | xargs atom'
 
 alias today='echo "$(date +%F) : $@" >> ~/git/perso/today'
 alias yesterday='echo "$(date -d yesterday +%F) : $@" >> ~/git/perso/today'

@@ -8,6 +8,7 @@ WORKDIR=$PWD
 
 cd
 
+scriptmove .Xdefaults
 scriptmove .bashrc
 scriptmove .bash_aliases
 scriptmove .bash_aliases_ext
