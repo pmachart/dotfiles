@@ -27,7 +27,7 @@ alias alf='nano ~/.bash_aliases_files'
 alias alg='nano ~/.bash_aliases_git'
 alias alj='nano ~/.bash_aliases_job'
 alias alp='nano ~/.bash_aliases_perso'
-alias profile='nano ~/.bash_profile'
+alias profile='nano ~/.profile'
 alias r='source ~/.bashrc'
 
 alias today='echo "$(date +%F) : $@" >> ~/git/perso/today'
