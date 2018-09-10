@@ -30,6 +30,8 @@ docker-compose-watch() {
   done
 }
 alias dcw='docker-compose-watch'
+alias docker-rm-containers="docker rm $(docker ps -a -q)"
+alias docker-rm-images="docker rmi $(docker images -q)"
 
 alias apache='sudo service apache2 '
 
