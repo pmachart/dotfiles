@@ -1,0 +1,34 @@
+blackList|[]
+collapseimage|false
+customcss|
+customfont|
+disableFavicons|true
+enable|true
+enableStickiness|true
+enableToggle|true
+font|-Unchanged-
+fontsize|14
+global|false
+hidePageTitles|true
+hotkey|ALT SHIFT X
+iconTitle|Decreased Productivity
+iconType|coffee
+maxheight|200
+maxwidth|200
+newPages|Uncloak
+opacity1|0.01
+opacity2|0.1
+pageTitleText|Google Chrome
+paranoidhotkey|ALT SHIFT P
+removeBold|false
+s_bg|222
+s_link|fff
+s_table|cccccc
+s_text|ccc
+savedsfwmode|
+sfwmode|SFW
+showContext|true
+showIcon|true
+showUnderline|true
+showUpdateNotifications|true
+whiteList|[]
