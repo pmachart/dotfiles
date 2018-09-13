@@ -6,3 +6,13 @@ XTerm*background:#111
 XTerm*foreground:#eee
 XTerm*faceSize: 9
 XTerm*faceName: Iosevka Term
+
+Rxvt*metaSendsEscape: true
+Rxvt*eightBitInput: false
+Rxvt*borderWitdh:0
+Rxvt*pointerColor:yellow
+Rxvt*background:#111
+Rxvt*foreground:#eee
+Rrxvt*faceSize: 9
+Rxvt*faceName: 'Iosevka Term'
+
