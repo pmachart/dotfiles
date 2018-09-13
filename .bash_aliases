@@ -11,6 +11,15 @@ alias ghb=bhg
 alias bht='tail -n 25 ~/.bash_history'
 alias ght=bht
 
+alias e='exa --group-directories-first --git --grid'
+alias ee='e --long'
+alias ea='e --all'
+alias eea='ee --all'
+alias ed='e --list-dirs */'
+alias ead='ea --list-dirs */'
+alias et='e --tree --level=2'
+alias eet='ee --tree --level=2'
+
 alias l='ls -BhF --group-directories-first '
 alias ll='ls -BhlAF --group-directories-first '
 alias lls='ll -S'
