@@ -17,6 +17,8 @@ alias ninu='ni & wait; nu'
 alias y='yarn'
 alias yi='yarn install'
 alias ys='yarn start'
+alias yb='yarn build'
+alias ybs='yb && ys'
 
 alias dc='docker-compose'
 docker-compose-watch() {
