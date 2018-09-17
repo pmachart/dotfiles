@@ -37,7 +37,7 @@ alias ntoday='nano ~/git/perso/today'
 alias g='. ~/git/perso/gman.sh'
 alias ng='nano ~/git/perso/gman.sh'
 
-alias tm='. ~/git/dotfiles/tmuxinit.sh'
+alias tm='~/git/dotfiles/tmuxinit.sh'
 alias ntm='nano ~/git/dotfiles/tmuxinit.sh'
 
 alias n='~/git/dotfiles/nano_history.sh'
