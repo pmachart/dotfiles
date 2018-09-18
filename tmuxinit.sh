@@ -1,5 +1,20 @@
 #!/bin/bash
 
+require_tmux_running() {
+  if [[ -n "${TMUX}" ]] ; then return 0 ; fi
+  local TMUXLS=$(tmux ls)
+  if [[ ! "${TMUXLS}" =~ 'no server running' ]] ; then
+    local TMUXID=$(echo "${TMUXLS}" | \grep -vq attached | awk '{print $1}')
+    if [[ -n "${TMUXID}" ]] ; then
+      tmux attach -t "${TMUXID%:}"
+      return 0
+    fi
+  else
+    tmux
+  fi
+  exit 1
+}
+
 tmuxwindow() {
   tmux rename-window "${NAME}"
 
@@ -8,7 +23,7 @@ tmuxwindow() {
   tmux split-window -h -c "${DIR}" -p 30
   tmux send-keys "${TOPCMD}" 'C-m'
 
-  tmux split-window -v -t 2 -c "${DIR}" -l "${BTMCMDH}"
+  tmux split-window -v -t 2 -c "${DIR}" -l ${BTMCMDH}
   tmux send-keys "${BTMCMD}" 'C-m'
 
   tmux split-window -h -t 1 -c "${DIR}" -p 50
@@ -24,11 +39,7 @@ tmuxinit() {
   local TOPCMD
   local BTMCMD
   local BTMCMDH
-
-  if [[ -z ${TMUX} ]] ; then
-    echo 'Not in a tmux session, please create or attach to one. Exiting.'
-    exit 1
-  fi
+  local NEW_TMUX=0
 
   if [[ ${1} == '-n' ]] ; then
     shift
@@ -63,4 +74,4 @@ tmuxinit() {
 
 }
 
-tmuxinit "$@"
+tmuxinit "${@}"
