@@ -47,7 +47,7 @@ matin() {
 #  (gitkraken 1>/dev/null 2>&1 &)
   (google-chrome 1>/dev/null 2>&1 &)
   (code 1>/dev/null 2>&1 &)
-  . ~/git/dotfiles/tmuxinit.sh
+  tm booking
 }
 
 md() { pandoc "$@" | lynx -stdin; } # the ultimate markdowm reading combo !
