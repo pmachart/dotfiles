@@ -218,5 +218,15 @@
     "key": "ctrl+shift+g b",
     "command": "-gitlens.toggleFileBlame",
     "when": "editorTextFocus && gitlens:keymap == 'chorded' && gitlens:activeFileStatus =~ /blameable/"
+  },
+  {
+    "key": "shift+enter",
+    "command": "extension.jumpy-word",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "Escape",
+    "command": "extension.jumpy-exit",
+    "when": "editorTextFocus && jumpy.isJumpyMode"
   }
 ]

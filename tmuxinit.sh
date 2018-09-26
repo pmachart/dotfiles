@@ -60,7 +60,7 @@ tmuxinit() {
     DIR='/home/pma/git/BookingBundle'
     TOPCMD='yarn start'
     BTMCMD='htop'
-    BTMCMD='9'
+    BTMCMDH='9'
     tmuxwindow
     ;;
   *)
