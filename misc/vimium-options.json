@@ -1,15 +1,19 @@
 {
-  "settingsVersion": "1.63.3",
+  "settingsVersion": "1.64",
   "exclusionRules": [
     {
       "pattern": "https?://mail.google.com/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://quakejs.com/*",
       "passKeys": ""
     }
   ],
   "filterLinkHints": false,
   "waitForEnterForFilteredHints": true,
   "hideHud": false,
-  "keyMappings": "unmapAll\nmap f enterFindMode\nmap F performFind\nmap T duplicateTab\nmap p togglePinTab\nmap a goBack\nmap d goForward\nmap A moveTabLeft\nmap D moveTabRight\nmap y Vomnibar.activateTabSelection\nmap r reload\nmap t scrollToTop\nmap b scrollToBottom\nmap w scrollUp\nmap s scrollDown\nmap g focusInput\nmap e LinkHints.activateMode\nmap E LinkHints.activateModeToOpenInNewTab\nmap z goPrevious\nmap x goNext\nmap c copyCurrentUrl\nmap q Vomnibar.activate\nmap Q Vomnibar.activateInNewTab\nmap ? showHelp\nmap h showHelp",
+  "keyMappings": "unmapAll\nmap f enterFindMode\nmap F performFind\nmap T duplicateTab\nmap p togglePinTab\nmap a goBack\nmap d goForward\nmap A moveTabLeft\nmap D moveTabRight\nmap y Vomnibar.activateTabSelection\nmap r reload\nmap t scrollToTop\nmap b scrollToBottom\nmap w scrollUp\nmap s scrollDown\nmap g focusInput\nmap e LinkHints.activateMode\nmap E LinkHints.activateModeToOpenInNewTab\nmap z goPrevious\nmap x goNext\nmap c copyCurrentUrl\nmap q Vomnibar.activate\nmap Q Vomnibar.activateInNewTab\nmap ? showHelp\nmap h showHelp\n\nmap i scrollUp\nmap k scrollDown\nmap j goBack\nmap l goForward\nmap m goPrevious\nmap , goNext",
   "linkHintCharacters": "1234qwrasdfzxcv",
   "linkHintNumbers": "0123456789",
   "newTabUrl": "about:newtab",
