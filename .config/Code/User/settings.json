@@ -62,4 +62,6 @@
         2164, // cd
     ],
     "tslint.autoFixOnSave": true,
+    "breadcrumbs.enabled": true,
+    "typescript.updateImportsOnFileMove.enabled": "always",
 }
