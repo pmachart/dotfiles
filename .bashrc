@@ -67,6 +67,8 @@ shopt -s histappend
 HISTSIZE=100000
 HISTFILESIZE=100000
 HISTIGNORE="fuck:cl:r:matin:today:todays:yesterday:x:exit"
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND" # necessary for tmux
+
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -116,7 +118,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 if [ -f ~/.bash_aliases ];       then . ~/.bash_aliases ;       fi
 if [ -f ~/.bash_aliases_ext ];   then . ~/.bash_aliases_ext ;   fi
 if [ -f ~/.bash_aliases_git ];   then . ~/.bash_aliases_git ;   fi
-if [ -f ~/.bash_aliases_work ];  then . ~/.bash_aliases_work ;   fi
+if [ -f ~/.bash_aliases_work ];  then . ~/.bash_aliases_work ;  fi
 if [ -f ~/.bash_aliases_files ]; then . ~/.bash_aliases_files ; fi
 if [ -f ~/.bash_aliases_perso ]; then . ~/.bash_aliases_perso ; fi
 
