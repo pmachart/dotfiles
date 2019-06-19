@@ -294,7 +294,7 @@ bind ^H help main
 bind ^H exit help
 
 bind ^F whereis main
-bind F3 searchagain main
+bind F3 findnext main
 
 bind ^Z undo main
 bind ^Y redo main
