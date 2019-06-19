@@ -5,7 +5,7 @@
 [ -f ~/.bash_env ] && source ~/.bash_env
 
 export CDPATH=.:~:~/git:/var/lib/deluge
-export PATH=/usr/local/bin:/usr/bin:/usr/sbin:/bin
+export PATH=/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin
 export PATH=$PATH:~/.local/bin:~/bin:~/.bin
 export PATH=$PATH:~/.linuxbrew/bin:~/.linuxbrew/opt/go/libexec/bin
 export PATH=$PATH:~/.npm-global/bin
