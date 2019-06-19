@@ -139,10 +139,6 @@
     "command": "workbench.action.evenEditorWidths"
   },
   {
-    "key": "shift+alt+z",
-    "command": "workbench.action.maximizeEditor"
-  },
-  {
     "key": "alt+z",
     "command": "workbench.action.minimizeOtherEditors"
   },
@@ -228,5 +224,9 @@
     "key": "Escape",
     "command": "extension.jumpy-exit",
     "when": "editorTextFocus && jumpy.isJumpyMode"
+  },
+  {
+    "key": "alt+z",
+    "command": "-editor.action.toggleWordWrap"
   }
 ]
