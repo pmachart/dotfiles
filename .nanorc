@@ -288,7 +288,8 @@ unbind ^G all
 bind ^G gotoline main
 unbind F2 all
 unbind ^O all
-bind ^S writeout main
+#bind ^S writeout main
+bind ^S savefile main
 
 bind ^H help main
 bind ^H exit help
