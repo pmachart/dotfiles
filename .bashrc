@@ -66,7 +66,7 @@ HISTCONTROL="ignoredups:ignoreboth"
 shopt -s histappend
 HISTSIZE=100000
 HISTFILESIZE=100000
-HISTIGNORE="fuck:cl:r:matin:today:todays:yesterday:x:exit"
+HISTIGNORE="fuck:cl:l:pp:r:matin:today:todays:yesterday:note:notes:x:exit"
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND" # necessary for tmux
 
 
