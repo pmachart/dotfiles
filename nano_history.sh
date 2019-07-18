@@ -1,23 +1,29 @@
 #! /bin/bash
 
-function n() {
-  local ARGS=( "$@" )
+function nanohistory() {
+  local -r ARGS=( "${@}" )
   local ARG=''
-  local FILES=()
+  local FILES=''
   local FILE=''
+  local -r TMP=$(mktemp)
 
-  if [[ $# == 0 ]] ; then
-    ccat ~/.nanohistory
+  uniq ~/.nanohistory > "${TMP}"
+  rm -f ~/.nanohistory
+  mv "${TMP}" ~/.nanohistory
+
+  if [[ "${#}" == 0 ]] ; then
+    cat ~/.nanohistory | nl
     exit 1
   fi
 
   for ARG in ${ARGS[@]} ; do
-    echo -e "$PWD/$ARG\n$(cat ~/.nanohistory)" > ~/.nanohistory
-    FILES=($(echo ${FILES[@]}) "$ARG") # array.push in bash :)
+    echo arg "${ARG}"
+    FILES+=" $(sed -n "${ARG}p" < ~/.nanohistory)"
   done
 
-  sed -i '8,$ d' ~/.nanohistory # truncate excessive lines
-  eval nano ${FILES[@]}
+  # truncate excessive lines # .bak is for macos. see stackoverflow 5694228
+  sed -i.bak '8,$ d' ~/.nanohistory
+  nano "${FILES}"
 }
 
-n $@
+nanohistory "${@}"
