@@ -37,11 +37,21 @@ alias today='echo "$(date +%F) : $@" >> ~/git/perso/today'
 alias yesterday='echo "$(date -d yesterday +%F) : $@" >> ~/git/perso/today'
 alias ntoday='nano ~/git/perso/today'
 
-alias g='. ~/git/perso/gman.sh'
-alias ng='nano ~/git/perso/gman.sh'
+alias g='. ~/git/g-man/gman.sh'
+alias ng='nano ~/git/g-man/gman.sh'
 
 alias tm='~/git/dotfiles/tmuxinit.sh'
 alias ntm='nano ~/git/dotfiles/tmuxinit.sh'
 
-alias n='~/git/dotfiles/nano_history.sh'
-alias nnn='nano ~/git/dotfiles/nano_history.sh'
+alias nh='~/git/dotfiles/nano_history.sh'
+alias nnh='nano ~/.nanohistory'
+
+function runnano() {
+  if [[ "${#}" -ne 0 ]] ; then
+    local -r TMP=$(mktemp)
+    local -r NHIST="${HOME}/.nanohistory"
+    echo "${PWD}/${@}" | cat - "${NHIST}" > "${TMP}" && mv -f "${TMP}" "${NHIST}"
+  fi
+  \nano "${@}"
+}
+alias n=nano

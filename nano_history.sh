@@ -6,23 +6,23 @@ function nanohistory() {
   local FILES=''
   local FILE=''
   local -r TMP=$(mktemp)
+  local -r NANOHIST="${HOME}/.nanohistory"
 
-  uniq ~/.nanohistory > "${TMP}"
-  rm -f ~/.nanohistory
-  mv "${TMP}" ~/.nanohistory
+  uniq "${NANOHIST}" > "${TMP}"
+  mv -f "${TMP}" "${NANOHIST}"
 
   if [[ "${#}" == 0 ]] ; then
-    cat ~/.nanohistory | nl
+    cat "${NANOHIST}" | nl
     exit 1
   fi
 
   for ARG in ${ARGS[@]} ; do
     echo arg "${ARG}"
-    FILES+=" $(sed -n "${ARG}p" < ~/.nanohistory)"
+    FILES+=" $(sed -n "${ARG}p" < "${NANOHIST}")"
   done
 
   # truncate excessive lines # .bak is for macos. see stackoverflow 5694228
-  sed -i.bak '8,$ d' ~/.nanohistory
+  sed -i.bak '8,$ d' "${NANOHIST}"
   nano "${FILES}"
 }
 

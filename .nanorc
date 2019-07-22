@@ -273,6 +273,8 @@ include "/usr/share/nano/*.nanorc"
 ## Set this if your Backspace key sends Del most of the time.
 # bind Del backspace all
 
+unbind ^H all
+
 unbind ^W all
 bind ^W exit main
 bind M-W suspend main # alt-w suspend to shell, fg to return
@@ -281,7 +283,7 @@ unbind ^X all
 bind ^X cut main
 
 unbind ^U all
-bind ^V uncut main
+bind ^V paste main
 
 unbind ^J all
 unbind ^G all
@@ -290,9 +292,6 @@ unbind F2 all
 unbind ^O all
 #bind ^S writeout main
 bind ^S savefile main
-
-bind ^H help main
-bind ^H exit help
 
 bind ^F whereis main
 bind F3 findnext main

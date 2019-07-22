@@ -15,9 +15,6 @@
 [push]
   default = current
 
-[commit]
-  gpgsign = true
-
 [pull]
   default = current
 
