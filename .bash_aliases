@@ -1,5 +1,6 @@
-#! /bin/bash
+#!/usr/bin/env bash
 
+alias cv='command -v'
 alias c='xclip'
 alias v='xclip -o'
 alias pbcopy='xclip -selection clipboard'
@@ -137,3 +138,7 @@ function nn() {
     nano "$file"
   fi
 }
+
+alias hasinternet='ping -c1 4.2.2.1 &>/dev/null'
+alias internet='hasinternet && parrotsay "Yay ! Internet !" || parrotsay "No internets :("'
+alias waitinternet='while true; do hasinternet && parrotsay "The Internets are back !" && break; done'
