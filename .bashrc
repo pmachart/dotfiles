@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #[ -z "$TMUX" ] && ( tmux a || tmux )
 
@@ -39,12 +39,12 @@ eval $(thefuck --alias fu)
 eval $(thefuck --alias wtf)
 
 GIT_PROMPT_ONLY_IN_REPO=1
-source /home/pma/.bash-git-prompt/gitprompt.sh
+source ~/.bash-git-prompt/gitprompt.sh
 
 alias sudo='sudo '
 
-export EDITOR=/usr/bin/nano
-export PAGER=/usr/bin/most
+export EDITOR=nano
+export PAGER=most
 
 # Make directory commands see only directories
 complete -d cd mkdir rm rmdir pushd

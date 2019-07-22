@@ -29,8 +29,8 @@ alias lltime='llt'
 alias llr='ll -R'
 
 alias lf='ls -hlAF --color | grep -v ^d'
-alias ld='ll --color=always | grp /$'
-alias llb='ls -hlAf --color | grp ~$' # with backups
+alias ld='ll --color=always | \grep /$'
+alias llb='ls -hlAf --color | \grep ~$' # with backups
 
 alias ..='cd ..'
 alias ...='cd ../..'
