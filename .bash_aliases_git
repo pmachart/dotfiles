@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/usr/bin/env bash
 
 alias gi='git '
 alias got='git '
@@ -28,3 +28,8 @@ function nb() {
 
   cd $workdir
 }
+
+function smartmv() {
+  [[ ! $(git rev-parse --show-toplevel 2>/dev/null) ]] && \mv ${@} || git mv ${@}
+}
+alias mv='smartmv '
