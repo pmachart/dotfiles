@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+alias f='find -maxdepth 0 ${@} -ls'
 alias cv='command -v'
 alias c='xclip'
 alias v='xclip -o'
@@ -31,6 +32,7 @@ alias llr='ll -R'
 
 alias lf='ls -hlAF --color | grep -v ^d'
 alias ld='ll --color=always | \grep /$'
+alias lf='find .* -maxdepth 0 -ls | grep -v [.]$'
 alias llb='ls -hlAf --color | \grep ~$' # with backups
 
 alias ..='cd ..'

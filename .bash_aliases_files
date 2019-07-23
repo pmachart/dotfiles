@@ -10,8 +10,10 @@ atompackagelist(){ ls ~/.atom/packages | tee ~/git/dotfiles/misc/atom_packagelis
 vscodepackagelist(){ ls ~/.vscode/extensions | tee ~/git/dotfiles/misc/vscode_packagelist; }
 
 alias hosts='sudo nano /etc/hosts'
+alias sources='sudo nano /etc/apt/sources.list'
 alias bashrc='nano ~/.bashrc'
 alias nanorc='nano ~/.nanorc'
+alias npmrc='nano ~/.npmrc'
 alias inputrc='nano ~/.inputrc'
 alias xdefaults='nano ~/.Xdefaults'
 alias tmuxconf='nano ~/.tmux.conf'
