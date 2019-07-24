@@ -274,6 +274,7 @@ include "/usr/share/nano/*.nanorc"
 # bind Del backspace all
 
 unbind ^H all
+bind ^H cutwordleft main
 
 unbind ^W all
 bind ^W exit main
