@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function scriptmove() {
-  rm -f $@ && ln -s ~/git/dotfiles/$@ $@;
+  rm -f $@ && ln -s /home/pma/git/dotfiles/$@ $@;
 }
 
 WORKDIR=$PWD
