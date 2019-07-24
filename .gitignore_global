@@ -10,3 +10,5 @@
 *.idea
 .cache
 .vimproject
+.atom
+.vscode

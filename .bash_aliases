@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+alias b='bat'
 alias f='find -maxdepth 0 ${@} -ls'
 alias cv='command -v'
 alias c='xclip'
@@ -62,10 +63,10 @@ alias psg='grc ps -aux | grep -v grep | grep -i '
 alias pong='grc ping -c4'
 alias m='most'
 
-pt()  { port=$(sudo lsof -t -i:$1);
+pt()  { local -r PID=$(sudo lsof -t -i:$1);
   echo -e $1" : \c";
-    if [ ! -z "$port" ]; then
-    grc ps -aux | grep -v grep | grep " $port ";
+    if [ ! -z "${PID}" ]; then
+    psg ${PID}
   else
     echo "NO PROCESS";
   fi;
@@ -133,14 +134,22 @@ function extract() {
 }
 
 function nn() {
-  if [ -z "$1" ]; then
+  if [ -z "${1}" ]; then
     cat -n ~/.nanohistory
   else
-    local file=$(sed -n "${1}p" < ~/.nanohistory)
-    nano "$file"
+    local -r FILE=$(sed -n "${1}p" < ~/.nanohistory)
+    nano "${FILE}"
   fi
 }
 
 alias hasinternet='ping -c1 4.2.2.1 &>/dev/null'
 alias internet='hasinternet && parrotsay "Yay ! Internet !" || parrotsay "No internets :("'
 alias waitinternet='while true; do hasinternet && parrotsay "The Internets are back !" && break; done'
+
+function showalias() {
+  if [[ $(type -t ${1}) == "function" ]] ; then
+    declare -f ${1}
+    return 0
+  fi
+  \alias ${@}
+}
