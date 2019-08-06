@@ -2,7 +2,7 @@
 
 #[ -z "$TMUX" ] && ( tmux a || tmux )
 
-[ -f ~/.bash_env ] && source ~/.bash_env
+[ -f ~/.bash_env ] && source ~/.bash_env || export HOMEDIR=${HOME}
 
 export CDPATH=.:~:~/git:/var/lib/deluge
 export PATH=/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin
@@ -154,7 +154,7 @@ function parse_git_dirty {
 function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
 }
-export PS1="\n\! \A \[$(tput sgr0)\]\[\033[38;5;11m\]\u@\h \[$(tput sgr0)\]\[\033[38;5;6m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\] \$(parse_git_branch) \\$ \[$(tput sgr0)\]\[\033[00m\]"
+export PS1="\n$? \! \A \[$(tput sgr0)\]\[\033[38;5;11m\]\u@\h \[$(tput sgr0)\]\[\033[38;5;6m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\] \$(parse_git_branch) \\$ \[$(tput sgr0)\]\[\033[00m\]"
 
 # initialize fuzzyfind
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
