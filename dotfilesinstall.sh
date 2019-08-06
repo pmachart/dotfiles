@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 function scriptmove() {
-  rm -f $@ && ln -s /home/pma/git/dotfiles/$@ $@;
+  rm -f $@ && ln -s ~/git/dotfiles/$@ $@;
 }
 
 WORKDIR=$PWD
@@ -43,6 +43,9 @@ fi
 
 mkdir -p .config/htop
 scriptmove .config/htop/htoprc
+
+mkdir -p /config/i3
+scriptmove .config/i3/config
 
 echo DONE
 

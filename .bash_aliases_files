@@ -23,6 +23,7 @@ alias gitconfigx='nano ~/.gitconfig_ext'
 alias giti='nano ~/.gitignore_global'
 alias gc=gitconfig
 alias gcx=gitconfigx
+alias i3conf='nano ~/.config/i3/config'
 alias als='nano ~/.bash_aliases'
 alias alx='nano ~/.bash_aliases_ext'
 alias alf='nano ~/.bash_aliases_files'
