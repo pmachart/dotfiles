@@ -9,30 +9,34 @@ function scriptmove() {
 atompackagelist(){ ls ~/.atom/packages | tee ~/git/dotfiles/misc/atom_packagelist; }
 vscodepackagelist(){ ls ~/.vscode/extensions | tee ~/git/dotfiles/misc/vscode_packagelist; }
 
+
+alias i3conf='nano ~/.config/i3/config'
+alias tmuxconf='nano ~/.tmux.conf'
+alias tc=tmuxconf
+
 alias hosts='sudo nano /etc/hosts'
 alias sources='sudo nano /etc/apt/sources.list'
-alias bashrc='nano ~/.bashrc'
 alias nanorc='nano ~/.nanorc'
 alias npmrc='nano ~/.npmrc'
 alias inputrc='nano ~/.inputrc'
 alias xdefaults='nano ~/.Xdefaults'
-alias tmuxconf='nano ~/.tmux.conf'
-alias tc=tmuxconf
+
 alias gitconfig='nano ~/.gitconfig'
 alias gitconfigx='nano ~/.gitconfig_ext'
 alias giti='nano ~/.gitignore_global'
 alias gc=gitconfig
 alias gcx=gitconfigx
-alias i3conf='nano ~/.config/i3/config'
+
+alias bashrc='nano ~/.bashrc'
+alias r='source ~/.bashrc'
+alias profile='nano ~/.profile'
+alias bashenv='nano ~/.bash_env'
 alias als='nano ~/.bash_aliases'
 alias alx='nano ~/.bash_aliases_ext'
 alias alf='nano ~/.bash_aliases_files'
 alias alg='nano ~/.bash_aliases_git'
 alias alw='nano ~/.bash_aliases_work'
 alias alp='nano ~/.bash_aliases_perso'
-alias profile='nano ~/.profile'
-alias bashenv='nano ~/.bash_env'
-alias r='source ~/.bashrc'
 
 alias note='echo "$(date +%F) : $@" >> ~/git/perso/notes'
 alias notes='nano ~/git/perso/notes'
