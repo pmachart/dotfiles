@@ -10,7 +10,9 @@ atompackagelist(){ ls ~/.atom/packages | tee ~/git/dotfiles/misc/atom_packagelis
 vscodepackagelist(){ ls ~/.vscode/extensions | tee ~/git/dotfiles/misc/vscode_packagelist; }
 
 
-alias i3conf='nano ~/.config/i3/config'
+alias i3config='nano ~/.config/i3/config'
+alias i3conf=i3config
+alias i3c=i3config
 alias tmuxconf='nano ~/.tmux.conf'
 alias tc=tmuxconf
 
