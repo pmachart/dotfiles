@@ -47,6 +47,11 @@ tmuxinit() {
   fi
 
   case ${1} in
+  prof*)
+    NAME='PROFILER'
+    DIR='/home/pma/git/profiler'
+    tmuxwindow
+    ;;
   mel*)
     NAME='MELLI'
     DIR='/home/pma/git/mellisuge'

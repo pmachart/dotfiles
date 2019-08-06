@@ -31,6 +31,7 @@ alias alg='nano ~/.bash_aliases_git'
 alias alw='nano ~/.bash_aliases_work'
 alias alp='nano ~/.bash_aliases_perso'
 alias profile='nano ~/.profile'
+alias bashenv='nano ~/.bash_env'
 alias r='source ~/.bashrc'
 
 alias note='echo "$(date +%F) : $@" >> ~/git/perso/notes'
@@ -45,6 +46,9 @@ alias ng='nano ~/git/g-man/gman.sh'
 
 alias tm='~/git/dotfiles/tmuxinit.sh'
 alias ntm='nano ~/git/dotfiles/tmuxinit.sh'
+
+alias j='~/git/perso/jen.sh'
+alias nj='nano ~/git/perso/jen.sh'
 
 alias nh='~/git/dotfiles/nano_history.sh'
 alias nnh='nano ~/.nanohistory'
