@@ -1,14 +1,49 @@
+# System
+*~
+*#
+._*
+*.swp
+.DS_Store
+.DS_Store?
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.rsync_cache
+.cache
+.sw[a-p]
+
+# Git
 .git
 .gitconfig
-*~
-*.swp
+
+# Generated & compiled
+node_modules/
+coverage/
+.sass-cache/
+build/
+dist/
+.log
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# IDE
 .idea
-.rsync_cache
-*.bak
-*.orig
-.DS_Store
-*.idea
-.cache
 .vimproject
 .atom
 .vscode
+.sublime-workspace
+typings
+
+# Temp files
+*.bak
+*.orig
+
+# Logs
+.log
+eslint-output.txt
+tslint-output.txt
