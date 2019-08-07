@@ -23,7 +23,7 @@ function nb() {
   git co develop &&
   git pull &&
   git checkout -b $branch &&
-  git push -u --no-verify origin $branch &&
+  git push -u origin $branch &&
   git stash pop
 
   cd $workdir
@@ -32,4 +32,4 @@ function nb() {
 function smartmv() {
   [[ ! $(git rev-parse --show-toplevel 2>/dev/null) ]] && \mv ${@} || git mv ${@}
 }
-alias mv='smartmv '
+#alias mv='smartmv '
