@@ -38,7 +38,8 @@ eval $(thefuck --alias)
 eval $(thefuck --alias fu)
 eval $(thefuck --alias wtf)
 
-GIT_PROMPT_ONLY_IN_REPO=1
+GIT_PROMPT_ONLY_IN_REPO=0
+GIT_PROMPT_FETCH_REMOTE_STATUS=0
 source ~/.bash-git-prompt/gitprompt.sh
 
 alias sudo='sudo '
@@ -47,10 +48,10 @@ export EDITOR=nano
 export PAGER=most
 
 # Make directory commands see only directories
-complete -d cd mkdir rm rmdir pushd
+#complete -d cd mkdir rm rmdir pushd
 
 # Make file commands see only files
-complete -f cat less more most tail tf head strip nano sn n
+#complete -f cat less more most tail tf head strip nano sn n
 
 # If not running interactively, don't do anything
 case $- in

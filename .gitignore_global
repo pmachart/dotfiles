@@ -12,10 +12,13 @@ Thumbs.db
 .rsync_cache
 .cache
 .sw[a-p]
+*.bak
+*.orig
 
 # Git
 .git
 .gitconfig
+.nvmrc
 
 # Generated & compiled
 node_modules/
@@ -38,10 +41,6 @@ dist/
 .vscode
 .sublime-workspace
 typings
-
-# Temp files
-*.bak
-*.orig
 
 # Logs
 .log

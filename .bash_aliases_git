@@ -12,8 +12,9 @@ alias gs='git ls'
 alias gl='git lg'
 alias gcm='git stash && git checkout master && git stash pop'
 alias gcd='git stash && git checkout develop && git stash pop'
+function gcprof() { git checkout PROF-${@} ; }
 
-alias sauce='git add . && git commit -m sauce && git push origin $(git rev-parse --show-toplevel)'
+alias sauce='git add . && git commit -m sauce && git push origin $(git rev-parse --abbrev-ref HEAD)'
 
 function nb() {
   local workdir=$PWD

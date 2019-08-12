@@ -21,6 +21,10 @@ alias yb='yarn build'
 alias ybs='yb && ys'
 
 alias dc='docker-compose'
+alias docker-stop-all='docker stop $(docker ps -a -q)'
+alias docker-rm-containers='docker rm $(docker ps -a -q)'
+alias docker-rm-images='docker rmi $(docker images -q)'
+
 docker-compose-watch() {
   local TIME=2
   if [[ -n $1 ]]; then
@@ -32,9 +36,7 @@ docker-compose-watch() {
   done
 }
 alias dcw='docker-compose-watch'
-alias docker-stop-all='docker stop $(docker ps -a -q)'
-alias docker-rm-containers='docker rm $(docker ps -a -q)'
-alias docker-rm-images='docker rmi $(docker images -q)'
+
 
 alias bat="PAGER=less bat "
 

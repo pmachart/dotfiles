@@ -285,6 +285,7 @@ bind ^X cut main
 
 unbind ^U all
 #bind ^V uncut main # old nano
+bind ^C copy main
 bind ^V paste main
 
 unbind ^J all

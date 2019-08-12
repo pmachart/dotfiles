@@ -15,6 +15,12 @@ alias i3conf=i3config
 alias i3c=i3config
 alias tmuxconf='nano ~/.tmux.conf'
 alias tc=tmuxconf
+alias dunstrc='nano ~/.config/dunst/dunstrc'
+alias dun=dunstrc
+function dunreload() {
+  pkill dunst
+  dunst -config ~/.config/dunst/dunstrc &
+}
 
 alias hosts='sudo nano /etc/hosts'
 alias sources='sudo nano /etc/apt/sources.list'
@@ -53,8 +59,12 @@ alias ng='nano ~/git/g-man/gman.sh'
 alias tm='~/git/dotfiles/tmuxinit.sh'
 alias ntm='nano ~/git/dotfiles/tmuxinit.sh'
 
-alias j='~/git/perso/jen.sh'
-alias nj='nano ~/git/perso/jen.sh'
+alias jen='~/git/perso/jen.sh'
+alias njen='nano ~/git/perso/jen.sh'
+
+alias jira='~/git/perso/jir.sh'
+alias njira='nano ~/git/perso/jir.sh'
+
 
 alias nh='~/git/dotfiles/nano_history.sh'
 alias nnh='nano ~/.nanohistory'

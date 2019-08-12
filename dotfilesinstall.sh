@@ -23,7 +23,6 @@ scriptmove .tmux.conf
 scriptmove .vimrc
 scriptmove .taskbook.json
 
-scriptmove .config/htop/htoprc
 
 if [ -d ".atom" ]; then
   scriptmove .atom/config.cson
@@ -44,8 +43,11 @@ fi
 mkdir -p .config/htop
 scriptmove .config/htop/htoprc
 
-mkdir -p /config/i3
+mkdir -p .config/i3
 scriptmove .config/i3/config
+
+mkdir -p .config/dunst
+scriptmove .config/dunst/dunstrc
 
 echo DONE
 
