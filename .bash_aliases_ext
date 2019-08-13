@@ -7,9 +7,8 @@ alias nr='npm run'
 alias nrd='npm run dev || npm run develop'
 alias nrbl='npm run build:lib'
 
-alias ni='npm install'
 alias ni='npm install --verbose'
-alias nig='npm install -g'
+alias nig='npm install --prefix ~/.npm-global -g'
 
 alias nu='npm update'
 alias ninu='ni & wait; nu'
