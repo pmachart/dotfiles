@@ -256,7 +256,7 @@ set tabstospaces
 ## them easier to remember and faster to type using nano's -Y option.
 ##
 ## To include all existing syntax definitions, you can do:
-include "/usr/share/nano/*.nanorc"
+include "~/.nano/*.nanorc"
 #include "/usr/local/share/nano/*.nanorc" # might be this, depending on distro
 
 
@@ -305,3 +305,4 @@ bind ^Y redo main
 
 bind ^] indent main
 bind ^\ unindent main
+bind M-/ comment main

@@ -45,9 +45,11 @@ scriptmove .config/htop/htoprc
 
 mkdir -p .config/i3
 scriptmove .config/i3/config
+scriptmove .config/i3/winp.sh
 
 mkdir -p .config/dunst
 scriptmove .config/dunst/dunstrc
+scriptmove .config/dunst/dunstx.sh
 
 echo DONE
 

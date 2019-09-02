@@ -160,3 +160,5 @@ export PS1="\n$? \! \A \[$(tput sgr0)\]\[\033[38;5;11m\]\u@\h \[$(tput sgr0)\]\[
 # initialize fuzzyfind
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 alias f='fzf'
+
+cat ~/git/perso/todos

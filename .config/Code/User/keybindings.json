@@ -43,19 +43,11 @@
     "command": "workbench.action.moveEditorToNextGroup"
   },
   {
-    "key": "alt+shift+pageup",
-    "command": "workbench.action.moveEditorToNextGroup"
-  },
-  {
     "key": "ctrl+alt+right",
     "command": "-workbench.action.moveEditorToNextGroup"
   },
   {
     "key": "alt+shift+[",
-    "command": "workbench.action.moveEditorToPreviousGroup"
-  },
-  {
-    "key": "alt+shift+pagedown",
     "command": "workbench.action.moveEditorToPreviousGroup"
   },
   {
@@ -82,16 +74,8 @@
   },
   // resize panes
   {
-    "key": "alt+0",
+    "key": "alt+f",
     "command": "workbench.action.evenEditorWidths"
-  },
-  {
-    "key": "alt+z",
-    "command": "workbench.action.minimizeOtherEditors"
-  },
-  {
-    "key": "alt+z",
-    "command": "-editor.action.toggleWordWrap"
   },
   {
     "key": "ctrl+\\",
@@ -181,17 +165,11 @@
   },
 
 
-  //////////////////// commands /////////////////////
+  /////////////////// panels ////////////////////
   {
     "key": "alt+d",
     "command": "workbench.action.showCommands"
   },
-  {
-    "key": "ctrl+shift+p",
-    "command": "-workbench.action.showCommands"
-  },
-
-  /////////////////// panel toggles ////////////////////
   {
     "key": "ctrl+\\",
     "command": "workbench.action.toggleSidebarVisibility"
@@ -233,5 +211,71 @@
     "key": "Escape",
     "command": "extension.jumpy-exit",
     "when": "editorTextFocus && jumpy.isJumpyMode"
-  }
+  },
+  // {
+  //   "key": "ctrl+alt+,",
+  //   "command": "editsHistory.moveCursorToPreviousEdit"
+  // },
+  // {
+  //   "key": "ctrl+alt+.",
+  //   "command": "editsHistory.moveCursorToNextEdit"
+  // }
+
+  {
+    "key": "ctrl+'",
+    "command": "clever.string.nextQuotes",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+;",
+    "command": "clever.toggleEnd.semicolon",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+,",
+    "command": "clever.toggleEnd.comma",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+pageup",
+    "command": "clever.fastJump.big.up",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+pagedown",
+    "command": "clever.fastJump.big.down",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+shift+pageup",
+    "command": "clever.fastJump.big.selectUp",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+shift+pagedown",
+    "command": "clever.fastJump.big.selectDown",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+z",
+    "command": "clever.maximize.toggleWithSidebar",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+insert",
+    "command": "clever.blockSelect.cleverSelect",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "shift+ctrl+0",
+    "mac": "shift+cmd+0",
+    "command": "clever.multipast.0toN",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "shift+ctrl+1",
+    "mac": "shift+cmd+1",
+    "command": "clever.multipast.1toN",
+    "when": "editorTextFocus"
+  },
 ]

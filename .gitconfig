@@ -2,15 +2,15 @@
   path = ~/git/perso/.gitconfig_ext
 
 [core]
-	editor = nano
-	pager = diff-so-fancy | less --tabs=2
+  editor = nano
+  pager = diff-so-fancy | less --tabs=2
   excludesfile = ~/.gitignore_global
 
 [color]
   diff = auto
   status = auto
   branch = auto
-	ui = true
+  ui = true
 
 [push]
   default = current
@@ -19,25 +19,28 @@
   default = current
 
 [fetch]
-	prune = true
+  prune = true
 
 [alias]
-	git = !exec git
+  git = !exec git
   aliases = "!git config -l | grep alias | cut -c 7-"
   a = add
   aa = add .
   addalltoprevcommit = commit -a --amend -C HEAD
 
+  fa = fetch --all
   fp = fetch -p
+  p = pull
+  pr = pull --rebase
   prb = pull --rebase
   prp = pull --rebase=preserve
   prod = pull --rebase origin dev
   prom = pull --rebase origin master
-	st = status -s
-	co = checkout
+  st = status -s
+  co = checkout
   zco = "!f() { git checkout $(git bls \"$@\"|grep -v '^*'|fzf|awk '{print $1}'); }; f"
   cob = checkout -b
-	br = branch
+  br = branch
   brd = branch -D
   cp = cherry-pick
   bra = "!f(){ git fetch; git branch -a; };f"
@@ -58,9 +61,11 @@
   unpushedbranches = "log --branches --not --remotes --simplify-by-decoration --decorate --oneline"
   ignored = !git ls-files -v|grep --color '^h'
 
-	ci = commit
-	cm  = "!f(){ git commit             -m \"$(git rev-parse --abbrev-ref HEAD) : ${@}\"; };f"
-	cmn = "!f(){ git commit --no-verify -m \"$(git rev-parse --abbrev-ref HEAD) : ${@}\"; };f"
+  ci = commit
+  cm  = "!f(){ git commit -m \"${@}\"; };f"
+  cmn  = "!f(){ git commit --no-verify -m \"${@}\"; };f"
+#  cm  = "!f(){ git commit             -m \"$(git rev-parse --abbrev-ref HEAD) : ${@}\"; };f"
+#  cmn = "!f(){ git commit --no-verify -m \"$(git rev-parse --abbrev-ref HEAD) : ${@}\"; };f"
   sq = "!f(){ git reset --soft HEAD~${1} && git commit --edit -m\"$(git log --format=%B --reverse HEAD..HEAD@{1})\"; };f"
   amend = commit --amend
   ammend = commit --amend

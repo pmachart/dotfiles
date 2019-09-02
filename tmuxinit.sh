@@ -23,7 +23,7 @@ tmuxwindow() {
   tmux split-window -h -c "${DIR}" -p 30
   tmux send-keys "${TOPCMD}" 'C-m'
 
-  tmux split-window -v -t 2 -c "${DIR}" -l ${BTMCMDH}
+  tmux split-window -v -t 2 -c "${DIR}" -l "${BTMCMDH}"
   tmux send-keys "${BTMCMD}" 'C-m'
 
   tmux split-window -h -t 1 -c "${DIR}" -p 50
@@ -33,12 +33,39 @@ tmuxwindow() {
   tmux send-keys 'yesterday '
 }
 
+tmuxprofiler() {
+  tmux rename-window 'Prof'
+  tmux send-keys "cd ${DIR}" 'C-m'
+  tmux split-window -h -c "${DIR}" -p 50
+  tmux send-keys 'make sandbox' 'C-m'
+  tmux split-window -v -c "${DIR}" -p 50
+  tmux send-keys 'make build'
+  tmux split-window -v -c "${DIR}" -p 50
+  tmux send-keys 'dcw' 'C-m'
+  tmux split-window -v -c "${DIR}" -l "${BTMCMDH}"
+  tmux send-keys "${BTMCMD}" 'C-m'
+  tmux select-pane -t 1
+}
+tmuxlisaprofiler() {
+  tmux rename-window 'L-Prof'
+  tmux send-keys "cd ${DIR}" 'C-m'
+  tmux split-window -h -c "${DIR}" -p 50
+  tmux send-keys 'make sandbox' 'C-m'
+  tmux split-window -v -c "${DIR}" -p 50
+  tmux send-keys 'make build'
+  tmux split-window -v -c "${DIR}" -p 50
+  tmux send-keys 'dcw' 'C-m'
+  tmux split-window -v -c "${DIR}" -l "${BTMCMDH}"
+  tmux send-keys "${BTMCMD}" 'C-m'
+  tmux select-pane -t 1
+}
+
 tmuxinit() {
   local NAME
   local DIR
   local TOPCMD
-  local BTMCMD
-  local BTMCMDH
+  local BTMCMD='htop'
+  local BTMCMDH=8
   local NEW_TMUX=0
 
   if [[ ${1} == '-n' ]] ; then
@@ -48,9 +75,18 @@ tmuxinit() {
 
   case ${1} in
   prof*)
-    NAME='PROFILER'
+    NAME='PROF'
     DIR='/home/pma/git/profiler'
-    tmuxwindow
+    BTMCMD='gotop -am'
+    BTMCMDH=11
+    tmuxprofiler
+    ;;
+  lprof*)
+    NAME='L-PROF'
+    DIR='/home/pma/git/lisa-profiler'
+    BTMCMD='gotop -am'
+    BTMCMDH=11
+    tmuxlisaprofiler
     ;;
   mel*)
     NAME='MELLI'
@@ -58,14 +94,6 @@ tmuxinit() {
     TOPCMD='dcdev'
     BTMCMD='dcw'
     BTNCMDH='6'
-    tmuxwindow
-    ;;
-  boo*)
-    NAME='BOOKING'
-    DIR='/home/pma/git/BookingBundle'
-    TOPCMD='yarn start'
-    BTMCMD='htop'
-    BTMCMDH='9'
     tmuxwindow
     ;;
   *)
