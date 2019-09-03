@@ -199,14 +199,6 @@ mode "$mode_power" {
 }
 bindsym --release XF86PowerOff mode "$mode_power" # sleep button ?
 
-# Sreen brightness controls
-#bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5 && dunstify -r 34567 -t 600 -u low "Brightness : $(xbacklight | LC_ALL=C xargs /usr/bin/printf "%.*f" 0 $p )"
-#bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5 && dunstify -r 34567 -t 600 -u low "Brightness : $(xbacklight | LC_ALL=C xargs /usr/bin/printf "%.*f" 0 $p )"
-# Audio controls
-#bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q set Master 5%+ && dunstify -r 34567 -t 600 -u low "Volume : $(amixer get Master | tail -n 1 | awk '{print $5}')"
-#bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q set Master 5%- && dunstify -r 34567 -t 600 -u low "Volume : $(amixer get Master | tail -n 1 | awk '{print $5}')"
-#bindsym XF86AudioMute exec --no-startup-id amixer -q set Master toggle && amixer get Master | grep '\[off\]' && dunstify -r 34567 -t 600 "Master Sound OFF $(amixer get Master | tail -n 1 | awk '{print $5}')" || dunstify -r 34567 -u normal -t 600  "Master Sound ON $(amixer get Master | tail -n 1 | awk '{print $5}')"
-#bindsym XF86AudioMicMute exec --no-startup-id amixer -q set Capture toggle && amixer get Capture | grep '\[off\]' && dunstify -r 34567 -t 600 -u critical "Microphone OFF" || dunstify -r 34567 -t 600 -u normal "Microphone ON"
 
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/dunst/dunstx.sh brighter
@@ -234,12 +226,17 @@ bindsym Mod1+Shift+Tab exec --no-startup-id  i3-msg border pixel 5; focus left
 bindsym $mod+Shift+Prior move workspace to output DP2
 bindsym $mod+Shift+Next move workspace to output eDP1
 
-exec_always --no-startup-id "setxkbmap -layout us,fr -option 'grp:caps_toggle'"
 
 #exec-always --no-startup-id compton
 
-exec --no-startup-id feh --bg-fill '/home/pma/Pictures/debian10.png'
+exec_always --no-startup-id feh --bg-fill '/home/pma/Pictures/debian10.png'
 
+#############################################
+################### INPUT ###################
+#############################################
+
+# caps is now a keyboard toggle key
+exec_always --no-startup-id "setxkbmap -layout us,fr -option 'grp:caps_toggle'"
 # dont use xinput's device ids or prop ids because sometimes they change
 exec_always --no-startup-id xinput set-prop 'TPPS/2 Elan TrackPoint' 'libinput Accel Speed' -0.4 # trackpoint sensitivity
 exec_always --no-startup-id xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Accel Speed' 0.7 # touchpad sensitivity
