@@ -45,7 +45,7 @@
         "'",
         "`"
     ],
-    "window.zoomLevel": 0,
+    "window.zoomLevel": 1,
     "workbench.editor.showTabs": true,
     "editor.minimap.enabled": false,
     "workbench.activityBar.visible": false,
@@ -63,9 +63,14 @@
     "typescript.updateImportsOnFileMove.enabled": "always",
     "eslint.alwaysShowStatus": true,
     "prettier.endOfLine": "lf",
-    "prettier.eslintIntegration": true,
     "gitlens.defaultDateStyle": "absolute",
     "extensions.ignoreRecommendations": false,
     "editor.renderWhitespace": "none",
     "window.menuBarVisibility": "toggle",
+    "prettier.disableLanguages": [
+        "javascript",
+        "jsx"
+    ],
+    "prettier.printWidth": 120,
+    "editor.cursorSurroundingLines": 5,
 }

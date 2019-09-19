@@ -52,9 +52,20 @@ function brightness_notification {
   local -r TIMEOUT='800'
   local URGENCY='low'
   local -r BRIGHTNESS=$(get_brightness)
-  [[ ${BRIGHTNESS} -le 5 || ${BRIGHTNESS} -ge 100 ]] && URGENCY='critical'
+  [[ ${BRIGHTNESS} -le 5 ]] && URGENCY='critical'
+  [[ ${BRIGHTNESS} -ge 100 ]] && URGENCY='normal'
 
   dunstify -i ${ICON} -r 98765 -t ${TIMEOUT} -u ${URGENCY} "Brightness : ${BRIGHTNESS}%"
+}
+
+function radio_notification {
+  local ICON="${ICONPATH}status/network-wireless-signal-excellent.png"
+  local -r TIMEOUT='1000'
+  local URGENCY='normal'
+  local ACTION=${!#}
+  [[ ${ACTION} == 'OFF' ]] && URGENCY='critical' && ICON="${ICONPATH}status/network-wireless-offline.png"
+
+  eval dunstify -i ${ICON} -r 98765 -t ${TIMEOUT} -u ${URGENCY} "\"${@}\""
 }
 
 
@@ -83,13 +94,43 @@ function dunstx {
       $(is_mute Capture) && MSG='off'
       sound_notification Microphone ${MSG}
       ;;
+
     brighter)
-      xbacklight -inc 5
+      xbacklight -inc ${2}
       brightness_notification
       ;;
     darker)
-      xbacklight -dec 5
+      xbacklight -dec ${2}
       brightness_notification
+      ;;
+    brightest)
+      xbacklight -set 100
+      brightness_notification
+      ;;
+    darkest)
+      xbacklight -set 5
+      brightness_notification
+      ;;
+
+    allon)
+      nmcli radio wifi on && radio_notification All networks ON
+      ;;
+    alloff)
+      nmcli radio all off && radio_notification All networks OFF
+      ;;
+    wifion)
+      nmcli radio wifi on && radio_notification Wifi ON
+      ;;
+    wifioff)
+      nmcli radio wifi on && radio_notification Wifi OFF
+      ;;
+    bton)
+      rfkill unblock bluetooth
+      radio_notification Bluetooth ON
+      ;;
+    btoff)
+      rfkill block bluetooth
+      radio_notification Bluetooth OFF
       ;;
   esac
 

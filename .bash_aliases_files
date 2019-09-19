@@ -11,8 +11,8 @@ vscodepackagelist(){ ls ~/.vscode/extensions | tee ~/git/dotfiles/misc/vscode_pa
 
 
 alias i3config='nano ~/.config/i3/config'
-alias i3conf=i3config
 alias i3c=i3config
+alias i3st='nano ~/.config/i3status/config'
 alias tmuxconf='nano ~/.tmux.conf'
 alias tc=tmuxconf
 alias dunstrc='nano ~/.config/dunst/dunstrc'
@@ -72,7 +72,8 @@ alias nmr='nano ~/git/perso/mr.sh'
 alias jira='~/git/perso/jir.sh'
 alias njira='nano ~/git/perso/jir.sh'
 
-alias nwinp='nano ~/git/dotfiles/.config/i3/winp.sh'
+alias superp='nano ~/.config/i3/superp.sh'
+alias initws='nano ~/.config/i3/init_workspaces.sh'
 
 alias nh='~/git/dotfiles/nano_history.sh'
 alias nnh='nano ~/.nanohistory'

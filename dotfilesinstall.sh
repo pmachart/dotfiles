@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 function scriptmove() {
-  rm -f $@ && ln -s ~/git/dotfiles/$@ $@;
+  rm -rf $@ && ln -s ~/git/dotfiles/$@ $@;
 }
 
 WORKDIR=$PWD
@@ -40,16 +40,14 @@ else
   echo ".config/code/User folder does not exist. Run vscode once before running this script"
 fi
 
-mkdir -p .config/htop
-scriptmove .config/htop/htoprc
+scriptmove .config/htop
+scriptmove .config/i3
+scriptmove .config/i3status
+scriptmove .config/dunst
+scriptmove .config/polybar
 
-mkdir -p .config/i3
-scriptmove .config/i3/config
-scriptmove .config/i3/winp.sh
-
-mkdir -p .config/dunst
-scriptmove .config/dunst/dunstrc
-scriptmove .config/dunst/dunstx.sh
+touch ~/.nanohistory
+mkdir ~/.nanobackups
 
 echo DONE
 

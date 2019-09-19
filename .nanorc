@@ -288,10 +288,14 @@ unbind ^U all
 bind ^C copy main
 bind ^V paste main
 
+unbind M-R all
+unbind ^R all
+bind ^R replace main
+
 unbind ^J all
 unbind ^G all
 bind ^G gotoline main
-unbind F2 all
+#unbind F2 all # quits
 unbind ^O all
 #bind ^S writeout main # old nano
 bind ^S savefile main
@@ -306,3 +310,5 @@ bind ^Y redo main
 bind ^] indent main
 bind ^\ unindent main
 bind M-/ comment main
+
+
