@@ -42,6 +42,7 @@ function winp () {
     fi
   fi
 
+  feh --bg-fill ~/git/dotfiles/misc/debian10.png
   [[ ${1} == 'notify' ]] && dunstify -i ${ICON} -r 98765 -t ${TIMEOUT} -u ${URGENCY} "${MSG}"
 }
 

@@ -107,8 +107,6 @@ bar {
   tray_padding 1
   font pango:Iosevka 9
   separator_symbol "    |    "
-
-  bindsym button3 exec --no-startup-id jgmenu --at-pointer
 }
 
 bar {
@@ -209,8 +207,8 @@ exec --no-startup-id rfkill block bluetooth # bt disabled on startup # doesnt wo
 ################### INPUT ###################
 #############################################
 
-focus_follows_mouse no
 mouse_warping output
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -221,6 +219,7 @@ exec_always --no-startup-id "setxkbmap -layout us,fr -option 'grp:caps_toggle'"
 exec_always --no-startup-id xinput set-prop 'TPPS/2 Elan TrackPoint' 'libinput Accel Speed' -0.6 # trackpoint sensitivity
 exec_always --no-startup-id xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Accel Speed' 0.7 # touchpad sensitivity
 exec_always --no-startup-id xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Natural Scrolling Enabled' 1 # touchpad natural scrolling
+# exec_always --no-startup-id xinput set-prop 'Zalman FPSGUN Mouse' '' # external mouse scroll speed # TODO
 
 
 #############################################
@@ -229,8 +228,8 @@ exec_always --no-startup-id xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinp
 
 bindsym $mod+Next workspace next
 bindsym $mod+Prior workspace prev
-bindsym $mod+Tab workspace next
-bindsym $mod+Shift+Tab workspace prev
+#bindsym $mod+Tab workspace next
+#bindsym $mod+Shift+Tab workspace prev
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -267,15 +266,15 @@ bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $ws1
-bindsym $mod+Shift+2 move container to workspace $ws2
-bindsym $mod+Shift+3 move container to workspace $ws3
-bindsym $mod+Shift+4 move container to workspace $ws4
-bindsym $mod+Shift+5 move container to workspace $ws5
-bindsym $mod+Shift+6 move container to workspace $ws6
-bindsym $mod+Shift+7 move container to workspace $ws7
-bindsym $mod+Shift+8 move container to workspace $ws8
-bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2; workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3; workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4; workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5; workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 
 set $mode_workspaces "      WORKSPACES [ 1 | 2 | 3 | 4 ]      "
 mode $mode_workspaces {
@@ -296,7 +295,7 @@ bindsym $mod+w mode $mode_workspaces
 workspace_auto_back_and_forth yes
 
 # init all workspaces with default apps. pass workspace names.
-exec --no-startup-id ~/.config/i3/init_workspaces.sh $ws1 $ws2 $ws3 $ws4
+# exec --no-startup-id ~/.config/i3/init_workspaces.sh $ws1 $ws2 $ws3 $ws4
 
 #############################################
 ################## SCREENS ##################
@@ -366,48 +365,61 @@ bindsym $mod+Shift+Up resize shrink height 20 px or 2 ppt
 bindsym $mod+Shift+Right resize grow width 20 px or 2 ppt
 
 
-
-
 #############################################
-################ FOCUSING ###################
+################# FOCUSING ##################
 #############################################
 
-# alt-tab focus toggling
-bindsym Mod1+Tab exec --no-startup-id  i3-msg border pixel 5; focus right
-bindsym Mod1+Shift+Tab exec --no-startup-id  i3-msg border pixel 5; focus left
+focus_follows_mouse no
+focus_wrapping yes # would prevent alt-tab behaviour
+force_display_urgency_hint 1000ms
+#no_focus [window_role="pop-up"]
+
+
+# alt-tab
+bindsym $alt+Tab exec --no-startup-id  i3-msg border pixel 5; focus right
+bindsym $alt+Shift+Tab exec --no-startup-id  i3-msg border pixel 5; focus left
+
 # change focus
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
-# focus parent/child ... what's the use for this ?
-bindsym $mod+a focus parent
-bindsym $mod+Shift+a focus child
 
-# move focused window # TODO replicate this in tmux
+# move focused container
 bindsym $mod+Ctrl+Left move left
 bindsym $mod+Ctrl+Down move down
 bindsym $mod+Ctrl+Up move up
 bindsym $mod+Ctrl+Right move right
 
+# focus parent/child ... what's the use for this ?
+#bindsym $mod+a focus parent
+#bindsym $mod+Shift+a focus child
+
+#############################################
+################## LAYOUT ###################
+#############################################
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 bindsym $mod+z fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+Shift+s sticky toggle
 #bindsym $mod+s layout stacking
 bindsym $mod+y layout tabbed
 bindsym $mod+u layout toggle split
-# toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
 
-# split in horizontal orientation
+# set next split orientation
 bindsym $mod+Shift+h split h
-# split in vertical orientation
 bindsym $mod+Shift+v split v
 
+# floating & stickying
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+f floating toggle
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+# make floating window follow on other workspaces
+bindsym $mod+Shift+s sticky toggle
 
+
+
+#bindsym $mod+b exec --no-startup-id ~/git/profiler/build && notify-send done
