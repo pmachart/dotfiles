@@ -35,15 +35,19 @@ tmuxwindow() {
 
 tmuxprofiler() {
   tmux rename-window 'Prof'
-  tmux send-keys "cd ${DIR}" 'C-m'
-  tmux split-window -h -c "${DIR}" -p 50
+  tmux send-keys "cd ${DIR} && tb" 'C-m'
+  tmux split-window -h -c "${DIR}" -p 35
   tmux send-keys 'make sandbox' 'C-m'
-  tmux split-window -v -c "${DIR}" -p 50
-  tmux send-keys 'make build'
-  tmux split-window -v -c "${DIR}" -p 50
+  tmux split-window -v -c "${DIR}" -p 64
+  tmux send-keys 'mkb'
+  tmux split-window -v -c "${DIR}" -l 18
   tmux send-keys 'dcw' 'C-m'
-  tmux split-window -v -c "${DIR}" -l "${BTMCMDH}"
-  tmux send-keys "${BTMCMD}" 'C-m'
+  tmux split-window -v -c "${DIR}" -l 12
+  tmux send-keys 'gotop -am' 'C-m'
+  tmux select-pane -t 4
+  tmux split-window -h -c "${DIR}" -p 30
+#  tmux send-keys 'tty-clock -c -D -C 4 -d 60s' 'C-m'
+  tmux send-keys 'watch -c -t -n1 "echo ; date +\"  %T\" | toilet -W -f smblock --filter metal"' 'C-m'
   tmux select-pane -t 1
 }
 tmuxlisaprofiler() {
@@ -53,10 +57,8 @@ tmuxlisaprofiler() {
   tmux send-keys 'make sandbox' 'C-m'
   tmux split-window -v -c "${DIR}" -p 50
   tmux send-keys 'make build'
-  tmux split-window -v -c "${DIR}" -p 50
-  tmux send-keys 'dcw' 'C-m'
-  tmux split-window -v -c "${DIR}" -l "${BTMCMDH}"
-  tmux send-keys "${BTMCMD}" 'C-m'
+  tmux split-window -v -c "${DIR}" -l 11
+  tmux send-keys 'gotop -am' 'C-m'
   tmux select-pane -t 1
 }
 
@@ -77,15 +79,11 @@ tmuxinit() {
   prof*)
     NAME='PROF'
     DIR='/home/pma/git/profiler'
-    BTMCMD='gotop -am'
-    BTMCMDH=11
     tmuxprofiler
     ;;
   lprof*)
     NAME='L-PROF'
     DIR='/home/pma/git/lisa-profiler'
-    BTMCMD='gotop -am'
-    BTMCMDH=11
     tmuxlisaprofiler
     ;;
   mel*)
