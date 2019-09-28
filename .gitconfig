@@ -41,6 +41,7 @@
   zco = "!f() { git checkout $(git bls \"$@\"|grep -v '^*'|fzf|awk '{print $1}'); }; f"
   cob = checkout -b
   br = branch
+  b = branch -vv
   brd = branch -D
   cp = cherry-pick
   bra = "!f(){ git fetch; git branch -a; };f"
