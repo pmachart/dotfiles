@@ -247,12 +247,6 @@ set $app2 'chromium'
 set $app3 'slack'
 set $app4 'code'
 
-# switch to workspace and run default app
-bindsym Ctrl+$mod+1 exec --no-startup-id i3-msg workspace $ws1; exec $app1
-bindsym Ctrl+$mod+2 exec --no-startup-id i3-msg workspace $ws2; exec $app2
-bindsym Ctrl+$mod+3 exec --no-startup-id i3-msg workspace $ws3; exec $app3
-bindsym Ctrl+$mod+4 exec --no-startup-id i3-msg workspace $ws4; exec $app4
-
 # switch to workspace
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -275,19 +269,28 @@ bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 
-set $mode_workspaces "      WORKSPACES [ 1 | 2 | 3 | 4 ]      "
+# switch to workspace and run default app
+bindsym Ctrl+$mod+1 exec --no-startup-id i3-msg workspace $ws1; exec $app1
+bindsym Ctrl+$mod+2 exec --no-startup-id i3-msg workspace $ws2; exec $app2
+bindsym Ctrl+$mod+3 exec --no-startup-id i3-msg workspace $ws3; exec $app3
+bindsym Ctrl+$mod+4 exec --no-startup-id i3-msg workspace $ws4; exec $app4
+
+set $mode_workspaces "      WORKSPACES [ 1 | 2 | 3 | 4 | Z | F ]      "
 mode $mode_workspaces {
         bindsym 1 exec --no-startup-id i3-msg workspace $ws1; exec $app1
         bindsym 2 exec --no-startup-id i3-msg workspace $ws2; exec $app2
         bindsym 3 exec --no-startup-id i3-msg workspace $ws3; exec $app3
         bindsym 4 exec --no-startup-id i3-msg workspace $ws4; exec $app4
+        bindsym z fullscreen toggle
+        bindsym f floating toggle
+        bindsym Shift+f sticky toggle
 
         bindsym Escape mode default
         bindsym Return mode default
         bindsym Ctrl+c mode default
         bindsym q mode default
         bindsym w mode default
-        bindsym $mod+p mode default
+        bindsym $mod+w mode default
 }
 bindsym $mod+w mode $mode_workspaces
 
@@ -401,6 +404,7 @@ bindsym $mod+Ctrl+Right move right
 # enter fullscreen mode for the focused container
 #bindsym $mod+f fullscreen toggle
 bindsym $mod+z fullscreen toggle
+bindsym $mod+f fullscreen toggle
 
 # change container layout
 bindsym $mod+y layout toggle splith tabbed
@@ -414,8 +418,8 @@ bindsym $mod+y layout toggle splith tabbed
 ##### FLOATING #####
 
 # floating & stickying
-bindsym $mod+f floating toggle
-bindsym $mod+Shift+f sticky toggle
+bindsym $mod+g floating toggle
+bindsym $mod+Shift+g sticky toggle
 bindsym $mod+Return floating toggle, sticky toggle
 
 # change focus between tiling / floating windows
@@ -425,3 +429,9 @@ bindsym $mod+Tab focus mode_toggle
 
 
 #bindsym $mod+b exec --no-startup-id ~/git/profiler/build && notify-send done
+
+
+bindsym Ctrl+$mod+Next move absolute position bottom right
+
+
+#for_window [class="Slack" floating] move container to workspace current
