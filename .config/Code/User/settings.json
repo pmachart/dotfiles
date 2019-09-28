@@ -45,14 +45,12 @@
         "'",
         "`"
     ],
-    "window.zoomLevel": 0,
+    "window.zoomLevel": 1,
     "workbench.editor.showTabs": true,
     "editor.minimap.enabled": false,
-    "workbench.activityBar.visible": false,
+    "workbench.activityBar.visible": true,
     "gitlens.advanced.telemetry.enabled": false,
     "gitlens.codeLens.authors.enabled": false,
-    "gitlens.codeLens.enabled": false,
-    "gitlens.currentLine.enabled": false,
     "local-history.path": "~/.vscode_localhistory/",
     "shellcheck.exclude": [
         2116, // useless echo
@@ -63,7 +61,6 @@
     "typescript.updateImportsOnFileMove.enabled": "always",
     "eslint.alwaysShowStatus": true,
     "prettier.endOfLine": "lf",
-    "gitlens.defaultDateStyle": "absolute",
     "extensions.ignoreRecommendations": false,
     "editor.renderWhitespace": "none",
     "window.menuBarVisibility": "toggle",
@@ -77,4 +74,13 @@
     "files.exclude": {
         "**/.vscode_localhistory": true
     },
+    "gitlens.defaultDateStyle": "absolute",
+    "gitlens.hovers.currentLine.over": "line",
+    "gitlens.currentLine.enabled": false,
+    "gitlens.statusBar.format": "${author}   ${agoOrDate}   ${tips}   ",
+    "gitlens.hovers.currentLine.details": false,
+    "gitlens.keymap": "alternate",
+    "gitlens.mode.statusBar.alignment": "left",
+    "gitlens.codeLens.enabled": false,
+    "vsicons.dontShowNewVersionMessage": true,
 }
