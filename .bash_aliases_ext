@@ -25,7 +25,7 @@ alias docker-rm-images='docker rmi $(docker images -q)'
 docker-compose-watch() {
   local TIME=5
   [[ -n $1 ]] && TIME=$1
-  watch -n ${TIME} docker-compose ps
+  watch -d -t -c -n ${TIME} docker-compose ps
 }
 alias dcw='docker-compose-watch'
 

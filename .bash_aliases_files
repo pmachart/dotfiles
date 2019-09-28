@@ -63,8 +63,8 @@ alias ng='nano ~/git/g-man/gman.sh'
 alias tm='~/git/dotfiles/tmuxinit.sh'
 alias ntm='nano ~/git/dotfiles/tmuxinit.sh'
 
-alias jen='~/git/perso/jen.sh'
-alias njen='nano ~/git/perso/jen.sh'
+alias jenkins='~/git/perso/jen.sh'
+alias njenkins='nano ~/git/perso/jen.sh'
 
 alias mr='~/git/perso/mr.sh'
 alias nmr='nano ~/git/perso/mr.sh'
