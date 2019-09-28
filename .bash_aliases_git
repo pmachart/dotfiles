@@ -6,12 +6,9 @@ alias gut='git '
 
 alias cdt='cd $(git rev-parse --show-toplevel)'
 alias gp='git pull'
-alias ga='git add '
-alias gs='git ls'
-alias gl='git lg'
 alias gcm='git checkout master'
 alias gcd='git checkout develop'
-function gcprof() { git checkout PROF-${@} ; }
+function gcp() { git checkout PROF-${@} ; }
 
 alias sauce='git add . && git commit -m sauce && git push origin $(git rev-parse --abbrev-ref HEAD)'
 
@@ -29,7 +26,3 @@ function nb() {
   cd $workdir
 }
 
-function smartmv() {
-  [[ ! $(git rev-parse --show-toplevel 2>/dev/null) ]] && \mv ${@} || git mv ${@}
-}
-#alias mv='smartmv '
