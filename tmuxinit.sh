@@ -47,7 +47,7 @@ tmuxprofiler() {
   tmux select-pane -t 4
   tmux split-window -h -c "${DIR}" -p 30
 #  tmux send-keys 'tty-clock -c -D -C 4 -d 60s' 'C-m'
-  tmux send-keys 'watch -c -t -n1 "echo ; date +\"  %T\" | toilet -W -f smblock --filter metal"' 'C-m'
+  tmux send-keys 'watch -c -t -n1 "echo ${BLUE}; date +\"  %T\" | toilet -W -f smblock"' 'C-m'
   tmux select-pane -t 1
 }
 tmuxlisaprofiler() {

@@ -113,16 +113,18 @@ function dunstx {
       ;;
 
     allon)
+      rfkill unblock bluetooth
       nmcli radio wifi on && radio_notification All networks ON
       ;;
     alloff)
+      rfkill block bluetooth
       nmcli radio all off && radio_notification All networks OFF
       ;;
     wifion)
       nmcli radio wifi on && radio_notification Wifi ON
       ;;
     wifioff)
-      nmcli radio wifi on && radio_notification Wifi OFF
+      nmcli radio wifi off && radio_notification Wifi OFF
       ;;
     bton)
       rfkill unblock bluetooth
