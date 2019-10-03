@@ -18,6 +18,7 @@ alias yb='yarn build'
 alias ybs='yb && ys'
 
 alias dc='docker-compose '
+alias dcrm='docker-compose rm'
 alias docker-stop-all='docker stop $(docker ps -a -q)'
 alias docker-rm-containers='docker rm $(docker ps -a -q)'
 alias docker-rm-images='docker rmi $(docker images -q)'

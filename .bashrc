@@ -10,12 +10,9 @@ export PATH=$PATH:~/.local/bin:~/bin:~/.bin
 export PATH=$PATH:~/.linuxbrew/bin:~/.linuxbrew/opt/go/libexec/bin:/home/linuxbrew/.linuxbrew/bin
 export PATH=$PATH:~/.npm-global/bin
 export PATH=$PATH:~/.cabal/bin
-if [[ -n "$(which brew)" ]] ; then
-  [ -f $(brew --prefix nvm)/nvm.sh ] && source $(brew --prefix nvm)/nvm.sh
-fi
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export GPG_TTY=$(tty)
@@ -35,8 +32,6 @@ else
 fi
 
 eval $(thefuck --alias)
-eval $(thefuck --alias fu)
-eval $(thefuck --alias wtf)
 
 GIT_PROMPT_ONLY_IN_REPO=0
 GIT_PROMPT_FETCH_REMOTE_STATUS=0
