@@ -76,7 +76,9 @@ bindsym $mod+d exec --no-startup-id rofi -show run #-dmenu
 bindsym $mod+e exec --no-startup-id nemo
 bindsym $mod+l exec --no-startup-id i3lock-fancy -p -g
 bindsym $mod+s exec --no-startup-id flameshot gui
-bindsym XF86Print exec --no-startup-id jgmenu --at-pointer
+bindsym Print exec --no-startup-id flameshot gui
+bindsym Pause exec --no-startup-id jgmenu --at-pointer
+bindsym XF86Calculator exec --no-startup-id gnome-calculator
 
 
 #############################################
@@ -294,7 +296,7 @@ mode $mode_workspaces {
 }
 bindsym $mod+w mode $mode_workspaces
 
-workspace_auto_back_and_forth yes
+#workspace_auto_back_and_forth yes
 
 # init all workspaces with default apps. pass workspace names.
 # exec --no-startup-id ~/.config/i3/init_workspaces.sh $ws1 $ws2 $ws3 $ws4
@@ -428,7 +430,7 @@ bindsym $mod+Tab focus mode_toggle
 
 
 
-#bindsym $mod+b exec --no-startup-id ~/git/profiler/build && notify-send done
+bindsym $mod+b exec --no-startup-id 'cd ~/git/profiler && make build && notify-send DONE'
 
 
 bindsym Ctrl+$mod+Next move absolute position bottom right
