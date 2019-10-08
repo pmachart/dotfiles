@@ -47,8 +47,6 @@ volume master {
   format = "♪  %volume"
 }
 
-
-
 order += "battery 0"
 order += "volume master"
 order += "tztime local"

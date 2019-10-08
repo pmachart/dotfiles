@@ -63,8 +63,6 @@ exec --no-startup-id nm-applet
 exec --no-startup-id parcellite
 exec --no-startup-id dropbox start
 exec-always --no-startup-id xautolock -locker "~/.i3/i3lock-fancy" -time 1
-#exec --no-startup-id dropbox start
-
 
 
 #############################################
@@ -79,6 +77,26 @@ bindsym $mod+s exec --no-startup-id flameshot gui
 bindsym Print exec --no-startup-id flameshot gui
 bindsym Pause exec --no-startup-id jgmenu --at-pointer
 bindsym XF86Calculator exec --no-startup-id gnome-calculator
+
+set $mode_apps "<big>      APPS [ Terminal | Nemo | Calculator | lAuncher | Menu | Screenshot ]      </big>"
+mode --pango_markup $mode_apps {
+        bindsym s exec --no-startup-id ~/.config/i3/init_workspaces.sh $ws1 $ws2 $ws3 $ws4 ; mode default
+
+        bindsym t exec --no-startup-id i3-sensible-terminal ; mode default
+        bindsym n exec --no-startup-id nemol ; mode default
+        bindsym c exec --no-startup-id gnome-calculatorl ; mode default
+        bindsym m exec --no-startup-id jgmenu --at-pointerl ; mode default
+        bindsym d exec --no-startup-id rofi -show runl ; mode default #-dmenu
+        bindsym s exec --no-startup-id flameshot guil ; mode default
+
+        bindsym Escape mode default
+        bindsym Return mode default
+        bindsym Ctrl+c mode default
+        bindsym q mode default
+        bindsym a mode default
+        bindsym $mod+a mode default
+}
+bindsym $mod+a mode $mode_apps
 
 
 #############################################
@@ -202,7 +220,7 @@ exec --no-startup-id amixer -q set Master 50%
 exec --no-startup-id amixer -q set Master off
 exec --no-startup-id amixer -q set Capture off
 exec --no-startup-id xbacklight -set 50
-exec --no-startup-id rfkill block bluetooth # bt disabled on startup # doesnt work ?
+exec --no-startup-id 'sleep 10 ; rfkill block bluetooth' # bt disabled on startup # doesnt work ?
 
 #############################################
 ################### INPUT ###################
@@ -299,7 +317,6 @@ bindsym $mod+w mode $mode_workspaces
 #workspace_auto_back_and_forth yes
 
 # init all workspaces with default apps. pass workspace names.
-# exec --no-startup-id ~/.config/i3/init_workspaces.sh $ws1 $ws2 $ws3 $ws4
 
 #############################################
 ################## SCREENS ##################
