@@ -43,7 +43,7 @@ function sound_notification {
     $(is_mute Master) || [[ ${VOLUME} == 0 && ${1} == 'Volume' ]] && URGENCY='critical' && ICON="${ICONPATH}/status/audio-volume-muted.png"
   fi
 
-  eval dunstify -i ${ICON} -r 98765 -t ${TIMEOUT} -u ${URGENCY} "\"${@}${VOLMSG}${STATUS}\""
+  eval ${NOTIFIER} -i ${ICON} -r 98765 -t ${TIMEOUT} -u ${URGENCY} "\"${@}${VOLMSG}${STATUS}\""
   # eval avoids the text getting split between summary and body. insights welcome !
 }
 
@@ -55,7 +55,7 @@ function brightness_notification {
   [[ ${BRIGHTNESS} -le 5 ]] && URGENCY='critical'
   [[ ${BRIGHTNESS} -ge 100 ]] && URGENCY='normal'
 
-  dunstify -i ${ICON} -r 98765 -t ${TIMEOUT} -u ${URGENCY} "Brightness : ${BRIGHTNESS}%"
+  eval ${NOTIFIER} -i ${ICON} -r 98765 -t ${TIMEOUT} -u ${URGENCY} "\"Brightness : ${BRIGHTNESS}%\""
 }
 
 function radio_notification {
@@ -65,73 +65,72 @@ function radio_notification {
   local ACTION=${!#}
   [[ ${ACTION} == 'OFF' ]] && URGENCY='critical' && ICON="${ICONPATH}status/network-wireless-offline.png"
 
-  eval dunstify -i ${ICON} -r 98765 -t ${TIMEOUT} -u ${URGENCY} "\"${@}\""
+  eval ${NOTIFIER} -i ${ICON} -r 98765 -t ${TIMEOUT} -u ${URGENCY} "\"${@}\""
 }
 
 
 function dunstx {
   local -r ICONPATH='/usr/share/icons/HighContrast/48x48/'
-  local MSG
+  local -r NOTIFIER='~/.local/bin/dunstify'
+  local MSG='on'
 
   case ${1} in
     up)
-      amixer -q set Master 5%+
+      /usr/bin/amixer -q set Master 5%+
       sound_notification Volume up
       ;;
     down)
-      amixer -q set Master 5%-
+      /usr/bin/amixer -q set Master 5%-
       sound_notification Volume down
       ;;
     mute)
-      amixer -q set Master toggle
-      MSG='on'
+      /usr/bin/amixer -q set Master toggle
       $(is_mute Master) && MSG='off'
       sound_notification Sound ${MSG}
       ;;
     mic)
-      amixer -q set Capture toggle
-      MSG='on'
+      /usr/bin/amixer -q set Capture toggle
       $(is_mute Capture) && MSG='off'
       sound_notification Microphone ${MSG}
       ;;
 
     brighter)
-      xbacklight -inc ${2}
+      /usr/bin/xbacklight -inc ${2}
       brightness_notification
       ;;
     darker)
-      xbacklight -dec ${2}
+      /usr/bin/xbacklight -dec ${2}
       brightness_notification
       ;;
     brightest)
-      xbacklight -set 100
+      /usr/bin/xbacklight -set 100
       brightness_notification
       ;;
     darkest)
-      xbacklight -set 5
+      /usr/bin/xbacklight -set 5
       brightness_notification
       ;;
 
     allon)
-      rfkill unblock bluetooth
-      nmcli radio wifi on && radio_notification All networks ON
+      /usr/sbin/rfkill unblock bluetooth
+      /usr/bin/nmcli radio wifi on && radio_notification All networks ON
       ;;
     alloff)
-      rfkill block bluetooth
-      nmcli radio all off && radio_notification All networks OFF
+      /usr/sbin/rfkill block bluetooth
+      /usr/bin/nmcli radio all off && radio_notification All networks OFF
       ;;
     wifion)
-      nmcli radio wifi on && radio_notification Wifi ON
+      /usr/bin/nmcli radio wifi on && radio_notification Wifi ON
       ;;
     wifioff)
-      nmcli radio wifi off && radio_notification Wifi OFF
+      /usr/bin/nmcli radio wifi off && radio_notification Wifi OFF
       ;;
     bton)
-      rfkill unblock bluetooth
+      /usr/sbin/rfkill unblock bluetooth
       radio_notification Bluetooth ON
       ;;
     btoff)
-      rfkill block bluetooth
+      /usr/sbin/rfkill block bluetooth
       radio_notification Bluetooth OFF
       ;;
   esac

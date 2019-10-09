@@ -17,6 +17,8 @@ init () {
   i3-msg workspace "${WS3}"
     exec slack &
     sleep 6
+    i3-msg fullscreen disable
+    sleep 1
 
   i3-msg workspace "${WS4}"
     exec code &

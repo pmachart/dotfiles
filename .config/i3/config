@@ -62,7 +62,7 @@ exec --no-startup-id blueman-applet
 exec --no-startup-id nm-applet
 exec --no-startup-id parcellite
 exec --no-startup-id dropbox start
-exec-always --no-startup-id xautolock -locker "~/.i3/i3lock-fancy" -time 1
+exec-always --no-startup-id /usr/bin/xautolock -locker "/usr/bin/i3lock-fancy -p -g -notify 5 -notifier /usr/bin/dunstify" -time 1
 
 
 #############################################
@@ -78,15 +78,15 @@ bindsym Print exec --no-startup-id flameshot gui
 bindsym Pause exec --no-startup-id jgmenu --at-pointer
 bindsym XF86Calculator exec --no-startup-id gnome-calculator
 
-set $mode_apps "<big>      APPS [ Terminal | Nemo | Calculator | lAuncher | Menu | Screenshot ]      </big>"
+set $mode_apps "<big>      APPS [ All | Terminal | Nemo | Calculator | Launcher | Menu | Screenshot ]      </big>"
 mode --pango_markup $mode_apps {
-        bindsym s exec --no-startup-id ~/.config/i3/init_workspaces.sh $ws1 $ws2 $ws3 $ws4 ; mode default
+        bindsym a exec --no-startup-id ~/.config/i3/init_workspaces.sh $ws1 $ws2 $ws3 $ws4 ; mode default
 
         bindsym t exec --no-startup-id i3-sensible-terminal ; mode default
         bindsym n exec --no-startup-id nemol ; mode default
         bindsym c exec --no-startup-id gnome-calculatorl ; mode default
         bindsym m exec --no-startup-id jgmenu --at-pointerl ; mode default
-        bindsym d exec --no-startup-id rofi -show runl ; mode default #-dmenu
+        bindsym l exec --no-startup-id rofi -show runl ; mode default #-dmenu
         bindsym s exec --no-startup-id flameshot guil ; mode default
 
         bindsym Escape mode default
@@ -169,50 +169,50 @@ bar {
 # Audio controls
 
 bindsym XF86AudioMute exec --no-startup-id ~/.config/dunst/dunstx.sh mute
-bindsym $mod+F1 exec --no-startup-id ~/.config/dunst/dunstx.sh mute
+bindsym $mod+F1       exec --no-startup-id ~/.config/dunst/dunstx.sh mute
 bindsym XF86AudioLowerVolume exec --no-startup-id ~/.config/dunst/dunstx.sh down
-bindsym $mod+F2 exec --no-startup-id ~/.config/dunst/dunstx.sh down
+bindsym $mod+F2              exec --no-startup-id ~/.config/dunst/dunstx.sh down
 bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.config/dunst/dunstx.sh up
-bindsym $mod+F3 exec --no-startup-id ~/.config/dunst/dunstx.sh up
+bindsym $mod+F3              exec --no-startup-id ~/.config/dunst/dunstx.sh up
 bindsym XF86AudioMicMute exec --no-startup-id ~/.config/dunst/dunstx.sh mic
-bindsym $mod+F4 exec --no-startup-id ~/.config/dunst/dunstx.sh mic
+bindsym $mod+F4          exec --no-startup-id ~/.config/dunst/dunstx.sh mic
 
 # Screen brightness controls
 
 bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/dunst/dunstx.sh darker 5
-bindsym $mod+F5 exec --no-startup-id ~/.config/dunst/dunstx.sh darker 5
+bindsym $mod+F5               exec --no-startup-id ~/.config/dunst/dunstx.sh darker 5
 bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/dunst/dunstx.sh brighter 5
-bindsym $mod+F6 exec --no-startup-id ~/.config/dunst/dunstx.sh brighter 5
+bindsym $mod+F6             exec --no-startup-id ~/.config/dunst/dunstx.sh brighter 5
 
 bindsym Shift+XF86MonBrightnessDown exec --no-startup-id ~/.config/dunst/dunstx.sh darker 20
-bindsym Shift+$mod+F5 exec --no-startup-id ~/.config/dunst/dunstx.sh darker 20
+bindsym Shift+$mod+F5               exec --no-startup-id ~/.config/dunst/dunstx.sh darker 20
 bindsym Shift+XF86MonBrightnessUp exec --no-startup-id ~/.config/dunst/dunstx.sh brighter 20
-bindsym Shift+$mod+F6 exec --no-startup-id ~/.config/dunst/dunstx.sh brighter 20
+bindsym Shift+$mod+F6             exec --no-startup-id ~/.config/dunst/dunstx.sh brighter 20
 
 bindsym Ctrl+XF86MonBrightnessDown exec --no-startup-id ~/.config/dunst/dunstx.sh darkest
-bindsym Ctrl+$mod+F5 exec --no-startup-id ~/.config/dunst/dunstx.sh darkest
+bindsym Ctrl+$mod+F5               exec --no-startup-id ~/.config/dunst/dunstx.sh darkest
 bindsym Ctrl+XF86MonBrightnessUp exec --no-startup-id ~/.config/dunst/dunstx.sh brightest
-bindsym Ctrl+$mod+F6 exec --no-startup-id ~/.config/dunst/dunstx.sh brightest
+bindsym Ctrl+$mod+F6             exec --no-startup-id ~/.config/dunst/dunstx.sh brightest
 
 # network toggles
 
-bindsym XF86WLAN exec --no-startup-id  ~/.config/dunst/dunstx.sh wifion
-bindsym $mod+F8 exec --no-startup-id  ~/.config/dunst/dunstx.sh wifion
-bindsym Shift+XF86WLAN exec --no-startup-id  ~/.config/dunst/dunstx.sh wifioff
-bindsym Shift+$mod+F8 exec --no-startup-id  ~/.config/dunst/dunstx.sh wifioff
+bindsym XF86WLAN exec --no-startup-id ~/.config/dunst/dunstx.sh wifion
+bindsym $mod+F8  exec --no-startup-id ~/.config/dunst/dunstx.sh wifion
+bindsym Shift+XF86WLAN exec --no-startup-id ~/.config/dunst/dunstx.sh wifioff
+bindsym Shift+$mod+F8  exec --no-startup-id ~/.config/dunst/dunstx.sh wifioff
 
-bindsym XF86Tools exec --no-startup-id  ~/.config/dunst/dunstx.sh allon
-bindsym $mod+F9 exec --no-startup-id  ~/.config/dunst/dunstx.sh allon
-bindsym Shift+XF86Tools exec --no-startup-id  ~/.config/dunst/dunstx.sh alloff
-bindsym Shift+$mod+F9 exec --no-startup-id  ~/.config/dunst/dunstx.sh alloff
+bindsym XF86Tools exec --no-startup-id ~/.config/dunst/dunstx.sh allon
+bindsym $mod+F9   exec --no-startup-id ~/.config/dunst/dunstx.sh allon
+bindsym Shift+XF86Tools exec --no-startup-id ~/.config/dunst/dunstx.sh alloff
+bindsym Shift+$mod+F9   exec --no-startup-id ~/.config/dunst/dunstx.sh alloff
 
-bindsym XF86Bluetooth exec --no-startup-id  ~/.config/dunst/dunstx.sh bton
-bindsym $mod+F10 exec --no-startup-id  ~/.config/dunst/dunstx.sh bton
-bindsym Shift+XF86Bluetooth exec --no-startup-id  ~/.config/dunst/dunstx.sh btoff
-bindsym Shift+$mod+F10 exec --no-startup-id  ~/.config/dunst/dunstx.sh btoff
+bindsym XF86Bluetooth exec --no-startup-id ~/.config/dunst/dunstx.sh bton
+bindsym $mod+F10      exec --no-startup-id ~/.config/dunst/dunstx.sh bton
+bindsym Shift+XF86Bluetooth exec --no-startup-id ~/.config/dunst/dunstx.sh btoff
+bindsym Shift+$mod+F10      exec --no-startup-id ~/.config/dunst/dunstx.sh btoff
 
 bindsym Ctrl+XF86Bluetooth exec --no-startup-id blueman-manager
-bindsym Ctrl+$mod+F10 exec --no-startup-id blueman-manager
+bindsym Ctrl+$mod+F10      exec --no-startup-id blueman-manager
 
 # default startup values
 

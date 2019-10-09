@@ -36,7 +36,7 @@
   prp = pull --rebase=preserve
   prod = pull --rebase origin dev
   prom = pull --rebase origin master
-  st = status -s
+  st = status -su
   co = checkout
   zco = "!f() { git checkout $(git bls \"$@\"|grep -v '^*'|fzf|awk '{print $1}'); }; f"
   cob = checkout -b
