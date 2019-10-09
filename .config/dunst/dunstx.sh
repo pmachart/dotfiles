@@ -8,7 +8,10 @@
 ###
 #
 #  Usage :
-#   ./dunstx.sh <up|down|mute|mic|brighter|darker>
+#   Volume :     ./dunstx.sh  up | down | mute | mic
+#   Brightness : ./dunstx.sh  brighter # | darker # | brightest | darkest
+#   Network :    ./dunstx.sh  bton | btoff | wifion | wifioff | allon | alloff
+#
 #   Can be run with a system-wide keybinding. i3wm example :
 #   bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.config/dunst/dunstx.sh up
 
