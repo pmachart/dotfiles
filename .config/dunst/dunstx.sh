@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 #
-#  DunstX : sound and brightness control for the Dunst notification daemon
+#  DunstX : sound / brightness / network control.
+#  Meant to be used with i3wm and dunsty + dunstify, but can be adapted.
 #
 #  Project home : https://github.com/pmachart/dotfiles
 #  Released under MIT licence
@@ -12,8 +13,12 @@
 #   Brightness : ./dunstx.sh  brighter # | darker # | brightest | darkest
 #   Network :    ./dunstx.sh  bton | btoff | wifion | wifioff | allon | alloff
 #
-#   Can be run with a system-wide keybinding. i3wm example :
+#  Can be run with a system-wide keybinding. i3wm example :
 #   bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.config/dunst/dunstx.sh up
+#
+#  Note :
+#   i3 bindings have erratic access to $PATH so every program's path has to be specified
+#
 
 function get_volume {
   amixer get Master | grep '%' | head -n 1 | cut -d '[' -f 2 | cut -d '%' -f 1
