@@ -141,6 +141,17 @@ function dunstx {
       /usr/sbin/rfkill block bluetooth
       radio_notification Bluetooth OFF
       ;;
+    startup)
+      local -r PLUGGED=$(cat /sys/class/power_supply/AC/online)
+      local DEFAULT_BRIGHTNESS=50
+      ((PLUGGED)) && DEFAULT_BRIGHTNESS=100
+
+      /usr/bin/xbacklight -set ${DEFAULT_BRIGHTNESS}
+      /usr/bin/amixer -q set Master 25%
+      /usr/bin/amixer -q set Master off
+      /usr/bin/amixer -q set Capture Off
+      /usr/sbin/rfkill block bluetooth
+      ;;
   esac
 
 }

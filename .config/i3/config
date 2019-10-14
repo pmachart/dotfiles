@@ -216,11 +216,7 @@ bindsym Ctrl+$mod+F10      exec --no-startup-id blueman-manager
 
 # default startup values
 
-exec --no-startup-id amixer -q set Master 50%
-exec --no-startup-id amixer -q set Master off
-exec --no-startup-id amixer -q set Capture off
-exec --no-startup-id xbacklight -set 50
-exec --no-startup-id 'sleep 10 ; rfkill block bluetooth' # bt disabled on startup # doesnt work ?
+exec --no-startup-id ~/.config/dunst/dunstx.sh startup
 
 #############################################
 ################### INPUT ###################
