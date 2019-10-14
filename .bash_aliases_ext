@@ -2,7 +2,11 @@
 
 alias cdw='cd /var/www'
 
-alias nr='npm run'
+function nr() {
+  local -r SCRIPT=${1}
+  shift
+  npm run --quiet ${SCRIPT} -- ${@}
+}
 alias nrd='npm run dev || npm run develop'
 alias nrbl='npm run build:lib'
 
