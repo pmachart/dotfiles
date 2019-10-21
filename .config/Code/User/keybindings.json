@@ -3,6 +3,10 @@
   //////////////////// panes //////////////////////
   // splitting
   {
+    "key": "ctrl+shift+s",
+    "command": "workbench.action.files.saveAll"
+  },
+  {
     "key": "alt+[",
     "command": "workbench.action.splitEditorDown"
   },

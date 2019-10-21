@@ -7,14 +7,13 @@
         "editor.selectionHighlightBorder": "#ffff00",
         "editor.findMatchBorder": "#ff0000",
         "editor.findMatchHighlightBorder": "#ff0000",
-
         "editorGutter.background": "#0005",
-
         "editorGutter.addedBackground": "#00ff0066",
         "scrollbarSlider.background": "#0005",
         "scrollbarSlider.hoverBackground": "#ffffff20",
         "editorOverviewRuler.selectionHighlightForeground": "#ffff",
-
+        "minimap.selectionHighlight": "#ffff",
+        "minimap.findMatchHighlight": "#ffff00",
         "editorGutter.modifiedBackground": "#d4af37bb",
         "editorGutter.deletedBackground": "#ff0000aa",
         "editorOverviewRuler.addedForeground": "#00ff0066",
@@ -22,7 +21,7 @@
         "editorOverviewRuler.deletedForeground": "#ff0000aa",
         "editorOverviewRuler.infoForeground": "#00ffff88",
         "editorOverviewRuler.warningForeground": "#0000ff88",
-        "editorOverviewRuler.errorForeground": "#ff69b4",
+        "editorOverviewRuler.errorForeground": "#ff69b4"
     },
     "selectinsidesidebar.defaultStyle": {
         "overviewRulerColor": "#ffff"
@@ -62,9 +61,9 @@
     "search.quickOpen.includeSymbols": true,
     "debug.inlineValues": true,
     "telemetry.enableTelemetry": false,
-    "window.zoomLevel": 0,
+    "window.zoomLevel": 1,
     "workbench.editor.showTabs": true,
-    "editor.minimap.enabled": false,
+    "editor.minimap.enabled": true,
     "workbench.activityBar.visible": false,
     "gitlens.advanced.telemetry.enabled": false,
     "gitlens.codeLens.authors.enabled": false,
@@ -100,7 +99,7 @@
     "gitlens.codeLens.enabled": false,
     "vsicons.dontShowNewVersionMessage": true,
     "eslint.run": "onSave",
-    "workbench.colorTheme": "Cobalt Next",
+    "workbench.colorTheme": "Oceanic Park",
     "editor.minimap.showSlider": "always",
     "editor.smoothScrolling": true,
     "editor.cursorSmoothCaretAnimation": true,

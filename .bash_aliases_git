@@ -3,6 +3,8 @@
 alias gi='git '
 alias got='git '
 alias gut='git '
+alias gl='git lg'
+alias gs='git ls'
 
 alias cdt='cd $(git rev-parse --show-toplevel)'
 alias gp='git pull'

@@ -11,9 +11,13 @@ export PATH=$PATH:~/.linuxbrew/bin:~/.linuxbrew/opt/go/libexec/bin:/home/linuxbr
 export PATH=$PATH:~/.npm-global/bin
 export PATH=$PATH:~/.cabal/bin
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#export NVM_DIR="$HOME/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# fnm
+export PATH=/home/pma/.fnm:$PATH
+eval "`fnm env --multi`"
 
 export GPG_TTY=$(tty)
 
@@ -157,3 +161,4 @@ export PS1="\n$? \! \A \[$(tput sgr0)\]\[\033[38;5;11m\]\u@\h \[$(tput sgr0)\]\[
 alias f='fzf'
 
 cat ~/git/perso/todos
+alias helper="/home/pma/git/profiler/tools/helper.sh"

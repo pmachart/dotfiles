@@ -66,9 +66,6 @@ alias ntm='nano ~/git/dotfiles/tmuxinit.sh'
 alias jenkins='~/git/perso/jen.sh'
 alias njenkins='nano ~/git/perso/jen.sh'
 
-alias mr='~/git/perso/mr.sh'
-alias nmr='nano ~/git/perso/mr.sh'
-
 alias jira='~/git/perso/jir.sh'
 alias njira='nano ~/git/perso/jir.sh'
 
