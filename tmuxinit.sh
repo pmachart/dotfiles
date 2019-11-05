@@ -95,10 +95,10 @@ tmuxinit() {
     tmuxwindow
     ;;
   *)
-    tmux split-window -h -p 50
+    tmux split-window -h -p 30
     tmux send-keys 'tb' 'C-m'
-    tmux split-window -v -t 2 -l 9
-    tmux send-keys 'htop' 'C-m'
+    tmux split-window -v -t 2 -l 10
+    tmux send-keys 'gotop -am' 'C-m'
     tmux select-pane -t 1
     ;;
   esac
