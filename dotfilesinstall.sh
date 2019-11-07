@@ -43,6 +43,9 @@ move .config/Code/User/settings.json
 touch ~/.nanohistory
 mkdir ~/.nanobackups
 
-echo DONE
-
 cd $WORKDIR
+
+sudo rm -rfi /etc/ly/config.ini
+sudo ln -s ~/git/dotfiles/ly.config.ini /etc/ly/config.ini
+
+echo DONE
