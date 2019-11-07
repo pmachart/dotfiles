@@ -20,7 +20,8 @@ bindsym $mod+Shift+r restart
 set $mode_power "<big>      [L]ogoff | [R]estart | [S]hutdown      </big>"
 mode --pango_markup $mode_power {
         bindsym l exec i3-msg exit ; mode default
-        bindsym r exec systemctl restart ; mode default
+        bindsym r exec /sbin/shutdown -r now ; mode default
+#        bindsym s exec systemctl restart ; mode default
         bindsym s exec systemctl poweroff ; mode default
 
         bindsym Escape mode default
@@ -332,13 +333,14 @@ bindsym $mod+Shift+Prior exec --no-startup-id ~/git/dotfiles/.config/i3/superp.s
 bindsym $mod+Shift+Next exec --no-startup-id /home/pma/git/dotfiles/.config/i3/superp.sh move down
 #bindsym $mod+p exec --no-startup-id ~/.config/i3/superp.sh move
 
-set $mode_screens "      DISPLAYS [ ↑ | ↓ | R ]      "
+set $mode_screens "<big>      ↑ | ↓ | [R]efresh | [F]lip      </big>"
 mode --pango_markup $mode_screens {
         bindsym Up exec --no-startup-id ~/git/dotfiles/.config/i3/superp.sh move up ; mode default
         bindsym Prior exec --no-startup-id ~/git/dotfiles/.config/i3/superp.sh move up ; mode default
         bindsym Down exec --no-startup-id /home/pma/git/dotfiles/.config/i3/superp.sh move down ; mode default
         bindsym Next exec --no-startup-id /home/pma/git/dotfiles/.config/i3/superp.sh move down ; mode default
         bindsym r exec --no-startup-id ~/.config/i3/superp.sh refresh notify ; mode default
+        bindsym f exec --no-startup-id ~/.config/i3/superp.sh flip ; mode default
 
         bindsym Escape mode default
         bindsym Return mode default

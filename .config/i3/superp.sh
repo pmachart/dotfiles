@@ -11,7 +11,7 @@ function winp () {
   local URGENCY='normal'
 
   # this doesn't work when called from an i3 bind. wtf ?
-  local -r FOCUSED=$(i3-msg -t get_workspaces | jq -r '.[] | select(.focused==true).output')
+  local -r FOCUSED=$(/usr/bin/i3-msg -t get_workspaces | /home/pma/.npm-global/bin/jq -r '.[] | select(.focused==true).output')
 
   if [[ ${1} == 'move' ]] ; then
     shift
@@ -39,6 +39,14 @@ function winp () {
       xrandr --output ${SECONDARY} --auto --above ${PRIMARY}
       ICON="${ICONPATH}devices/video-display.png"
       MSG='ON'
+    fi
+  fi
+
+  if [[ ${1} == 'flip' ]] ; then shift
+    if [[ $(xrandr | \grep ${PRIMARY} | grep 'inverted (') ]] ; then
+      xrandr --output ${PRIMARY} --rotate normal
+    else
+      xrandr --output ${PRIMARY} --rotate inverted
     fi
   fi
 
