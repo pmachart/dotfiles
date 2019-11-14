@@ -15,7 +15,6 @@ function gcp() { git checkout PROF-${@} ; }
 alias sauce='git add . && git commit -m sauce && git push origin $(git rev-parse --abbrev-ref HEAD)'
 
 function nb() {
-  local workdir=$PWD
   local branch=$1
 
   git stash &&
@@ -24,7 +23,5 @@ function nb() {
   git checkout -b $branch &&
   git push -u origin $branch &&
   git stash pop
-
-  cd $workdir
 }
 

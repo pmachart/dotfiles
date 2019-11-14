@@ -60,14 +60,17 @@ esac
 
 TITLEBAR='\[\e]0;\u@\h\a\]'
 # don't put duplicate lines or lines starting with space in the history.
-HISTCONTROL="ignoredups:ignoreboth"
+HISTCONTROL="ignoredups:ignoreboth:erasedups"
+
+cp ~/.bash_history ~/.bash_history_backup
+cat ~/.bash_history | awk '!x[$0]++' | tee ~/.bash_history # clear duplicates
 
 # append to the history file, don't overwrite it
 shopt -s histappend
 HISTSIZE=100000
 HISTFILESIZE=100000
-HISTIGNORE="fuck:cl:l:pp:r:matin:today:todays:yesterday:note:notes:x:exit"
-#export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND" # necessary for tmux
+HISTIGNORE="fuck:cl:l:pp:r:matin:today:todays:yesterday:note:notes:x:exit:r"
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND" # necessary for tmux
 
 
 # check the window size after each command and, if necessary,

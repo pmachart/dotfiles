@@ -63,12 +63,6 @@ alias ng='nano ~/git/g-man/gman.sh'
 alias tm='~/git/dotfiles/tmuxinit.sh'
 alias ntm='nano ~/git/dotfiles/tmuxinit.sh'
 
-alias jenkins='~/git/perso/jen.sh'
-alias njenkins='nano ~/git/perso/jen.sh'
-
-alias jira='~/git/perso/jir.sh'
-alias njira='nano ~/git/perso/jir.sh'
-
 alias superp='nano ~/.config/i3/superp.sh'
 alias initws='nano ~/.config/i3/init_workspaces.sh'
 
