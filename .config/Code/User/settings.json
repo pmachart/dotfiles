@@ -57,7 +57,6 @@
     "workbench.commandPalette.preserveInput": true,
     "workbench.startupEditor": "newUntitledFile",
     "workbench.editor.enablePreviewFromQuickOpen": false,
-    "workbench.editor.labelFormat": "short",
     "workbench.editor.tabCloseButton": "off",
     "workbench.editor.showTabs": true,
     "workbench.editor.highlightModifiedTabs": true,
@@ -66,7 +65,7 @@
     "window.enableMenuBarMnemonics": false,
     "window.newWindowDimensions": "maximized",
     "window.restoreFullscreen": true,
-    "window.zoomLevel": 0,
+    "window.zoomLevel": 1,
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,
@@ -98,7 +97,6 @@
     "gitlens.advanced.telemetry.enabled": false,
     "gitlens.codeLens.authors.enabled": false,
     "workbench.colorTheme": "Oceanic Park",
-    "eslint.run": "onSave",
     "eslint.alwaysShowStatus": true,
     "eslint.autoFixOnSave": true,
     "prettier.endOfLine": "lf",
@@ -107,4 +105,12 @@
         "jsx"
     ],
     "prettier.printWidth": 120,
+    "workbench.editor.labelFormat": "short",
+    "vsicons.dontShowNewVersionMessage": true,
+    "editor.matchBrackets": false,
+    "colorize.languages": [
+        "javascript",
+        "jsx"
+    ],
+    "colorize.enable_search_variables": true
 }
