@@ -12,6 +12,7 @@ vscodepackagelist(){ ls ~/.vscode/extensions | tee ~/git/dotfiles/misc/vscode_pa
 
 alias i3config='nano ~/.config/i3/config'
 alias i3c=i3config
+alias i3b='nano ~/.config/i3blocks/config'
 alias i3st='nano ~/.config/i3status/config'
 alias tmuxconf='nano ~/.tmux.conf'
 alias tc=tmuxconf
@@ -47,15 +48,15 @@ alias alg='nano ~/.bash_aliases_git'
 alias alw='nano ~/.bash_aliases_work'
 alias alp='nano ~/.bash_aliases_perso'
 
-alias note='echo "$(date +%F) : $@" >> ~/git/perso/notes'
-alias notes='nano ~/git/perso/notes'
+alias note='echo "$(date +%F) : $@" >> ~/notes'
+alias notes='nano ~/notes'
 
-alias todo='echo "-$@" >> ~/git/perso/todos'
-alias todos='nano ~/git/perso/todos'
+alias todo='echo "-$@" >> ~/todos'
+alias todos='nano ~/todos'
 
-alias today='echo "$(date +%F) : $@" >> ~/git/perso/today'
-alias yesterday='echo "$(date -d yesterday +%F) : $@" >> ~/git/perso/today'
-alias ntoday='nano ~/git/perso/today'
+alias today='echo "$(date +%F) : $@" >> ~/today'
+alias yesterday='echo "$(date -d yesterday +%F) : $@" >> ~/today'
+alias ntoday='nano ~/today'
 
 alias g='. ~/git/g-man/gman.sh'
 alias ng='nano ~/git/g-man/gman.sh'

@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 alias b='bat'
+alias m='most'
 alias f='find -maxdepth 0 ${@} -ls'
 alias cv='command -v'
 alias c='xclip'
@@ -54,9 +55,12 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 alias p='pwd'
-alias psg='grc ps -aux | grep -v grep | grep -i '
+alias psg='grc ps -aux | \grep -v grep | grep -i '
 alias pong='grc ping -c4'
-alias m='most'
+alias caps='xdotool key Caps_Lock'
+alias CAPS='caps'
+alias cqps='caps'
+alias CQPS='caps'
 
 pt()  { local -r PID=$(sudo lsof -t -i:$1);
   echo -e $1" : \c";
