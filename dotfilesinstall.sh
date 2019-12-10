@@ -2,7 +2,7 @@
 
 function move() {
   test -f "${@}" && test -h "${@}" && return 0 # if file exists and is a symlink then skip
-  rm -rfi $@ && ln -s ~/git/dotfiles/$@ $@;
+  rm -rfi $@ && ln -s /home/pma/git/dotfiles/$@ $@;
 }
 
 WORKDIR=$PWD
@@ -30,6 +30,7 @@ mkdir -p .config
 move .config/htop
 move .config/i3
 move .config/i3status
+move .config/i3blocks
 move .config/dunst
 move .config/polybar
 
