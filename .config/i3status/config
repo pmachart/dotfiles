@@ -8,8 +8,9 @@
 
 general {
   colors = true
-  interval = 5
-
+  interval = 1
+#  output_format = none
+  separator = "    |    "
   color_good = "#4c7899"
   color_degraded = "#5f676a"
   color_bad = "#ffff00"
@@ -32,7 +33,7 @@ battery 0 {
 path_exists VPN {
   # path exists when a VPN tunnel launched by nmcli/nm-applet is active
   path = "/proc/sys/net/ipv4/conf/tun0"
-  format = "%title    "
+  format = "%title"
 }
 
 tztime local {
@@ -45,9 +46,11 @@ volume master {
   mixer_idx = "0"
   mixer = "Master"
   format = "♪  %volume"
+  min_width = 200
+  align = center
 }
 
 order += "battery 0"
 order += "volume master"
 order += "tztime local"
-order += "path_exists VPN"
+#order += "path_exists VPN"

@@ -2,6 +2,7 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+set $mod2 Mod2
 set $alt Mod1
 
 
@@ -17,13 +18,15 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
-set $mode_power "<big>      [L]ogoff | [R]estart | [S]hutdown      </big>"
+set $mode_power "<big>      e[X]it | [R]estart | [S]hutdown | [C]ancel      </big>"
 mode --pango_markup $mode_power {
         bindsym l exec i3-msg exit ; mode default
+        bindsym x exec i3-msg exit ; mode default
         bindsym r exec /sbin/shutdown -r now ; mode default
 #        bindsym s exec systemctl restart ; mode default
         bindsym s exec systemctl poweroff ; mode default
 
+        bindsym c mode default
         bindsym Escape mode default
         bindsym Return mode default
         bindsym Ctrl+c mode default
@@ -53,6 +56,7 @@ for_window [title="^Calculator.*"] floating enable
 for_window [title="^Network.*"] floating enable # network manager
 for_window [title="Event Tester"] floating enable # xev
 for_window [title="^Screen Layout Editor.*"] floating enable # arandr
+for_window [title="^Slack$"] move absolute position 100px 50px
 
 # Font for window titles
 font pango:Iosevka 12
@@ -115,6 +119,8 @@ bar {
   tray_output primary
   position bottom
   strip_workspace_numbers yes
+  bindsym button4 nop
+  bindsym button5 nop
 
   colors {
     background #1F2425
@@ -129,10 +135,9 @@ bar {
   }
 
   # status
-  status_command i3status
+  status_command i3blocks
   tray_padding 1
   font pango:Iosevka 9
-  separator_symbol "    |    "
 }
 
 bar {
@@ -141,6 +146,8 @@ bar {
   tray_output primary
   position bottom
   strip_workspace_numbers yes
+  bindsym button4 nop
+  bindsym button5 nop
 
   colors {
     background #1F2425
@@ -155,10 +162,9 @@ bar {
   }
 
   # status
-  status_command i3status
+  status_command i3blocks
   tray_padding 1
   font pango:Iosevka 12
-  separator_symbol "    |    "
 
   bindsym button3 exec --no-startup-id jgmenu --at-pointer
 
@@ -207,6 +213,8 @@ bindsym XF86WLAN exec --no-startup-id ~/.config/dunst/dunstx.sh wifion
 bindsym $mod+F8  exec --no-startup-id ~/.config/dunst/dunstx.sh wifion
 bindsym Shift+XF86WLAN exec --no-startup-id ~/.config/dunst/dunstx.sh wifioff
 bindsym Shift+$mod+F8  exec --no-startup-id ~/.config/dunst/dunstx.sh wifioff
+bindsym Ctrl+XF86WLAN exec --no-startup-id nm-connection-editor
+bindsym Ctrl+$mod+F8  exec --no-startup-id nm-connection-editor
 
 bindsym XF86Tools exec --no-startup-id ~/.config/dunst/dunstx.sh allon
 bindsym $mod+F9   exec --no-startup-id ~/.config/dunst/dunstx.sh allon
@@ -217,13 +225,16 @@ bindsym XF86Bluetooth exec --no-startup-id ~/.config/dunst/dunstx.sh bton
 bindsym $mod+F10      exec --no-startup-id ~/.config/dunst/dunstx.sh bton
 bindsym Shift+XF86Bluetooth exec --no-startup-id ~/.config/dunst/dunstx.sh btoff
 bindsym Shift+$mod+F10      exec --no-startup-id ~/.config/dunst/dunstx.sh btoff
-
 bindsym Ctrl+XF86Bluetooth exec --no-startup-id blueman-manager
 bindsym Ctrl+$mod+F10      exec --no-startup-id blueman-manager
+
+bindsym XF86Favorites exec --no-startup-id nmcli connection up sy
+bindsym $mod+F12      exec --no-startup-id nmcli connection up sy
 
 # default startup values
 
 exec --no-startup-id ~/.config/dunst/dunstx.sh startup
+exec --no-startup-id ~/git/dotfiles/autovpn.sh
 
 #############################################
 ################### INPUT ###################
@@ -235,6 +246,7 @@ mouse_warping output
 floating_modifier $mod
 
 # caps is now a keyboard toggle key
+# shift+caps toggles caps
 exec_always --no-startup-id "setxkbmap -layout us,fr -option 'grp:caps_toggle'"
 
 # dont use xinput's device ids or prop ids because sometimes they change
@@ -259,11 +271,11 @@ set $ws1 "1:    >    "
 set $ws2 "2:    @    "
 set $ws3 "3:    !    "
 set $ws4 "4:    {    "
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
+set $ws5 "5:    5    "
+set $ws6 "6:    6    "
+set $ws7 "7:    7    "
+set $ws8 "8:    8    "
+set $ws9 "9:    9    "
 
 set $app1 'i3-sensible-terminal'
 set $app2 'chromium'
