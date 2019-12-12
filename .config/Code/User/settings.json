@@ -52,7 +52,7 @@
     "editor.maxTokenizationLineLength": 10000,
     "editor.wordWrap": "on",
     "editor.wrappingIndent": "deepIndent",
-    "editor.minimap.enabled": false,
+    "editor.minimap.enabled": true,
     "editor.minimap.maxColumn": 80,
     "workbench.commandPalette.preserveInput": true,
     "workbench.startupEditor": "newUntitledFile",
@@ -84,7 +84,13 @@
     "editor.renderWhitespace": "none",
     "window.menuBarVisibility": "toggle",
     "files.exclude": {
-        "**/.vscode_localhistory": true
+        ".docz/": true,
+        "**/.vscode_localhistory": true,
+        "coverage/": true,
+        "dist/": true,
+        "docs/": true,
+        "node_modules/": true,
+        "public/": true
     },
     "gitlens.defaultDateStyle": "absolute",
     "gitlens.hovers.currentLine.over": "line",
@@ -112,5 +118,13 @@
         "javascript",
         "jsx"
     ],
-    "colorize.enable_search_variables": true
+    "colorize.enable_search_variables": true,
+    "search.useGlobalIgnoreFiles": true,
+    "colorize.include": [
+        "*.scss",
+        "*.css",
+        "*.jsx",
+        "*.js"
+    ],
+    "colorize.hide_current_line_decorations": false
 }

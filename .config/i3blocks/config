@@ -1,68 +1,48 @@
-# i3blocks config file
-#
-# Please see man i3blocks for a complete reference!
-# The man page is also hosted at http://vivien.github.io/i3blocks
-#
-# List of valid properties:
-#
-# align
-# color
-# command
-# full_text
-# instance
-# interval
-# label
-# min_width
-# name
-# separator
-# separator_block_width
-# short_text
-# signal
-# urgent
-
-# Global properties
-#
-# The top properties below are applied to every block, but can be overridden.
-# Each block command defaults to the script name to avoid boilerplate.
 command=/usr/share/i3blocks/$BLOCK_NAME
-separator_block_width=15
 markup=pango
 separator_block_width=50
+separator=false
 
 
 [layout]
 command=~/.config/i3blocks/xkblayout-state.sh
-interval=1
+interval=2
+signal=12
 
 
-# Volume indicator
-#
-# The first parameter sets the step (and units to display)
-# The second parameter overrides the mixer selection
-# See the script for details.
+[separator]
+
+
 [volume]
 label=♪
 instance=Master
-interval=1
+interval=once
 signal=10
 
 
-# Battery indicator
-#
-# The battery instance defaults to 0.
+[separator]
+
+
 [battery]
 label=⚡
-#instance=1
 interval=10
+
+
+[separator]
 
 
 [vpn]
 command=~/.config/i3blocks/icanhasvpn.sh
-interval=1
+interval=once
+signal=11
 
 
-# Date Time
+[separator]
+
+[rofical]
+command=gsimplecal
+full_text= 
+
 [time]
-command=date '+%a %d/%m  %H:%M:%S   '
+command=date "+%a %d/%m  <span color='white'>%H:%M:%S</span>     "
 interval=1
-separator=false

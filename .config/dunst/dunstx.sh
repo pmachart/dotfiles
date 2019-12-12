@@ -86,15 +86,18 @@ function dunstx {
     up)
       /usr/bin/amixer -q set Master 5%+
       sound_notification Volume up
+      pkill -RTMIN+10 i3blocks
       ;;
     down)
       /usr/bin/amixer -q set Master 5%-
       sound_notification Volume down
+      pkill -RTMIN+10 i3blocks
       ;;
     mute)
       /usr/bin/amixer -q set Master toggle
       $(is_mute Master) && MSG='off'
       sound_notification Sound ${MSG}
+      pkill -RTMIN+10 i3blocks
       ;;
     mic)
       /usr/bin/amixer -q set Capture toggle
@@ -122,16 +125,20 @@ function dunstx {
     allon)
       /usr/sbin/rfkill unblock bluetooth
       /usr/bin/nmcli radio wifi on && radio_notification All networks ON
+      pkill -RTMIN+11 i3blocks
       ;;
     alloff)
       /usr/sbin/rfkill block bluetooth
       /usr/bin/nmcli radio all off && radio_notification All networks OFF
+      pkill -RTMIN+11 i3blocks
       ;;
     wifion)
       /usr/bin/nmcli radio wifi on && radio_notification Wifi ON
+      pkill -RTMIN+11 i3blocks
       ;;
     wifioff)
       /usr/bin/nmcli radio wifi off && radio_notification Wifi OFF
+      pkill -RTMIN+11 i3blocks
       ;;
     bton)
       /usr/sbin/rfkill unblock bluetooth
@@ -150,7 +157,7 @@ function dunstx {
       /usr/bin/amixer -q set Master 25%
       /usr/bin/amixer -q set Master off
       /usr/bin/amixer -q set Capture Off
-      /usr/sbin/rfkill block bluetooth
+      sleep 5 && /usr/sbin/rfkill block bluetooth
       ;;
   esac
 

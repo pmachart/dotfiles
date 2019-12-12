@@ -56,7 +56,7 @@ for_window [title="^Calculator.*"] floating enable
 for_window [title="^Network.*"] floating enable # network manager
 for_window [title="Event Tester"] floating enable # xev
 for_window [title="^Screen Layout Editor.*"] floating enable # arandr
-for_window [title="^Slack$"] move absolute position 100px 50px
+for_window [title="^Slack$"] move absolute position 300 100
 
 # Font for window titles
 font pango:Iosevka 12
@@ -228,8 +228,10 @@ bindsym Shift+$mod+F10      exec --no-startup-id ~/.config/dunst/dunstx.sh btoff
 bindsym Ctrl+XF86Bluetooth exec --no-startup-id blueman-manager
 bindsym Ctrl+$mod+F10      exec --no-startup-id blueman-manager
 
-bindsym XF86Favorites exec --no-startup-id nmcli connection up sy
-bindsym $mod+F12      exec --no-startup-id nmcli connection up sy
+bindsym XF86Favorites exec --no-startup-id nmcli connection up sy && pkill -RTMIN+11 i3blocks
+bindsym $mod+F12      exec --no-startup-id nmcli connection up sy && pkill -RTMIN+11 i3blocks
+bindsym Shift+XF86Favorites exec --no-startup-id nmcli connection down sy && pkill -RTMIN+11 i3blocks
+bindsym Shift+$mod+F12      exec --no-startup-id nmcli connection down sy && pkill -RTMIN+11 i3blocks
 
 # default startup values
 
@@ -248,6 +250,10 @@ floating_modifier $mod
 # caps is now a keyboard toggle key
 # shift+caps toggles caps
 exec_always --no-startup-id "setxkbmap -layout us,fr -option 'grp:caps_toggle'"
+bindsym ISO_Next_Group exec --no-startup-id pkill -RTMIN+12 i3blocks
+bindsym Shift+ISO_Next_Group exec --no-startup-id pkill -RTMIN+12 i3blocks
+bindsym Caps_Lock exec --no-startup-id pkill -RTMIN+12 i3blocks # TODO doesn't work ?
+bindsym Shift+Caps_Lock exec --no-startup-id pkill -RTMIN+12 i3blocks # TODO doesn't work ?
 
 # dont use xinput's device ids or prop ids because sometimes they change
 exec_always --no-startup-id xinput set-prop 'TPPS/2 Elan TrackPoint' 'libinput Accel Speed' -0.6 # trackpoint sensitivity
@@ -469,4 +475,3 @@ bindsym $mod+b exec --no-startup-id 'cd ~/git/profiler && make build && notify-s
 bindsym Ctrl+$mod+Next move absolute position bottom right
 
 
-#for_window [class="Slack" floating] move container to workspace current

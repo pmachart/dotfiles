@@ -53,7 +53,7 @@ tmuxprofiler() {
 tmuxlisaprofiler() {
   tmux rename-window 'L-Prof'
   tmux send-keys "cd ${DIR}" 'C-m'
-  tmux split-window -h -c "${DIR}" -p 50
+  tmux split-window -h -c "${DIR}" -p 40
   tmux send-keys 'make sandbox' 'C-m'
   tmux split-window -v -c "${DIR}" -p 50
   tmux send-keys 'make build'
