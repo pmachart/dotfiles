@@ -1,8 +1,11 @@
-# System
+##############
+### System ###
+##############
 *~
+*.bak
+*.orig
 *#
 ._*
-*.swp
 .DS_Store
 .DS_Store?
 .Spotlight-V100
@@ -11,19 +14,27 @@ ehthumbs.db
 Thumbs.db
 .rsync_cache
 .cache
-.sw[a-p]
+*.swo
+*.swp
 
-# Git
+###########
+### Git ###
+###########
 .git
 .gitconfig
 
-# Generated & compiled
+#################
+### Generated ###
+#################
 node_modules/
 coverage/
 .sass-cache/
 build/
 dist/
-.log
+
+################
+### Compiled ###
+################
 *.com
 *.class
 *.dll
@@ -31,7 +42,9 @@ dist/
 *.o
 *.so
 
-# IDE
+###########
+### IDE ###
+###########
 .idea
 .vimproject
 .atom
@@ -39,11 +52,21 @@ dist/
 .sublime-workspace
 typings
 
-# Temp files
-*.bak
-*.orig
-
-# Logs
-.log
+############
+### Logs ###
+############
+*.log
 eslint-output.txt
 tslint-output.txt
+
+################
+### Packages ###
+################
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip

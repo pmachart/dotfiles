@@ -3,33 +3,25 @@
 alias gi='git '
 alias got='git '
 alias gut='git '
+alias gl='git lg'
+alias gs='git ls'
 
 alias cdt='cd $(git rev-parse --show-toplevel)'
 alias gp='git pull'
-alias ga='git add '
-alias gada='git add .'
-alias gs='git ls'
-alias gl='git lg'
-alias gcm='git stash && git checkout master && git stash pop'
-alias gcd='git stash && git checkout develop && git stash pop'
+alias gcm='git checkout master'
+alias gcd='git checkout develop'
+function gcp() { git checkout PROF-${@} ; }
 
-alias sauce='git add .;git commit -m sauce;git push origin master;'
+alias sauce='git add . && git commit -m sauce && git push origin $(git rev-parse --abbrev-ref HEAD)'
 
 function nb() {
-  local workdir=$PWD
   local branch=$1
 
   git stash &&
   git co develop &&
   git pull &&
   git checkout -b $branch &&
-  git push -u --no-verify origin $branch &&
+  git push -u origin $branch &&
   git stash pop
-
-  cd $workdir
 }
 
-function smartmv() {
-  [[ ! $(git rev-parse --show-toplevel 2>/dev/null) ]] && \mv ${@} || git mv ${@}
-}
-alias mv='smartmv '

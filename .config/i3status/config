@@ -1,0 +1,56 @@
+#i3status configuration file.
+# see "man i3status" for documentation.
+
+# It is important that this file is edited as UTF-8.
+# The following line should contain a sharp s:
+# ß
+# If the above line is not correctly displayed, fix your editor first!
+
+general {
+  colors = true
+  interval = 1
+#  output_format = none
+  separator = "    |    "
+  color_good = "#4c7899"
+  color_degraded = "#5f676a"
+  color_bad = "#ffff00"
+}
+
+battery 0 {
+  format = "%remaining  %status  %percentage"
+  format_down = "No battery"
+  status_chr = "⚡"
+  status_bat = "🔋"
+  status_unk = "??"
+  status_full = "🔋"
+  path = "/sys/class/power_supply/BAT%d/uevent"
+  low_threshold = 15
+  last_full_capacity = true
+  integer_battery_capacity = true
+  hide_seconds = true
+}
+                                                                                                                       
+path_exists VPN {
+  # path exists when a VPN tunnel launched by nmcli/nm-applet is active
+  path = "/proc/sys/net/ipv4/conf/tun0"
+  format = "%title"
+}
+
+tztime local {
+#  format = "%Y-%m-%d  %H:%M"
+  format = "%a %d/%m  %H:%M"
+}
+
+volume master {
+  device = "default"
+  mixer_idx = "0"
+  mixer = "Master"
+  format = "♪  %volume"
+  min_width = 200
+  align = center
+}
+
+order += "battery 0"
+order += "volume master"
+order += "tztime local"
+#order += "path_exists VPN"

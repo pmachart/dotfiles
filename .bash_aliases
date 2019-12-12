@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 alias b='bat'
+alias m='most'
 alias f='find -maxdepth 0 ${@} -ls'
 alias cv='command -v'
 alias c='xclip'
@@ -46,22 +47,20 @@ alias ,,,='...'
 alias ,,,,='....'
 alias ,,,,,='.....'
 alias ,,,,,,='......'
-alias cd..='..'
-alias cd,,='..'
-alias cl='clear'
 
 alias x='exit'
 alias s='sudo '
 alias sn='sudo nano '
-alias rmdir='rm -rfi'
 alias rm='rm -i'
-alias rf='rm -f'
 alias cp='cp -i'
 alias mv='mv -i'
 alias p='pwd'
-alias psg='grc ps -aux | grep -v grep | grep -i '
+alias psg='grc ps -aux | \grep -v grep | grep -i '
 alias pong='grc ping -c4'
-alias m='most'
+alias caps='xdotool key Caps_Lock'
+alias CAPS='caps'
+alias cqps='caps'
+alias CQPS='caps'
 
 pt()  { local -r PID=$(sudo lsof -t -i:$1);
   echo -e $1" : \c";
@@ -75,12 +74,11 @@ alias hc='history -a'
 alias hv='history -n'
 alias pp='cd $OLDPWD'
 
-horiz() {
-  local start=$'\e(0' end=$'\e(B' line='qqqqqqqqqqqqqqqq'
-  local cols=${COLUMNS:-$(tput cols)}
-  while ((${#line} < cols)); do line+="$line"; done
-  printf '%s%s%s\n' "$start" "${line:0:cols}" "$end"
+hr() {
+printf '━%.0s' $(seq $(tput cols))
 }
+alias horiz=hr
+
 tf() { cl; grc tail -n 30 -f "$1"; }
 srt(){ grep -v '^$' "$@" | sort -b -f -o "$@"; }
 

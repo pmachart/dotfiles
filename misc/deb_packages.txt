@@ -1,0 +1,82 @@
+ins thefuck
+ins fzf
+ins rg
+ins curl
+ins tmux
+ins nodejs
+ins 7zip
+ins p7zip-full p7zip-rar
+ins p7zip-full
+ins locate
+ins i3-gaps
+ins i3
+ins notify-send
+ins libnotify-bin
+ins wmctrl
+ins i3-gaps
+ins i3gaps
+ins i3wm-gaps
+ins i3-gaps
+ins i3gaps
+ins i3-gaps
+ins i3gaps
+ins libxcb-xrm-dev
+ins make
+ins xcb-shape
+ins xcb xcb-xkb xcb-xinerama xcb-randr xcb-shape
+ins xcb-dev
+ins libxcb-xrm-dev
+ins libxcb-xrm
+ins libxcb-shape0-dev
+ins pactl
+ins pulseaudio-utils
+ins xbacklight
+ins font-manager
+ins scrot
+ins rofi
+ins yarn
+ins yarn
+ins virtualbox-6.0
+ins parcellite
+ins xclip
+ins docker-compose
+ins inotify-tools
+ins most
+ins shellcheck
+ins insomnia
+ins arandr
+ins urlview
+ins libpango1.0-0
+ins python3-gpg
+ins xsensors
+ins libpango1.0-0
+ins libpango1.0-0apt --fix-broken-install
+ins libpango1.0-0 --fix-broken-install
+ins nemo
+ins feh
+ins lxappearance
+ins xautolock
+ins xinput
+ghb "ins "
+ghb "ins " > /home/pma/dotfiles/deb_packages.txt
+ghb "ins " > /home/pma/git/dotfiles/deb_packages.txt
+ins dunstify
+ins libdbus-glib-1-dev
+ins libnotify
+ins gdk-pixbuf
+ins gdk-pixbuf-2.0
+ins libgdk-pixbuf-2.0
+ins libgdk-pixbuf-2.0-dev
+ins libgdk-pixbuf2.0-0
+ins libgdk-pixbuf2.0-0-dev
+ins libgdk-pixbuf2.0-dev
+ins libdbus-1-dev libx11-dev libxinerama-dev libxrandr-dev libxss-dev libglib2.0-dev libpango1.0-dev libgtk-3-dev libxdg-basedir-dev
+ins libnotify-dev
+ins libnotify-bin
+ins libnotify-bin
+ins libglib2.0-bin
+ins neofetch
+ins php-cli
+ins sshpass
+ins alacritty
+ins alacritty

@@ -11,10 +11,18 @@ vscodepackagelist(){ ls ~/.vscode/extensions | tee ~/git/dotfiles/misc/vscode_pa
 
 
 alias i3config='nano ~/.config/i3/config'
-alias i3conf=i3config
 alias i3c=i3config
+alias i3b='nano ~/.config/i3blocks/config'
+alias i3st='nano ~/.config/i3status/config'
 alias tmuxconf='nano ~/.tmux.conf'
 alias tc=tmuxconf
+alias dunstrc='nano ~/.config/dunst/dunstrc'
+alias dunstx='nano ~/.config/dunst/dunstx.sh'
+alias dun=dunstrc
+function dunreload() {
+  pkill dunst
+  dunst -config ~/.config/dunst/dunstrc &
+}
 
 alias hosts='sudo nano /etc/hosts'
 alias sources='sudo nano /etc/apt/sources.list'
@@ -40,12 +48,15 @@ alias alg='nano ~/.bash_aliases_git'
 alias alw='nano ~/.bash_aliases_work'
 alias alp='nano ~/.bash_aliases_perso'
 
-alias note='echo "$(date +%F) : $@" >> ~/git/perso/notes'
-alias notes='nano ~/git/perso/notes'
+alias note='echo "$(date +%F) : $@" >> ~/notes'
+alias notes='nano ~/notes'
 
-alias today='echo "$(date +%F) : $@" >> ~/git/perso/today'
-alias yesterday='echo "$(date -d yesterday +%F) : $@" >> ~/git/perso/today'
-alias ntoday='nano ~/git/perso/today'
+alias todo='echo "-$@" >> ~/todos'
+alias todos='nano ~/todos'
+
+alias today='echo "$(date +%F) : $@" >> ~/today'
+alias yesterday='echo "$(date -d yesterday +%F) : $@" >> ~/today'
+alias ntoday='nano ~/today'
 
 alias g='. ~/git/g-man/gman.sh'
 alias ng='nano ~/git/g-man/gman.sh'
@@ -53,8 +64,8 @@ alias ng='nano ~/git/g-man/gman.sh'
 alias tm='~/git/dotfiles/tmuxinit.sh'
 alias ntm='nano ~/git/dotfiles/tmuxinit.sh'
 
-alias j='~/git/perso/jen.sh'
-alias nj='nano ~/git/perso/jen.sh'
+alias superp='nano ~/.config/i3/superp.sh'
+alias initws='nano ~/.config/i3/init_workspaces.sh'
 
 alias nh='~/git/dotfiles/nano_history.sh'
 alias nnh='nano ~/.nanohistory'

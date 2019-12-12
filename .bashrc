@@ -10,13 +10,10 @@ export PATH=$PATH:~/.local/bin:~/bin:~/.bin
 export PATH=$PATH:~/.linuxbrew/bin:~/.linuxbrew/opt/go/libexec/bin:/home/linuxbrew/.linuxbrew/bin
 export PATH=$PATH:~/.npm-global/bin
 export PATH=$PATH:~/.cabal/bin
-if [[ -n "$(which brew)" ]] ; then
-  [ -f $(brew --prefix nvm)/nvm.sh ] && source $(brew --prefix nvm)/nvm.sh
-fi
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# fnm
+export PATH=/home/pma/.fnm:$PATH
+eval "`fnm env --multi`"
 
 export GPG_TTY=$(tty)
 
@@ -35,10 +32,9 @@ else
 fi
 
 eval $(thefuck --alias)
-eval $(thefuck --alias fu)
-eval $(thefuck --alias wtf)
 
-GIT_PROMPT_ONLY_IN_REPO=1
+GIT_PROMPT_ONLY_IN_REPO=0
+GIT_PROMPT_FETCH_REMOTE_STATUS=0
 source ~/.bash-git-prompt/gitprompt.sh
 
 alias sudo='sudo '
@@ -47,10 +43,10 @@ export EDITOR=nano
 export PAGER=most
 
 # Make directory commands see only directories
-complete -d cd mkdir rm rmdir pushd
+complete -d cd mkdir rm pushd
 
 # Make file commands see only files
-complete -f cat less more most tail tf head strip nano sn n
+complete -f cat c bat b less more most m tail tf head strip nano sn n
 
 # If not running interactively, don't do anything
 case $- in
@@ -60,14 +56,18 @@ esac
 
 TITLEBAR='\[\e]0;\u@\h\a\]'
 # don't put duplicate lines or lines starting with space in the history.
-HISTCONTROL="ignoredups:ignoreboth"
+HISTCONTROL="ignoredups:ignoreboth:erasedups"
+
+#cp ~/.bash_history ~/.bash_history_backup
+#awk '!x[$0]++' ~/.bash_history | tee ~/.bash_history # clear duplicates
 
 # append to the history file, don't overwrite it
 shopt -s histappend
 HISTSIZE=100000
 HISTFILESIZE=100000
-HISTIGNORE="fuck:cl:l:pp:r:matin:today:todays:yesterday:note:notes:x:exit"
+HISTIGNORE="rm:fuck:cl:l:pp:r:matin:today:todays:yesterday:note:notes:x:exit:r"
 #export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND" # necessary for tmux
+export PROMPT_COMMAND="history -a; $PROMPT_COMMAND" # necessary for tmux
 
 
 # check the window size after each command and, if necessary,
@@ -159,3 +159,9 @@ export PS1="\n$? \! \A \[$(tput sgr0)\]\[\033[38;5;11m\]\u@\h \[$(tput sgr0)\]\[
 # initialize fuzzyfind
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 alias f='fzf'
+
+cat ~/todos
+alias helper="/home/pma/git/profiler/tools/helper.sh"
+
+#source ~/.git/enhancd/init.sh
+#export ENHANCD_FILTER='fzf'

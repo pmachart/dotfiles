@@ -1,53 +1,44 @@
 #!/usr/bin/env bash
 
-alias cdg='cd ~/git;l'
 alias cdw='cd /var/www'
 
-alias nr='npm run'
+function nr() {
+  local -r SCRIPT=${1}
+  shift
+  npm run --quiet ${SCRIPT} -- ${@}
+}
 alias nrd='npm run dev || npm run develop'
 alias nrbl='npm run build:lib'
 
-alias ni='npm install'
 alias ni='npm install --verbose'
-alias nig='npm install -g'
+alias nig='npm install --prefix ~/.npm-global -g'
 
 alias nu='npm update'
 alias ninu='ni & wait; nu'
 
-alias y='yarn'
 alias yi='yarn install'
 alias ys='yarn start'
 alias yb='yarn build'
 alias ybs='yb && ys'
 
-alias dc='docker-compose'
-docker-compose-watch() {
-  local TIME=2
-  if [[ -n $1 ]]; then
-    TIME=$1
-  fi
-  while true; do
-    docker-compose ps
-    sleep $TIME
-  done
-}
-alias dcw='docker-compose-watch'
+alias dc='docker-compose '
+alias dcrm='docker-compose rm'
 alias docker-stop-all='docker stop $(docker ps -a -q)'
 alias docker-rm-containers='docker rm $(docker ps -a -q)'
 alias docker-rm-images='docker rmi $(docker images -q)'
+
+docker-compose-watch() {
+  local TIME=5
+  [[ -n $1 ]] && TIME=$1
+  watch -d -t -c -n ${TIME} docker-compose ps
+}
+alias dcw='docker-compose-watch'
+
 
 alias bat="PAGER=less bat "
 
 alias apache='sudo service apache2 '
 
 alias rmjestcache='rm -rf /tmp/jest_rs/'
-
-matin() {
-  (slack 1>/dev/null 2>&1 &)
-#  (gitkraken 1>/dev/null 2>&1 &)
-  (google-chrome 1>/dev/null 2>&1 &)
-  (code 1>/dev/null 2>&1 &)
-  tm
-}
 
 md() { pandoc "$@" | lynx -stdin; } # the ultimate markdowm reading combo !

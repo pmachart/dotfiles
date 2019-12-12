@@ -21,10 +21,10 @@
 # set quiet
 
 ## Use auto-indentation.
-#set autoindent
+set autoindent
 
 ## Back up files to the current filename plus a tilde.
-# set backup
+set backup
 
 ## The directory to put unique backup files in.
 set backupdir "~/.nanobackups"
@@ -39,7 +39,7 @@ set backupdir "~/.nanobackups"
 ## paragraphs.  They cannot contain blank characters.  Only closing
 ## punctuation, optionally followed by closing brackets, can end
 ## sentences.
-set brackets ""')>]}"
+set brackets ""')>]}`"
 
 ## Do case-sensitive searches by default.
 # set casesensitive
@@ -256,7 +256,7 @@ set tabstospaces
 ## them easier to remember and faster to type using nano's -Y option.
 ##
 ## To include all existing syntax definitions, you can do:
-include "/usr/share/nano/*.nanorc"
+include "~/.nano/*.nanorc"
 #include "/usr/local/share/nano/*.nanorc" # might be this, depending on distro
 
 
@@ -285,12 +285,17 @@ bind ^X cut main
 
 unbind ^U all
 #bind ^V uncut main # old nano
+bind ^C copy main
 bind ^V paste main
+
+unbind M-R all
+unbind ^R all
+bind ^R replace main
 
 unbind ^J all
 unbind ^G all
 bind ^G gotoline main
-unbind F2 all
+#unbind F2 all # quits
 unbind ^O all
 #bind ^S writeout main # old nano
 bind ^S savefile main
@@ -304,3 +309,6 @@ bind ^Y redo main
 
 bind ^] indent main
 bind ^\ unindent main
+bind M-/ comment main
+
+

@@ -2,15 +2,15 @@
   path = ~/git/perso/.gitconfig_ext
 
 [core]
-	editor = nano
-	pager = diff-so-fancy | less --tabs=2
+  editor = nano
+  pager = diff-so-fancy | less --tabs=2
   excludesfile = ~/.gitignore_global
 
 [color]
   diff = auto
   status = auto
   branch = auto
-	ui = true
+  ui = true
 
 [push]
   default = current
@@ -19,25 +19,29 @@
   default = current
 
 [fetch]
-	prune = true
+  prune = true
 
 [alias]
-	git = !exec git
+  git = !exec git
   aliases = "!git config -l | grep alias | cut -c 7-"
   a = add
   aa = add .
   addalltoprevcommit = commit -a --amend -C HEAD
 
-  fp = fetch -p
+  fa = fetch --all
+  fp = fetch --prune
+  p = pull
+  pr = pull --rebase
   prb = pull --rebase
   prp = pull --rebase=preserve
   prod = pull --rebase origin dev
   prom = pull --rebase origin master
-	st = status -s
-	co = checkout
+  st = status -su
+  co = checkout
   zco = "!f() { git checkout $(git bls \"$@\"|grep -v '^*'|fzf|awk '{print $1}'); }; f"
   cob = checkout -b
-	br = branch
+  br = branch
+  b = branch -vv
   brd = branch -D
   cp = cherry-pick
   bra = "!f(){ git fetch; git branch -a; };f"
@@ -58,9 +62,9 @@
   unpushedbranches = "log --branches --not --remotes --simplify-by-decoration --decorate --oneline"
   ignored = !git ls-files -v|grep --color '^h'
 
-	ci = commit
-	cm  = "!f(){ git commit             -m \"$(git rev-parse --abbrev-ref HEAD) : ${@}\"; };f"
-	cmn = "!f(){ git commit --no-verify -m \"$(git rev-parse --abbrev-ref HEAD) : ${@}\"; };f"
+  ci = commit
+  cm  = "!f(){ git commit -m \"${@}\"; };f"
+  cmn  = "!f(){ git commit --no-verify -m \"${@}\"; };f"
   sq = "!f(){ git reset --soft HEAD~${1} && git commit --edit -m\"$(git log --format=%B --reverse HEAD..HEAD@{1})\"; };f"
   amend = commit --amend
   ammend = commit --amend
@@ -71,41 +75,41 @@
   pfn = push --no-verify --force-with-lease
   pnf = push --no-verify --force-with-lease
 
-	dl = diff --stat
-	d = diff --unified=0 --ignore-space-at-eol --color-words='[[:alnum:]]+|[^[:space:]]'
-	df = diff
+  dl = diff --stat
+  d = diff --unified=0 --ignore-space-at-eol --color-words='[[:alnum:]]+|[^[:space:]]'
+  df = diff
   dc = diff --cached
 
-  undo = "!f(){ git reset HEAD ${1}; git checkout ${1} };f"
   undolastcommitandkeep = reset --soft HEAD^1
-	undoall = reset --hard HEAD
+  undoall = reset --hard HEAD
 
   lg =  log --graph --oneline --decorate --all --color
   lgn = log --graph --oneline --decorate --all --color --name-status
   hist = log --pretty=oneline --abbrev-commit --graph --decorate
   histo = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --decorate
 
-  fire = "!git add -A && git commit -m 'This is a fire alert push by @pma. DO NOT delete this branch.' && git push origin fire-alert-branch"
-	willpull = log --stat --pretty="" HEAD..origin
-	willrebase = log --stat --pretty="" HEAD..origin/master
+  fire = "!git add -A && git commit --no-verify -m 'This is a fire alert push by @pma. DO NOT delete this branch.' && git push --no-verify origin fire-alert-branch"
+  willpull = log --stat --pretty="" HEAD..origin
+  willrebase = log --stat --pretty="" HEAD..origin/master
 
-	fl = log -u
-	ls = log --pretty=format:"%n\\ %h\\ %C(red)%ad\\ -\\ %ar\\ %C(yellow)%s%Creset\\ [%an/%cn]" --decorate --stat --date=short
-  f = "!git ls-files | fzf"
+  fl = log -u
+  ls = log --pretty=format:"%n\\ %h\\ %C(red)%ad\\ -\\ %ar\\ %C(yellow)%s%Creset\\ [%an/%cn]" --decorate --stat --date=short
+  ll = log --pretty=format:"%ad\\ %s" --date=short
+  f = "!f(){ git ls-files | fzf }f"
 
 [icdiff]
-	options = --highlight --line-numbers
+  options = --highlight --line-numbers
 
 [color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
+  oldNormal = red bold
+  oldHighlight = red bold 52
+  newNormal = green bold
+  newHighlight = green bold 22
 
 [color "diff"]
-	meta = yellow
-	frag = magenta bold
-	commit = yellow bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
+  meta = yellow
+  frag = magenta bold
+  commit = yellow bold
+  old = red bold
+  new = green bold
+  whitespace = red reverse

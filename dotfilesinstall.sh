@@ -1,52 +1,52 @@
 #!/usr/bin/env bash
 
-function scriptmove() {
-  rm -f $@ && ln -s ~/git/dotfiles/$@ $@;
+function move() {
+  test -f "${@}" && test -h "${@}" && return 0 # if file exists and is a symlink then skip
+  rm -rfi $@ && ln -s /home/pma/git/dotfiles/$@ $@;
 }
 
 WORKDIR=$PWD
 
 cd
 
-scriptmove .Xdefaults
-scriptmove .bashrc
-scriptmove .bash_aliases
-scriptmove .bash_aliases_ext
-scriptmove .bash_aliases_git
-scriptmove .bash_aliases_files
-scriptmove .fzf.bash
-scriptmove .gitconfig
-scriptmove .gitignore_global
-scriptmove .inputrc
-scriptmove .nanorc
-scriptmove .tmux.conf
-scriptmove .vimrc
-scriptmove .taskbook.json
+# files
+move .Xdefaults
+move .bashrc
+move .bash_aliases
+move .bash_aliases_ext
+move .bash_aliases_git
+move .bash_aliases_files
+move .fzf.bash
+move .gitconfig
+move .gitignore_global
+move .inputrc
+move .nanorc
+move .tmux.conf
+move .vimrc
+move .taskbook.json
 
-scriptmove .config/htop/htoprc
+# folders
+mkdir -p .config
+move .config/htop
+move .config/i3
+move .config/i3status
+move .config/i3blocks
+move .config/dunst
+move .config/polybar
 
-if [ -d ".atom" ]; then
-  scriptmove .atom/config.cson
-  scriptmove .atom/init.coffee
-  scriptmove .atom/keymap.cson
-  scriptmove .atom/styles.less
-else
-  echo ".atom folder does not exist. Run atom once before running this script"
-fi
+# ide
+scriptmove .atom
+mkdir -p .config/Code
+move .config/Code/User/keybindings.json
+move .config/Code/User/settings.json
 
-if [ -d ".config/Code/User" ]; then
-  scriptmove .config/Code/User/keybindings.json
-  scriptmove .config/Code/User/settings.json
-else
-  echo ".config/code/User folder does not exist. Run vscode once before running this script"
-fi
-
-mkdir -p .config/htop
-scriptmove .config/htop/htoprc
-
-mkdir -p /config/i3
-scriptmove .config/i3/config
-
-echo DONE
+# nano
+touch ~/.nanohistory
+mkdir ~/.nanobackups
 
 cd $WORKDIR
+
+sudo rm -rfi /etc/ly/config.ini
+sudo ln -s ~/git/dotfiles/ly.config.ini /etc/ly/config.ini
+
+echo DONE
