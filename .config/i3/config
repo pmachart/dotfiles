@@ -311,17 +311,17 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 
 # switch to workspace and run default app
-bindsym Ctrl+$mod+1 exec --no-startup-id i3-msg workspace $ws1; exec $app1
-bindsym Ctrl+$mod+2 exec --no-startup-id i3-msg workspace $ws2; exec $app2
-bindsym Ctrl+$mod+3 exec --no-startup-id i3-msg workspace $ws3; exec $app3
-bindsym Ctrl+$mod+4 exec --no-startup-id i3-msg workspace $ws4; exec $app4
+bindsym Ctrl+$mod+1 exec --no-startup-id i3-msg workspace $ws1; exec --no-startup-id $app1
+bindsym Ctrl+$mod+2 exec --no-startup-id i3-msg workspace $ws2; exec --no-startup-id $app2
+bindsym Ctrl+$mod+3 exec --no-startup-id i3-msg workspace $ws3; exec --no-startup-id $app3
+bindsym Ctrl+$mod+4 exec --no-startup-id i3-msg workspace $ws4; exec --no-startup-id $app4
 
 set $mode_workspaces "      WORKSPACES [ 1 | 2 | 3 | 4 | Z | F ]      "
 mode $mode_workspaces {
-        bindsym 1 exec --no-startup-id i3-msg workspace $ws1; exec $app1
-        bindsym 2 exec --no-startup-id i3-msg workspace $ws2; exec $app2
-        bindsym 3 exec --no-startup-id i3-msg workspace $ws3; exec $app3
-        bindsym 4 exec --no-startup-id i3-msg workspace $ws4; exec $app4
+        bindsym 1 exec --no-startup-id i3-msg workspace $ws1; exec --no-startup-id $app1
+        bindsym 2 exec --no-startup-id i3-msg workspace $ws2; exec --no-startup-id $app2
+        bindsym 3 exec --no-startup-id i3-msg workspace $ws3; exec --no-startup-id $app3
+        bindsym 4 exec --no-startup-id i3-msg workspace $ws4; exec --no-startup-id $app4
         bindsym z fullscreen toggle
         bindsym f floating toggle
         bindsym Shift+f sticky toggle
