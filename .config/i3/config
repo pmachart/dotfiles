@@ -82,13 +82,14 @@ bindsym $mod+e exec --no-startup-id nemo
 bindsym $mod+c exec --no-startup-id gnome-calculator
 bindsym $mod+d exec --no-startup-id rofi -show run #-dmenu
 bindsym $mod+l exec --no-startup-id i3lock-fancy -p -g
+bindsym $mod+k exec --no-startup-id ~/git/dotfiles/rofikill.sh
 bindsym $mod+s exec --no-startup-id flameshot gui
 bindsym Print exec --no-startup-id flameshot gui
 bindsym $mod+Print exec --no-startup-id pick-colour-picker
 bindsym Pause exec --no-startup-id jgmenu --at-pointer
 bindsym XF86Calculator exec --no-startup-id gnome-calculator
 
-set $mode_apps "<big>      APPS [ All | Terminal | Nemo | Calculator | Launcher | Menu | Screenshot | Pick ]      </big>"
+set $mode_apps "<big>      APPS [ All | Terminal | Nemo | Calculator | Launcher | Killer | Menu | Screenshot | Pick ]      </big>"
 mode --pango_markup $mode_apps {
         bindsym a exec --no-startup-id ~/.config/i3/init_workspaces.sh $ws1 $ws2 $ws3 $ws4 ; mode default
 
@@ -96,7 +97,8 @@ mode --pango_markup $mode_apps {
         bindsym n exec --no-startup-id nemo ; mode default
         bindsym c exec --no-startup-id gnome-calculator ; mode default
         bindsym m exec --no-startup-id jgmenu --at-pointer ; mode default
-        bindsym l exec --no-startup-id rofi -show run ; mode default #-dmenu
+        bindsym l exec --no-startup-id rofi -show run ; mode default
+        bindsym k exec --no-startup-id ~/git/dotfiles/rofikill.sh ; mode default
         bindsym s exec --no-startup-id flameshot gui ; mode default
         bindsym p exec --no-startup-id pick-colour-picker ; mode default
 
