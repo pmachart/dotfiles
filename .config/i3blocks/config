@@ -1,6 +1,6 @@
 command=/usr/share/i3blocks/$BLOCK_NAME
 markup=pango
-separator_block_width=50
+separator_block_width=33
 separator=false
 
 
@@ -44,5 +44,24 @@ command=gsimplecal
 full_text= 
 
 [time]
-command=date "+%a %d/%m  <span color='white'>%H:%M:%S</span>     "
+command=date "+%a %d/%m  <span color='white'>%H:%M:%S</span>"
 interval=1
+
+
+[monitors]
+command=~/.config/i3blocks/monitor_manager
+interval=once
+#SHOW_ON_OFF=1
+#SHOW_NAMES=1
+#SHOW_PRIMARY=1
+#SHOW_MODE=1
+#SHOW_BLANKED=1
+#SHOW_DUPLICATE=1
+#SHOW_ROTATION=1
+#SHOW_REFLECTION=1
+#SHOW_BRIGHTNESS=1
+#SHOW_BRIGHTNESS_VALUE=0
+#SHOW_UP_DOWN=1
+#FONT_FAMILY=DejaVu Sans Mono
+#FONT_SIZE=11
+#CLOSE_TO_BOUNDARY_BUFFER=20
