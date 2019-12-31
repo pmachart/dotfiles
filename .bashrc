@@ -10,6 +10,7 @@ export PATH=$PATH:~/.local/bin:~/bin:~/.bin
 export PATH=$PATH:~/.linuxbrew/bin:~/.linuxbrew/opt/go/libexec/bin:/home/linuxbrew/.linuxbrew/bin
 export PATH=$PATH:~/.npm-global/bin
 export PATH=$PATH:~/.cabal/bin
+export PATH=$PATH:/snap/bin
 
 # fnm
 export PATH=/home/pma/.fnm:$PATH
@@ -131,7 +132,7 @@ if [ -x /usr/bin/dircolors ]; then
 
   alias grp='grep'
   alias grn='grep -n'
-  alias grep='grep -n --color=auto'
+  alias grep='grep -n --color=auto -i'
   alias fgrep='fgrep --color=auto'
   alias egrep='egrep --color=auto'
 fi
