@@ -95,6 +95,7 @@ debian_chroot=$(cat /etc/debian_chroot)
 fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
+export TERM=xterm-256color
 case "$TERM" in
 xterm-color) color_prompt=yes;;
 esac
@@ -166,3 +167,4 @@ alias helper="/home/pma/git/profiler/tools/helper.sh"
 
 #source ~/.git/enhancd/init.sh
 #export ENHANCD_FILTER='fzf'
+

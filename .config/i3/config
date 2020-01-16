@@ -353,7 +353,7 @@ bindsym $mod+Shift+Prior exec --no-startup-id ~/git/dotfiles/.config/i3/superp.s
 bindsym $mod+Shift+Next exec --no-startup-id /home/pma/git/dotfiles/.config/i3/superp.sh move down
 #bindsym $mod+p exec --no-startup-id ~/.config/i3/superp.sh move
 
-set $mode_screens "<big>      ↑ | ↓ | [R]efresh | [F]lip      </big>"
+set $mode_screens "<big>      ↑ | ↓ | [A]Randr | [R]efresh | [F]lip      </big>"
 mode --pango_markup $mode_screens {
         bindsym Up exec --no-startup-id ~/git/dotfiles/.config/i3/superp.sh move up ; mode default
         bindsym Prior exec --no-startup-id ~/git/dotfiles/.config/i3/superp.sh move up ; mode default
@@ -361,6 +361,7 @@ mode --pango_markup $mode_screens {
         bindsym Next exec --no-startup-id /home/pma/git/dotfiles/.config/i3/superp.sh move down ; mode default
         bindsym r exec --no-startup-id ~/.config/i3/superp.sh refresh notify ; mode default
         bindsym f exec --no-startup-id ~/.config/i3/superp.sh flip ; mode default
+        bindsym a exec --no-startup-id arandr ; mode default
 
         bindsym Escape mode default
         bindsym Return mode default

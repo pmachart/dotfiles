@@ -1,4 +1,7 @@
 {
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
     "gitlens.advanced.messages": {
         "suppressShowKeyBindingsNotice": true
     },
@@ -52,7 +55,7 @@
     "editor.maxTokenizationLineLength": 10000,
     "editor.wordWrap": "on",
     "editor.wrappingIndent": "deepIndent",
-    "editor.minimap.enabled": true,
+    "editor.minimap.enabled": false,
     "editor.minimap.maxColumn": 80,
     "workbench.commandPalette.preserveInput": true,
     "workbench.startupEditor": "newUntitledFile",
@@ -89,22 +92,16 @@
         "coverage/": true,
         "dist/": true,
         "docs/": true,
-        "node_modules/": true,
-        "public/": true
+        "node_modules/": true
     },
-    "gitlens.defaultDateStyle": "absolute",
     "gitlens.hovers.currentLine.over": "line",
     "gitlens.currentLine.enabled": false,
     "gitlens.statusBar.format": "${author}   ${agoOrDate}   ${tips}   ",
-    "gitlens.hovers.currentLine.details": false,
     "gitlens.keymap": "alternate",
     "gitlens.mode.statusBar.alignment": "left",
-    "gitlens.codeLens.enabled": false,
     "gitlens.advanced.telemetry.enabled": false,
-    "gitlens.codeLens.authors.enabled": false,
     "workbench.colorTheme": "Oceanic Park",
     "eslint.alwaysShowStatus": true,
-    "eslint.autoFixOnSave": true,
     "prettier.endOfLine": "lf",
     "prettier.disableLanguages": [
         "javascript",
@@ -126,5 +123,64 @@
         "*.jsx",
         "*.js"
     ],
-    "colorize.hide_current_line_decorations": false
+    "colorize.hide_current_line_decorations": false,
+    "explorer.compactFolders": false,
+    "workbench.tree.indent": 16,
+    "workbench.tree.renderIndentGuides": "always",
+    "editor.renderIndentGuides": false,
+    "gitlens.codeLens.recentChange.enabled": false,
+    "gitlens.codeLens.authors.enabled": false,
+    "gitlens.codeLens.scopes": [
+        "document",
+        "containers",
+        "blocks"
+    ],
+    "gitlens.hovers.currentLine.details": false,
+    "gitlens.hovers.annotations.enabled": false,
+    "gitlens.hovers.currentLine.enabled": false,
+    "gitlens.recentChanges.highlight.locations": [
+        "gutter",
+        "line",
+        "overview"
+    ],
+    "gitlens.defaultDateFormat": "YYYY/MM/D - hh:m",
+    "gitlens.defaultDateShortFormat": "YYYY/MM/D - hh:m",
+    "gitlens.menus": {
+        "editor": {
+            "blame": false,
+            "clipboard": true,
+            "compare": true,
+            "details": false,
+            "history": false,
+            "remote": false
+        },
+        "editorGroup": false,
+        "editorTab": {
+            "clipboard": true,
+            "compare": true,
+            "history": true,
+            "remote": true
+        },
+        "explorer": {
+            "clipboard": true,
+            "compare": true,
+            "history": true,
+            "remote": true
+        },
+        "scmGroup": {
+            "compare": true,
+            "openClose": true,
+            "stash": true,
+            "stashInline": true
+        },
+        "scmItem": {
+            "clipboard": true,
+            "compare": true,
+            "history": true,
+            "remote": true,
+            "stash": true
+        }
+    },
+    "code-runner.enableAppInsights": false,
+    "code-runner.showRunIconInEditorTitleMenu": false
 }

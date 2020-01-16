@@ -32,7 +32,7 @@ interval=10
 
 
 [vpn]
-command=~/.config/i3blocks/icanhasvpn.sh
+command=sleep 5 ; ~/.config/i3blocks/icanhasvpn.sh
 interval=once
 signal=11
 

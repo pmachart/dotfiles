@@ -16,6 +16,7 @@ alias nig='npm install --prefix ~/.npm-global -g'
 alias nu='npm update'
 alias ninu='ni & wait; nu'
 
+alias y='yarn'
 alias yi='yarn install'
 alias ys='yarn start'
 alias yb='yarn build'
