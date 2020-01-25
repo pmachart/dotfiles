@@ -50,8 +50,8 @@ tmuxprofiler() {
   tmux send-keys 'watch -c -t -n1 "echo ${BLUE}; date +\" %T\" | toilet -W -f smblock"' 'C-m'
   tmux select-pane -t 1
 }
-tmuxlisaprofiler() {
-  tmux rename-window 'L-Prof'
+tmuxlisa() {
+  tmux rename-window "${NAME}"
   tmux send-keys "cd ${DIR}" 'C-m'
   tmux split-window -h -c "${DIR}" -p 40
   tmux send-keys 'make sandbox' 'C-m'
@@ -77,22 +77,24 @@ tmuxinit() {
 
   case ${1} in
   prof*)
-    NAME='PROF'
+    NAME='PROFILER'
     DIR='/home/pma/git/profiler'
     tmuxprofiler
     ;;
-  lprof*)
-    NAME='L-PROF'
-    DIR='/home/pma/git/lisa-profiler'
-    tmuxlisaprofiler
+  le*)
+    NAME='LISA-EKORN'
+    DIR='/home/pma/git/lisa-ekorn'
+    tmuxlisa
     ;;
-  mel*)
-    NAME='MELLI'
-    DIR='/home/pma/git/mellisuge'
-    TOPCMD='dcdev'
-    BTMCMD='dcw'
-    BTNCMDH='6'
-    tmuxwindow
+  lp*)
+    NAME='LISA-PROFILER'
+    DIR='/home/pma/git/lisa-profiler'
+    tmuxlisa
+    ;;
+  lf*)
+    NAME='LISA-FILTERS'
+    DIR='/home/pma/git/lisa-filters'
+    tmuxlisa
     ;;
   *)
     tmux split-window -h -p 30

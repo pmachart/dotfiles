@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 
-#[ -z "$TMUX" ] && ( tmux a || tmux )
+if [[ -z "$TMUX" ]] ; then
+  if [[ $(tmux ls | grep -v attached | wc -l) == '1' ]] ; then
+    tmux attach -t 0
+  else
+    tmux
+  fi
+fi
 
 [ -f ~/.bash_env ] && source ~/.bash_env || export HOMEDIR=${HOME}
 

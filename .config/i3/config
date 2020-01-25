@@ -69,6 +69,7 @@ font pango:Iosevka 12
 exec --no-startup-id blueman-applet
 exec --no-startup-id nm-applet
 exec --no-startup-id parcellite
+exec --no-startup-id orage
 exec --no-startup-id dropbox start
 exec-always --no-startup-id /usr/bin/xautolock -locker "/usr/bin/i3lock-fancy -p -g -notify 5 -notifier /usr/bin/dunstify" -time 1
 

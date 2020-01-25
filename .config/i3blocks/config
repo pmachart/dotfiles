@@ -32,14 +32,14 @@ interval=10
 
 
 [vpn]
-command=sleep 5 ; ~/.config/i3blocks/icanhasvpn.sh
-interval=once
+command=~/.config/i3blocks/icanhasvpn.sh
+interval=5
 signal=11
 
 
 [separator]
 
-[rofical]
+[calendar]
 command=gsimplecal
 full_text= 
 
