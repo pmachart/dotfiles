@@ -91,11 +91,6 @@ tmuxinit() {
     DIR='/home/pma/git/lisa-profiler'
     tmuxlisa
     ;;
-  lf*)
-    NAME='LISA-FILTERS'
-    DIR='/home/pma/git/lisa-filters'
-    tmuxlisa
-    ;;
   *)
     tmux split-window -h -p 30
     tmux send-keys 'tb' 'C-m'
