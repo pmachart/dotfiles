@@ -1,4 +1,4 @@
-[include] # separate file for personal stuff
+[include]
   path = ~/git/perso/.gitconfig_ext
 
 [core]
@@ -28,6 +28,7 @@
   aa = add .
   addalltoprevcommit = commit -a --amend -C HEAD
 
+  fu = fetch upstream
   fa = fetch --all
   fp = fetch --prune
   p = pull
@@ -39,6 +40,8 @@
   st = status -su
   co = checkout
   zco = "!f() { git checkout $(git bls \"$@\"|grep -v '^*'|fzf|awk '{print $1}'); }; f"
+  rud = rebase upstream/devel
+  po = push origin
   cob = checkout -b
   br = branch
   b = branch -vv
@@ -89,8 +92,8 @@
   histo = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --decorate
 
   fire = "!git add -A && git commit --no-verify -m 'This is a fire alert push by @pma. DO NOT delete this branch.' && git push --no-verify origin fire-alert-branch"
-  willpull = log --stat --pretty="" HEAD..origin
-  willrebase = log --stat --pretty="" HEAD..origin/master
+  willpull = log --stat --pretty="" HEAD..upstream
+  willrebase = log --stat --pretty="" HEAD..upstream/master
 
   fl = log -u
   ls = log --pretty=format:"%n\\ %h\\ %C(red)%ad\\ -\\ %ar\\ %C(yellow)%s%Creset\\ [%an/%cn]" --decorate --stat --date=short
@@ -113,3 +116,5 @@
   old = red bold
   new = green bold
   whitespace = red reverse
+[credential]
+  helper = cache --timeout=2628000

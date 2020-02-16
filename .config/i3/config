@@ -70,6 +70,7 @@ exec --no-startup-id blueman-applet
 exec --no-startup-id nm-applet
 exec --no-startup-id parcellite
 exec --no-startup-id orage
+exec --no-startup-id conky
 exec --no-startup-id dropbox start
 exec-always --no-startup-id /usr/bin/xautolock -locker "/usr/bin/i3lock-fancy -p -g -notify 5 -notifier /usr/bin/dunstify" -time 1
 
@@ -114,6 +115,18 @@ bindsym $mod+a mode $mode_apps
 
 
 #############################################
+################## COLORS ###################
+#############################################
+
+# class                 border  backgr. text    indicator
+#client.placeholder      #242424 #242424 #242424
+#client.background       #242424 #242424 #242424
+client.focused          #10565A #10565A #FFFFFF #FFFFFF
+client.unfocused        #0F181D #0F181D #aaaaaa #aaaaaa
+client.focused_inactive #0F181D #0F181D #aaaaaa #aaaaaa
+client.urgent           #FFFF00 #FFFF00 #FFFFFF #FFFFFF
+
+#############################################
 ############### STATUS BAR ##################
 #############################################
 
@@ -126,13 +139,13 @@ bar {
   bindsym button5 nop
 
   colors {
-    background #1F2425
+    background #0F181D
     statusline #aaaaaa
     separator  #666666
                        #border bgcolor fontcolor
-    focused_workspace  #666666 #111111 #aaaaaa
-    active_workspace   #666666 #111111 #aaaaaa
-    inactive_workspace #1F2425 #1F2425 #aaaaaa
+    focused_workspace  #666666 #17242B #aaaaaa
+    active_workspace   #666666 #17242B #aaaaaa
+    inactive_workspace #0F181D #0F181D #aaaaaa
     urgent_workspace   #333333 #ffff00 #333333
     binding_mode       #333333 #900000 #ffffff
   }
@@ -153,13 +166,13 @@ bar {
   bindsym button5 nop
 
   colors {
-    background #1F2425
+    background #0F181D
     statusline #aaaaaa
     separator  #666666
                        #border bgcolor fontcolor
-    focused_workspace  #666666 #111111 #aaaaaa
-    active_workspace   #666666 #111111 #aaaaaa
-    inactive_workspace #1F2425 #1F2425 #aaaaaa
+    focused_workspace  #666666 #17242B #aaaaaa
+    active_workspace   #666666 #17242B #aaaaaa
+    inactive_workspace #0F181D #0F181D #aaaaaa
     urgent_workspace   #333333 #ffff00 #333333
     binding_mode       #333333 #900000 #ffffff
   }
@@ -371,6 +384,7 @@ mode --pango_markup $mode_screens {
         bindsym $mod+p mode default
 }
 bindsym $mod+p mode $mode_screens
+#bindsym XF86Display mode $mode_screens
 
 
 # startup
@@ -477,5 +491,8 @@ bindsym $mod+b exec --no-startup-id 'cd ~/git/profiler && make build && notify-s
 
 
 bindsym Ctrl+$mod+Next move absolute position bottom right
+
+
+
 
 

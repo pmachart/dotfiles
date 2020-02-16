@@ -1,12 +1,16 @@
 #!/usr/bin/env bash
 
-if [[ -z "$TMUX" ]] ; then
-  if [[ $(tmux ls | grep -v attached | wc -l) == '1' ]] ; then
-    tmux attach -t 0
-  else
-    tmux
+gotmux() {
+  if [[ -z "$TMUX" ]] ; then
+    local TMUXSESSIONID=$(tmux ls | \grep -v attached | head -1 | cut -f1 -d:)
+    if [[ -n ${TMUXSESSIONID} ]] ; then
+      tmux attach -t ${TMUXSESSIONID}
+    else
+      tmux
+    fi
   fi
-fi
+}
+gotmux
 
 [ -f ~/.bash_env ] && source ~/.bash_env || export HOMEDIR=${HOME}
 
@@ -72,7 +76,7 @@ HISTCONTROL="ignoredups:ignoreboth:erasedups"
 shopt -s histappend
 HISTSIZE=100000
 HISTFILESIZE=100000
-HISTIGNORE="rm:fuck:cl:l:pp:r:matin:today:todays:yesterday:note:notes:x:exit:r"
+HISTIGNORE="rm:fuck:l:ll:e:ee:pp:r:matin:today:todays:yesterday:note:notes:x:exit:r:ra:nnn:tm"
 #export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND" # necessary for tmux
 export PROMPT_COMMAND="history -a; $PROMPT_COMMAND" # necessary for tmux
 
@@ -169,7 +173,6 @@ export PS1="\n$? \! \A \[$(tput sgr0)\]\[\033[38;5;11m\]\u@\h \[$(tput sgr0)\]\[
 alias f='fzf'
 
 cat ~/todos
-alias helper="/home/pma/git/profiler/tools/helper.sh"
 
 #source ~/.git/enhancd/init.sh
 #export ENHANCD_FILTER='fzf'

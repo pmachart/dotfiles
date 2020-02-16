@@ -20,12 +20,11 @@ init () {
     i3-msg fullscreen disable
     sleep 2
 
-  i3-msg workspace "${WS4}"
-    exec code &
-    sleep 4
+#  i3-msg workspace "${WS4}"
+#    exec code &
+#    sleep 4
 
   i3-msg workspace "${WS1}"
-    dunstify 'Ready !'
 
   rfkill block bluetooth
 

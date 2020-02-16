@@ -15,24 +15,6 @@ require_tmux_running() {
   exit 1
 }
 
-tmuxwindow() {
-  tmux rename-window "${NAME}"
-
-  tmux send-keys "cd ${DIR} && tb" 'C-m'
-
-  tmux split-window -h -c "${DIR}" -p 30
-  tmux send-keys "${TOPCMD}" 'C-m'
-
-  tmux split-window -v -t 2 -c "${DIR}" -l "${BTMCMDH}"
-  tmux send-keys "${BTMCMD}" 'C-m'
-
-  tmux split-window -h -t 1 -c "${DIR}" -p 50
-  tmux send-keys 'git willpull ; g' 'C-m'
-
-  tmux split-window -v -t 1 -c "${DIR}" -l 3
-  tmux send-keys 'yesterday '
-}
-
 tmuxprofiler() {
   tmux rename-window 'Prof'
   tmux send-keys "cd ${DIR} && tb" 'C-m'
@@ -50,13 +32,12 @@ tmuxprofiler() {
   tmux send-keys 'watch -c -t -n1 "echo ${BLUE}; date +\" %T\" | toilet -W -f smblock"' 'C-m'
   tmux select-pane -t 1
 }
+
 tmuxlisa() {
   tmux rename-window "${NAME}"
   tmux send-keys "cd ${DIR}" 'C-m'
   tmux split-window -h -c "${DIR}" -p 40
-  tmux send-keys 'make sandbox' 'C-m'
-  tmux split-window -v -c "${DIR}" -p 50
-  tmux send-keys 'make build'
+  tmux send-keys "${CMD}" 'C-m'
   tmux split-window -v -c "${DIR}" -l 11
   tmux send-keys 'gotop -am' 'C-m'
   tmux select-pane -t 1
@@ -84,11 +65,19 @@ tmuxinit() {
   le*)
     NAME='LISA-EKORN'
     DIR='/home/pma/git/lisa-ekorn'
+    CMD='npm run start'
+    tmuxlisa
+    ;;
+  ld*)
+    NAME='LISA-DASHBOARD'
+    DIR='/home/pma/git/lisa-dashboard'
+    CMD='ms'
     tmuxlisa
     ;;
   lp*)
     NAME='LISA-PROFILER'
     DIR='/home/pma/git/lisa-profiler'
+    CMD='ms'
     tmuxlisa
     ;;
   *)

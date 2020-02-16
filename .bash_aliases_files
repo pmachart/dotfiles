@@ -79,3 +79,7 @@ function runnano() {
   \nano "${@}"
 }
 alias n=nano
+
+alias helper='/home/pma/git/perso/helper.sh'
+alias nhelper='nano /home/pma/git/perso/helper.sh'
+alias h=helper

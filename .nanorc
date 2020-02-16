@@ -201,8 +201,8 @@ set tabstospaces
 
 ## Paint the interface elements of nano.
 ## These are examples; by default there are no colors.
-# set titlecolor brightwhite,blue
-# set statuscolor brightwhite,green
+set titlecolor yellow,black
+set statuscolor yellow,black
 # set numbercolor cyan
 # set keycolor cyan
 # set functioncolor green
@@ -278,7 +278,8 @@ bind ^H cutwordleft main
 
 unbind ^W all
 bind ^W exit main
-bind M-W suspend main # alt-w suspend to shell, fg to return
+# Alt-w suspend to shell, fg to return
+bind M-W suspend main
 
 unbind ^X all
 bind ^X cut main

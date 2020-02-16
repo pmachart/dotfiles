@@ -68,7 +68,7 @@
     "window.enableMenuBarMnemonics": false,
     "window.newWindowDimensions": "maximized",
     "window.restoreFullscreen": true,
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 2,
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,
@@ -182,5 +182,8 @@
         }
     },
     "code-runner.enableAppInsights": false,
-    "code-runner.showRunIconInEditorTitleMenu": false
+    "code-runner.showRunIconInEditorTitleMenu": false,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "markdown.preview.breaks": true,
+    "diffEditor.ignoreTrimWhitespace": false
 }
