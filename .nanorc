@@ -64,7 +64,7 @@ set constantshow
 # set justifytrim
 
 ## Display line numbers to the left of the text.
-# set linenumbers
+ set linenumbers
 
 ## Enable vim-style lock-files.  This is just to let a vim user know you
 ## are editing a file [s]he is trying to edit and vice versa. There are
@@ -203,7 +203,7 @@ set tabstospaces
 ## These are examples; by default there are no colors.
 set titlecolor yellow,black
 set statuscolor yellow,black
-# set numbercolor cyan
+ set numbercolor white
 # set keycolor cyan
 # set functioncolor green
 ## In root's .nanorc you might want to use:

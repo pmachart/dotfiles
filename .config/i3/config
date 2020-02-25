@@ -79,7 +79,7 @@ exec-always --no-startup-id /usr/bin/xautolock -locker "/usr/bin/i3lock-fancy -p
 ################ PROGRAMS ###################
 #############################################
 
-bindsym $mod+t exec --no-startup-id i3-sensible-terminal
+bindsym $mod+t exec --no-startup-id kitty
 bindsym $mod+e exec --no-startup-id nemo
 bindsym $mod+c exec --no-startup-id gnome-calculator
 bindsym $mod+d exec --no-startup-id rofi -show run #-dmenu
@@ -95,7 +95,7 @@ set $mode_apps "<big>      APPS [ All | Terminal | Nemo | Calculator | Launcher 
 mode --pango_markup $mode_apps {
         bindsym a exec --no-startup-id ~/.config/i3/init_workspaces.sh $ws1 $ws2 $ws3 $ws4 ; mode default
 
-        bindsym t exec --no-startup-id i3-sensible-terminal ; mode default
+        bindsym t exec --no-startup-id kitty ; mode default
         bindsym n exec --no-startup-id nemo ; mode default
         bindsym c exec --no-startup-id gnome-calculator ; mode default
         bindsym m exec --no-startup-id jgmenu --at-pointer ; mode default
@@ -147,7 +147,7 @@ bar {
     active_workspace   #666666 #17242B #aaaaaa
     inactive_workspace #0F181D #0F181D #aaaaaa
     urgent_workspace   #333333 #ffff00 #333333
-    binding_mode       #333333 #900000 #ffffff
+    binding_mode       #333333 #3B7C87 #ffffff
   }
 
   # status
@@ -174,7 +174,7 @@ bar {
     active_workspace   #666666 #17242B #aaaaaa
     inactive_workspace #0F181D #0F181D #aaaaaa
     urgent_workspace   #333333 #ffff00 #333333
-    binding_mode       #333333 #900000 #ffffff
+    binding_mode       #333333 #3B7C87 #ffffff
   }
 
   # status
@@ -299,7 +299,7 @@ set $ws7 "7:    7    "
 set $ws8 "8:    8    "
 set $ws9 "9:    9    "
 
-set $app1 'i3-sensible-terminal'
+set $app1 'kitty'
 set $app2 'chromium'
 set $app3 'slack'
 set $app4 'code'
