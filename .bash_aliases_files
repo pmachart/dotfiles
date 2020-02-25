@@ -23,6 +23,9 @@ function dunreload() {
   pkill dunst
   dunst -config ~/.config/dunst/dunstrc &
 }
+alias nk='nano ~/.config/kitty/kitty.conf'
+alias nkt='nano ~/.config/kitty/theme.conf'
+alias nra='nano ~/.config/ranger/rc.conf'
 
 alias hosts='sudo nano /etc/hosts'
 alias sources='sudo nano /etc/apt/sources.list'

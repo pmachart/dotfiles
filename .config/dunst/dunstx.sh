@@ -12,6 +12,7 @@
 #   Volume :     ./dunstx.sh  up | down | mute | mic
 #   Brightness : ./dunstx.sh  brighter # | darker # | brightest | darkest
 #   Network :    ./dunstx.sh  bton | btoff | wifion | wifioff | allon | alloff
+#   Startup :    ./dunstx.sh  startup (loads preset for sound and brightness)
 #
 #  Can be run with a system-wide keybinding. i3wm example :
 #   bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.config/dunst/dunstx.sh up
@@ -150,7 +151,7 @@ function dunstx {
       ;;
     startup)
       local -r PLUGGED=$(cat /sys/class/power_supply/AC/online)
-      local DEFAULT_BRIGHTNESS=50
+      local DEFAULT_BRIGHTNESS=30
       ((PLUGGED)) && DEFAULT_BRIGHTNESS=100
 
       /usr/bin/xbacklight -set ${DEFAULT_BRIGHTNESS}
