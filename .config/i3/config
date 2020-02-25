@@ -135,8 +135,9 @@ bar {
   tray_output primary
   position bottom
   strip_workspace_numbers yes
-  bindsym button4 nop
-  bindsym button5 nop
+  bindsym button2 exec --no-startup-id ~/.config/dunst/dunstx.sh mute
+  bindsym button4 exec --no-startup-id ~/.config/dunst/dunstx.sh up
+  bindsym button5 exec --no-startup-id ~/.config/dunst/dunstx.sh down
 
   colors {
     background #0F181D
@@ -162,8 +163,9 @@ bar {
   tray_output primary
   position bottom
   strip_workspace_numbers yes
-  bindsym button4 nop
-  bindsym button5 nop
+  bindsym button2 exec --no-startup-id ~/.config/dunst/dunstx.sh mute
+  bindsym button4 exec --no-startup-id ~/.config/dunst/dunstx.sh up
+  bindsym button5 exec --no-startup-id ~/.config/dunst/dunstx.sh down
 
   colors {
     background #0F181D
