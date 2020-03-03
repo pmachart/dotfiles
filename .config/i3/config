@@ -17,6 +17,7 @@ bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
 #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+m exec --no-startup-id /home/pma/git/myrmidon/myrmidon.sh
 
 set $mode_power "<big>      e[X]it | [R]estart | [S]hutdown | [C]ancel      </big>"
 mode --pango_markup $mode_power {
@@ -210,10 +211,10 @@ bindsym $mod+F4          exec --no-startup-id ~/.config/dunst/dunstx.sh mic
 
 # Screen brightness controls
 
-bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/dunst/dunstx.sh darker 5
-bindsym $mod+F5               exec --no-startup-id ~/.config/dunst/dunstx.sh darker 5
-bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/dunst/dunstx.sh brighter 5
-bindsym $mod+F6             exec --no-startup-id ~/.config/dunst/dunstx.sh brighter 5
+bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/dunst/dunstx.sh darker 10
+bindsym $mod+F5               exec --no-startup-id ~/.config/dunst/dunstx.sh darker 10
+bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/dunst/dunstx.sh brighter 10
+bindsym $mod+F6             exec --no-startup-id ~/.config/dunst/dunstx.sh brighter 10
 
 bindsym Shift+XF86MonBrightnessDown exec --no-startup-id ~/.config/dunst/dunstx.sh darker 20
 bindsym Shift+$mod+F5               exec --no-startup-id ~/.config/dunst/dunstx.sh darker 20
@@ -334,24 +335,6 @@ bindsym Ctrl+$mod+2 exec --no-startup-id i3-msg workspace $ws2; exec --no-startu
 bindsym Ctrl+$mod+3 exec --no-startup-id i3-msg workspace $ws3; exec --no-startup-id $app3
 bindsym Ctrl+$mod+4 exec --no-startup-id i3-msg workspace $ws4; exec --no-startup-id $app4
 
-set $mode_workspaces "      WORKSPACES [ 1 | 2 | 3 | 4 | Z | F ]      "
-mode $mode_workspaces {
-        bindsym 1 exec --no-startup-id i3-msg workspace $ws1; exec --no-startup-id $app1
-        bindsym 2 exec --no-startup-id i3-msg workspace $ws2; exec --no-startup-id $app2
-        bindsym 3 exec --no-startup-id i3-msg workspace $ws3; exec --no-startup-id $app3
-        bindsym 4 exec --no-startup-id i3-msg workspace $ws4; exec --no-startup-id $app4
-        bindsym z fullscreen toggle
-        bindsym f floating toggle
-        bindsym Shift+f sticky toggle
-
-        bindsym Escape mode default
-        bindsym Return mode default
-        bindsym Ctrl+c mode default
-        bindsym q mode default
-        bindsym w mode default
-        bindsym $mod+w mode default
-}
-bindsym $mod+w mode $mode_workspaces
 
 #workspace_auto_back_and_forth yes
 
@@ -481,7 +464,6 @@ bindsym $mod+y layout toggle splith tabbed
 # floating & stickying
 bindsym $mod+g floating toggle
 bindsym $mod+Shift+g sticky toggle
-bindsym $mod+Return floating toggle, sticky toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+Tab focus mode_toggle
