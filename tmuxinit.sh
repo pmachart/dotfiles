@@ -36,8 +36,11 @@ tmuxprofiler() {
 tmuxlisa() {
   tmux rename-window "${NAME}"
   tmux send-keys "cd ${DIR}" 'C-m'
-  tmux split-window -h -c "${DIR}" -p 40
+  [[ "${2}" == "vs" ]] && tmux send-keys 'code' 'C-m'
+  tmux split-window -h -c "${DIR}" -p 30
   tmux send-keys "${CMD}" 'C-m'
+  tmux split-window -v -c "${DIR}" -p 40
+  tmux send-keys 'git stw' 'C-m'
   tmux split-window -v -c "${DIR}" -l 11
   tmux send-keys 'gotop -am' 'C-m'
   tmux select-pane -t 1
@@ -71,13 +74,13 @@ tmuxinit() {
   ld*)
     NAME='LISA-DASHBOARD'
     DIR='/home/pma/git/lisa-dashboard'
-    CMD='ms'
+    CMD='npm run start'
     tmuxlisa
     ;;
   lp*)
     NAME='LISA-PROFILER'
     DIR='/home/pma/git/lisa-profiler'
-    CMD='ms'
+    CMD='npm run start'
     tmuxlisa
     ;;
   *)

@@ -49,9 +49,13 @@ GIT_PROMPT_FETCH_REMOTE_STATUS=0
 source ~/.bash-git-prompt/gitprompt.sh
 
 alias sudo='sudo '
+alias watch='watch '
 
 export EDITOR=nano
 export PAGER=most
+export BROWSER=chromium
+export GTK_IM_MODULE="xim"
+export GTK_IM_MODULE="gtk-im-context-simple"
 
 # Make directory commands see only directories
 complete -d cd mkdir rm pushd

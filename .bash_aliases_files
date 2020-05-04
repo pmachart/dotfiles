@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
 function scriptmove() {
-  local ORIG=$1
+  local ORIG=${1}
   shift
-  rm -f $@ && ln -s ~/git/$ORIG/$@ $@;
+  rm -f ${@} && ln -s ~/git/${ORIG}/${@} ${@};
 }
 
-atompackagelist(){ ls ~/.atom/packages | tee ~/git/dotfiles/misc/atom_packagelist; }
-vscodepackagelist(){ ls ~/.vscode/extensions | tee ~/git/dotfiles/misc/vscode_packagelist; }
+atompackagelist(){ \ls ~/.atom/packages | tee ~/git/dotfiles/misc/atom_packagelist; }
+vscodepackagelist(){ \ls ~/.vscode/extensions | tee ~/git/dotfiles/misc/vscode_packagelist; }
 
 
 alias i3config='nano ~/.config/i3/config'
@@ -33,6 +33,7 @@ alias nanorc='nano ~/.nanorc'
 alias npmrc='nano ~/.npmrc'
 alias inputrc='nano ~/.inputrc'
 alias xdefaults='nano ~/.Xdefaults'
+alias nly='sudo nano /etc/ly/config.ini'
 
 alias gitconfig='nano ~/.gitconfig'
 alias gitconfigx='nano ~/.gitconfig_ext'
@@ -55,10 +56,9 @@ alias note='echo "$(date +%F) : $@" >> ~/notes'
 alias notes='nano ~/notes'
 
 alias todo='echo "-$@" >> ~/todos'
-alias todos='nano ~/todos'
+alias ntodos='nano ~/todos'
 
 alias today='echo "$(date +%F) : $@" >> ~/today'
-alias yesterday='echo "$(date -d yesterday +%F) : $@" >> ~/today'
 alias ntoday='nano ~/today'
 
 alias g='. ~/git/g-man/gman.sh'

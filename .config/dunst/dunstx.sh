@@ -35,7 +35,7 @@ function get_brightness {
 
 function sound_notification {
   local ICON="${ICONPATH}/status/audio-volume-medium.png"
-  local -r TIMEOUT='800'
+  local -r TIMEOUT='1200'
   local URGENCY='normal'
   local -r VOLUME=$(get_volume)
   local VOLMSG=" [$(get_volume)%]"
@@ -58,7 +58,7 @@ function sound_notification {
 
 function brightness_notification {
   local -r ICON="${ICONPATH}status/display-brightness.png"
-  local -r TIMEOUT='800'
+  local -r TIMEOUT='1200'
   local URGENCY='low'
   local -r BRIGHTNESS=$(get_brightness)
   [[ ${BRIGHTNESS} -le 5 ]] && URGENCY='critical'
@@ -69,7 +69,7 @@ function brightness_notification {
 
 function radio_notification {
   local ICON="${ICONPATH}status/network-wireless-signal-excellent.png"
-  local -r TIMEOUT='1000'
+  local -r TIMEOUT='1200'
   local URGENCY='normal'
   local ACTION=${!#}
   [[ ${ACTION} == 'OFF' ]] && URGENCY='critical' && ICON="${ICONPATH}status/network-wireless-offline.png"
@@ -107,11 +107,11 @@ function dunstx {
       ;;
 
     brighter)
-      /usr/bin/xbacklight -inc ${2}
+      /usr/bin/xbacklight -time 0 -inc ${2}
       brightness_notification
       ;;
     darker)
-      /usr/bin/xbacklight -dec ${2}
+      /usr/bin/xbacklight -time 0 -dec ${2}
       brightness_notification
       ;;
     brightest)

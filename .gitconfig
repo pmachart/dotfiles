@@ -38,6 +38,9 @@
   prod = pull --rebase origin dev
   prom = pull --rebase origin master
   st = status -su
+  stc = !git -c color.status=always status -su
+  stn = !git stc | nl -ba -s' '
+  stw = !watch -c -t -n1 "git stc"
   co = checkout
   zco = "!f() { git checkout $(git bls \"$@\"|grep -v '^*'|fzf|awk '{print $1}'); }; f"
   rud = rebase upstream/devel
@@ -73,6 +76,7 @@
   ammend = commit --amend
   oops = commit --amend --no-edit --no-verify
 
+  pu = push -u
   pn = push --no-verify
   pf = push --force-with-lease
   pfn = push --no-verify --force-with-lease

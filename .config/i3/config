@@ -58,6 +58,8 @@ for_window [title="^Network.*"] floating enable # network manager
 for_window [title="Event Tester"] floating enable # xev
 for_window [title="^Screen Layout Editor.*"] floating enable # arandr
 for_window [title="^Slack$"] move absolute position 300 100
+#for_window [title="^Slack$"] move scratchpad
+for_window [title="^Slack | Slack call"] floating disable
 
 # Font for window titles
 font pango:Iosevka 12
@@ -137,8 +139,8 @@ bar {
   position bottom
   strip_workspace_numbers yes
   bindsym button2 exec --no-startup-id ~/.config/dunst/dunstx.sh mute
-  bindsym button4 exec --no-startup-id ~/.config/dunst/dunstx.sh up
-  bindsym button5 exec --no-startup-id ~/.config/dunst/dunstx.sh down
+  bindsym button4 exec --no-startup-id ~/.config/dunst/dunstx.sh down
+  bindsym button5 exec --no-startup-id ~/.config/dunst/dunstx.sh up
 
   colors {
     background #0F181D
@@ -165,8 +167,8 @@ bar {
   position bottom
   strip_workspace_numbers yes
   bindsym button2 exec --no-startup-id ~/.config/dunst/dunstx.sh mute
-  bindsym button4 exec --no-startup-id ~/.config/dunst/dunstx.sh up
-  bindsym button5 exec --no-startup-id ~/.config/dunst/dunstx.sh down
+  bindsym button4 exec --no-startup-id ~/.config/dunst/dunstx.sh down
+  bindsym button5 exec --no-startup-id ~/.config/dunst/dunstx.sh up
 
   colors {
     background #0F181D
@@ -329,6 +331,9 @@ bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 
+bindsym $mod+h move scratchpad
+bindsym $mod+Shift+h scratchpad show floating disable
+
 # switch to workspace and run default app
 bindsym Ctrl+$mod+1 exec --no-startup-id i3-msg workspace $ws1; exec --no-startup-id $app1
 bindsym Ctrl+$mod+2 exec --no-startup-id i3-msg workspace $ws2; exec --no-startup-id $app2
@@ -386,8 +391,8 @@ exec_always --no-startup-id feh --bg-fill ~/git/dotfiles/misc/debian10.png
 
 # kill focused window
 bindsym $mod+q kill
-bindsym $mod+x kill
-
+bindsym Ctrl+Shift+w nop # by default this keybind kills. where is it coming from ??
+bindsym XF86Sleep nop
 
 # resize window (you can also use the mouse for that)
 set $mode_resize "<big>      RESIZE      </big>"
@@ -422,8 +427,8 @@ force_display_urgency_hint 1000ms
 
 
 # alt-tab
-bindsym $alt+Tab exec --no-startup-id  i3-msg border pixel 5; focus right
-bindsym $alt+Shift+Tab exec --no-startup-id  i3-msg border pixel 5; focus left
+bindsym $alt+Tab exec --no-startup-id i3-msg focus right
+bindsym $alt+Shift+Tab exec --no-startup-id  i3-msg focus left
 
 # change focus
 bindsym $mod+Left focus left
@@ -432,10 +437,12 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused container
+bindsym $mod+Shift+braceleft move left
+bindsym $mod+Shift+braceright move right
 bindsym $mod+Ctrl+Left move left
-bindsym $mod+Ctrl+Down move down
-bindsym $mod+Ctrl+Up move up
 bindsym $mod+Ctrl+Right move right
+bindsym $mod+Ctrl+Up move up
+bindsym $mod+Ctrl+Down move down
 
 # focus parent/child ... what's the use for this ?
 #bindsym $mod+a focus parent

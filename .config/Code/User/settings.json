@@ -1,7 +1,4 @@
 {
-    "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true
-    },
     "gitlens.advanced.messages": {
         "suppressShowKeyBindingsNotice": true
     },
@@ -12,8 +9,8 @@
         "editor.findMatchHighlightBorder": "#ff0000",
         "editorGutter.background": "#0005",
         "editorGutter.addedBackground": "#00ff0066",
-        "scrollbarSlider.background": "#0005",
-        "scrollbarSlider.hoverBackground": "#ffffff20",
+        "scrollbarSlider.background": "#fff2",
+        "scrollbarSlider.hoverBackground": "#fff1",
         "editorOverviewRuler.selectionHighlightForeground": "#ffff",
         "minimap.selectionHighlight": "#ffff",
         "minimap.findMatchHighlight": "#ffff00",
@@ -24,7 +21,9 @@
         "editorOverviewRuler.deletedForeground": "#ff0000aa",
         "editorOverviewRuler.infoForeground": "#00ffff88",
         "editorOverviewRuler.warningForeground": "#0000ff88",
-        "editorOverviewRuler.errorForeground": "#ff69b4"
+        "editorOverviewRuler.errorForeground": "#ff69b4",
+        "tab.activeBorder": "#ff0",
+        "tab.unfocusedActiveBorder": "#000"
     },
     "selectinsidesidebar.defaultStyle": {
         "overviewRulerColor": "#ffff"
@@ -49,14 +48,12 @@
     "editor.scrollBeyondLastLine": false,
     "editor.tabCompletion": "onlySnippets",
     "editor.tabSize": 2,
-    "editor.minimap.showSlider": "always",
     "editor.smoothScrolling": true,
     "editor.find.addExtraSpaceOnTop": false,
     "editor.maxTokenizationLineLength": 10000,
     "editor.wordWrap": "on",
     "editor.wrappingIndent": "deepIndent",
     "editor.minimap.enabled": false,
-    "editor.minimap.maxColumn": 80,
     "workbench.commandPalette.preserveInput": true,
     "workbench.startupEditor": "newUntitledFile",
     "workbench.editor.enablePreviewFromQuickOpen": false,
@@ -76,7 +73,7 @@
     "search.quickOpen.includeSymbols": true,
     "debug.inlineValues": true,
     "telemetry.enableTelemetry": false,
-    "local-history.path": "~/.vscode_localhistory/",
+    "local-history.path": "/home/pma/.vscode_localhistory/",
     "shellcheck.exclude": [
         2116, // useless echo
         2164, // cd
@@ -103,11 +100,6 @@
     "workbench.colorTheme": "Oceanic Park",
     "eslint.alwaysShowStatus": true,
     "prettier.endOfLine": "lf",
-    "prettier.disableLanguages": [
-        "javascript",
-        "jsx"
-    ],
-    "prettier.printWidth": 120,
     "workbench.editor.labelFormat": "short",
     "vsicons.dontShowNewVersionMessage": true,
     "editor.matchBrackets": false,
@@ -181,10 +173,29 @@
             "stash": true
         }
     },
-    "code-runner.enableAppInsights": false,
-    "code-runner.showRunIconInEditorTitleMenu": false,
     "editor.multiCursorModifier": "ctrlCmd",
     "markdown.preview.breaks": true,
     "diffEditor.ignoreTrimWhitespace": false,
-    "editor.folding": false
+    "editor.folding": false,
+    "gitlab.instanceUrl": "https://gitlab.synthesio.com",
+    "gitlab.remoteName": "Synthesio",
+    "gitlab.enableExperimentalFeatures": true,
+    // Fix linting errors on save
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true,
+        "source.fixAll.eslint": true
+    },
+    // Language configs
+    "[javascript]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    // minimap
+    "editor.minimap.showSlider": "always",
+    "editor.minimap.size": "fill",
+    "editor.minimap.maxColumn": 70,
+    "editor.minimap.renderCharacters": false,
+    "editor.minimap.scale": 1,
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.formatOnSave": true
 }
