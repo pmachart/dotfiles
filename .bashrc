@@ -181,3 +181,4 @@ cat ~/todos
 #source ~/.git/enhancd/init.sh
 #export ENHANCD_FILTER='fzf'
 
+alias roger="ROGER_SCRIPT_NAME=roger ./roger.sh"

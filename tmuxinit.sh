@@ -46,6 +46,16 @@ tmuxlisa() {
   tmux select-pane -t 1
 }
 
+tmuxperso() {
+  tmux rename-window "${NAME}"
+  tmux send-keys "cd ${DIR}" 'C-m'
+  tmux send-keys 'g' 'C-m'
+  tmux split-window -h -c "${DIR}" -p 50
+  tmux send-keys 'sshtc' 'C-m'
+  tmux send-keys "cd ${DIR}" 'C-m'
+  tmux send-keys 'g' 'C-m'
+}
+
 tmuxinit() {
   local NAME
   local DIR
@@ -60,6 +70,11 @@ tmuxinit() {
   fi
 
   case ${1} in
+  tc)
+    NAME='TC'
+    DIR='/home/pma/git/tellementcliche'
+    tmuxperso
+    ;;
   prof*)
     NAME='PROFILER'
     DIR='/home/pma/git/profiler'
