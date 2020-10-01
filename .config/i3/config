@@ -133,8 +133,9 @@ client.urgent           #FFFF00 #FFFF00 #FFFFFF #FFFFFF
 ############### STATUS BAR ##################
 #############################################
 
-bar {
-  output DP2
+bar { # secondary monitor
+  i3bar_command i3bar --bar_id bar-0
+  output DP-2
   tray_output primary
   position bottom
   strip_workspace_numbers yes
@@ -160,9 +161,10 @@ bar {
   font pango:Iosevka 9
 }
 
-bar {
-  output eDP1
-  output HDMI1
+bar { # main monitor
+  i3bar_command i3bar --bar_id bar-1
+  output eDP-1
+  output HDMI-1
   tray_output primary
   position bottom
   strip_workspace_numbers yes

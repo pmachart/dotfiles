@@ -2,7 +2,8 @@
 
 function move() {
   test -f "${@}" && test -h "${@}" && return 0 # if file exists and is a symlink then skip
-  rm -rfi $@ && ln -s /home/pma/git/dotfiles/$@ $@;
+  rm -rf $@
+  ln -s /home/pma/git/dotfiles/$@ $@
 }
 
 WORKDIR=$PWD
@@ -32,11 +33,10 @@ move .config/i3
 move .config/i3status
 move .config/i3blocks
 move .config/dunst
-move .config/polybar
 
 # ide
-scriptmove .atom
-mkdir -p .config/Code
+move .atom
+mkdir -p .config/Code/User
 move .config/Code/User/keybindings.json
 move .config/Code/User/settings.json
 
@@ -44,9 +44,14 @@ move .config/Code/User/settings.json
 touch ~/.nanohistory
 mkdir ~/.nanobackups
 
-cd $WORKDIR
-
+# ly desktop manager
 sudo rm -rfi /etc/ly/config.ini
 sudo ln -s ~/git/dotfiles/ly.config.ini /etc/ly/config.ini
+
+# fonts
+sudo ln -s /home/pma/git/dotfiles/mist/iosevka-regular.ttf /usr/local/share/fonts/
+sudo ln -s /home/pma/git/dotfiles/mist/iosevka-term-regular.ttf /usr/local/share/fonts/
+
+cd $WORKDIR
 
 echo DONE
