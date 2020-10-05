@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-gotmux() {
+gotmux() { # attaches an unattached tmux session if there is any, or spawns a new one
   if [[ -z "$TMUX" ]] ; then
     local TMUXSESSIONID=$(tmux ls | \grep -v attached | head -1 | cut -f1 -d:)
     if [[ -n ${TMUXSESSIONID} ]] ; then
@@ -14,12 +14,12 @@ gotmux
 
 [ -f ~/.bash_env ] && source ~/.bash_env || export HOMEDIR=${HOME}
 
-export CDPATH=.:~:~/git:/var/lib/deluge
+export CDPATH=.:${HOMEDIR}:${HOMEDIR}/git:/var/lib/deluge
 export PATH=/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin
-export PATH=$PATH:~/.local/bin:~/bin:~/.bin
-export PATH=$PATH:~/.linuxbrew/bin:~/.linuxbrew/opt/go/libexec/bin:/home/linuxbrew/.linuxbrew/bin
-export PATH=$PATH:~/.npm-global/bin
-export PATH=$PATH:~/.cabal/bin
+export PATH=$PATH:${HOMEDIR}/.local/bin:${HOMEDIR}/bin:${HOMEDIR}/.bin
+export PATH=$PATH:${HOMEDIR}/.linuxbrew/bin:${HOMEDIR}/.linuxbrew/opt/go/libexec/bin:/home/linuxbrew/.linuxbrew/bin
+export PATH=$PATH:${HOMEDIR}/.npm-global/bin
+export PATH=$PATH:${HOMEDIR}/.cabal/bin
 export PATH=$PATH:/snap/bin
 
 # fnm
@@ -28,6 +28,7 @@ eval "`fnm env --multi`"
 
 export GPG_TTY=$(tty)
 
+alias acs='apt-cache search'
 if [ $USER == "root" ]; then
   alias ins='apt-get install'
   alias rem='apt-get remove'
@@ -46,7 +47,7 @@ eval $(thefuck --alias)
 
 GIT_PROMPT_ONLY_IN_REPO=0
 GIT_PROMPT_FETCH_REMOTE_STATUS=0
-source ~/.bash-git-prompt/gitprompt.sh
+source ${HOMEDIR}/.bash-git-prompt/gitprompt.sh
 
 alias sudo='sudo '
 alias watch='watch '
@@ -173,12 +174,7 @@ function parse_git_branch {
 export PS1="\n$? \! \A \[$(tput sgr0)\]\[\033[38;5;11m\]\u@\h \[$(tput sgr0)\]\[\033[38;5;6m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\] \$(parse_git_branch) \\$ \[$(tput sgr0)\]\[\033[00m\]"
 
 # initialize fuzzyfind
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[ -f ${HOMEDIR}/.fzf.bash ] && source ${HOMEDIR}/.fzf.bash
 alias f='fzf'
 
-cat ~/todos
-
-#source ~/.git/enhancd/init.sh
-#export ENHANCD_FILTER='fzf'
-
-alias roger="ROGER_SCRIPT_NAME=roger ./roger.sh"
+[ -f ${HOMEDIR}/todos ] && cat ${HOMEDIR}/todos
