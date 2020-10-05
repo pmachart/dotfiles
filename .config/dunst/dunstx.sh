@@ -115,11 +115,11 @@ function dunstx {
       brightness_notification
       ;;
     brightest)
-      /usr/bin/xbacklight -set 100
+      /usr/bin/xbacklight -time 0 -set 100
       brightness_notification
       ;;
     darkest)
-      /usr/bin/xbacklight -set 5
+      /usr/bin/xbacklight -time 0 -set 5
       brightness_notification
       ;;
 

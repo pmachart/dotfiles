@@ -31,22 +31,23 @@ interval=10
 [separator]
 
 
-[vpn]
-command=~/.config/i3blocks/icanhasvpn.sh
-interval=5
-signal=11
+#[vpn]
+#command=~/.config/i3blocks/icanhasvpn.sh
+#interval=5
+#signal=11
 
 
 [separator]
 
 [calendar]
 command=gsimplecal
-full_text= 
+full_text=[#]
 
 [time]
 command=date "+%a %d/%m  <span color='white'>%H:%M:%S</span>"
 interval=1
 
+[separator]
 
 [monitors]
 command=~/.config/i3blocks/monitor_manager

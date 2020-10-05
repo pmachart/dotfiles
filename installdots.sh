@@ -6,52 +6,69 @@ function move() {
   ln -s /home/pma/git/dotfiles/$@ $@
 }
 
-WORKDIR=$PWD
+function doinstall() {
 
-cd
+  if [ -f ~/.bash_env ] ; then
+    source ~/.bash_env
+  else
+    echo 'bash_env file not created. exiting.'
+    return 0
+  fi
 
-# files
-move .Xdefaults
-move .bashrc
-move .bash_aliases
-move .bash_aliases_ext
-move .bash_aliases_git
-move .bash_aliases_files
-move .fzf.bash
-move .gitconfig
-move .gitignore_global
-move .inputrc
-move .nanorc
-move .tmux.conf
-move .vimrc
-move .taskbook.json
+  WORKDIR=$PWD
+  cd ~
 
-# folders
-mkdir -p .config
-move .config/htop
-move .config/i3
-move .config/i3status
-move .config/i3blocks
-move .config/dunst
+  # files
+  move .Xdefaults
+  move .bashrc
+  move .bash_aliases
+  move .bash_aliases_ext
+  move .bash_aliases_git
+  move .bash_aliases_files
+  move .fzf.bash
+  move .gitconfig
+  move .gitignore_global
+  move .inputrc
+  move .nanorc
+  move .tmux.conf
+  move .vimrc
+  move .taskbook.json
 
-# ide
-move .atom
-mkdir -p .config/Code/User
-move .config/Code/User/keybindings.json
-move .config/Code/User/settings.json
+  # folders
+  mkdir -p .config
+  move .config/htop
+  move .config/i3
+  move .config/i3status
+  move .config/i3blocks
+  move .config/dunst
+  move .config/kitty
 
-# nano
-touch ~/.nanohistory
-mkdir ~/.nanobackups
+  # ide
+  move .atom
+  mkdir -p .config/Code/User
+  move .config/Code/User/keybindings.json
+  move .config/Code/User/settings.json
 
-# ly desktop manager
-sudo rm -rfi /etc/ly/config.ini
-sudo ln -s ~/git/dotfiles/ly.config.ini /etc/ly/config.ini
+  # nano
+  touch ~/.nanohistory
+  mkdir ~/.nanobackups
 
-# fonts
-sudo ln -s /home/pma/git/dotfiles/mist/iosevka-regular.ttf /usr/local/share/fonts/
-sudo ln -s /home/pma/git/dotfiles/mist/iosevka-term-regular.ttf /usr/local/share/fonts/
+  # ly desktop manager
+  sudo rm -rfi /etc/ly/config.ini
+  sudo ln -s ~/git/dotfiles/ly.config.ini /etc/ly/config.ini
 
-cd $WORKDIR
+  # root
+  if [ ${USER} == 'root' ] ; then
+    ln -s ${HOMEDIR}/.fzf ~/.fzf
+    ln -s ${HOMEDIR}/.nano ~/.nano
+    ln -s ${HOMEDIR}/.nanohistory ~/.nanohistory
+    ln -s ${HOMEDIR}/.tmux ~/.tmux
+  fi
 
-echo DONE
+
+
+  cd $WORKDIR
+  echo DONE
+}
+
+doinstall

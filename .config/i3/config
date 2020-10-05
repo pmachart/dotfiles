@@ -1,3 +1,5 @@
+exec sudo service gdm start
+
 # i3 config file (v4)
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
@@ -73,7 +75,7 @@ exec --no-startup-id blueman-applet
 exec --no-startup-id nm-applet
 exec --no-startup-id parcellite
 exec --no-startup-id orage
-exec --no-startup-id conky
+#exec --no-startup-id conky -d
 exec --no-startup-id dropbox start
 exec-always --no-startup-id /usr/bin/xautolock -locker "/usr/bin/i3lock-fancy -p -g -notify 5 -notifier /usr/bin/dunstify" -time 1
 
@@ -135,7 +137,7 @@ client.urgent           #FFFF00 #FFFF00 #FFFFFF #FFFFFF
 
 bar { # secondary monitor
   i3bar_command i3bar --bar_id bar-0
-  output DP-2
+  output DP2
   tray_output primary
   position bottom
   strip_workspace_numbers yes
@@ -163,8 +165,8 @@ bar { # secondary monitor
 
 bar { # main monitor
   i3bar_command i3bar --bar_id bar-1
-  output eDP-1
-  output HDMI-1
+  output eDP1
+  output HDMI1
   tray_output primary
   position bottom
   strip_workspace_numbers yes
@@ -215,15 +217,15 @@ bindsym $mod+F4          exec --no-startup-id ~/.config/dunst/dunstx.sh mic
 
 # Screen brightness controls
 
-bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/dunst/dunstx.sh darker 10
-bindsym $mod+F5               exec --no-startup-id ~/.config/dunst/dunstx.sh darker 10
-bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/dunst/dunstx.sh brighter 10
-bindsym $mod+F6             exec --no-startup-id ~/.config/dunst/dunstx.sh brighter 10
+bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/dunst/dunstx.sh darker 5
+bindsym $mod+F5               exec --no-startup-id ~/.config/dunst/dunstx.sh darker 5
+bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/dunst/dunstx.sh brighter 5
+bindsym $mod+F6             exec --no-startup-id ~/.config/dunst/dunstx.sh brighter 5
 
-bindsym Shift+XF86MonBrightnessDown exec --no-startup-id ~/.config/dunst/dunstx.sh darker 20
-bindsym Shift+$mod+F5               exec --no-startup-id ~/.config/dunst/dunstx.sh darker 20
-bindsym Shift+XF86MonBrightnessUp exec --no-startup-id ~/.config/dunst/dunstx.sh brighter 20
-bindsym Shift+$mod+F6             exec --no-startup-id ~/.config/dunst/dunstx.sh brighter 20
+bindsym Shift+XF86MonBrightnessDown exec --no-startup-id ~/.config/dunst/dunstx.sh darker 10
+bindsym Shift+$mod+F5               exec --no-startup-id ~/.config/dunst/dunstx.sh darker 10
+bindsym Shift+XF86MonBrightnessUp exec --no-startup-id ~/.config/dunst/dunstx.sh brighter 10
+bindsym Shift+$mod+F6             exec --no-startup-id ~/.config/dunst/dunstx.sh brighter 10
 
 bindsym Ctrl+XF86MonBrightnessDown exec --no-startup-id ~/.config/dunst/dunstx.sh darkest
 bindsym Ctrl+$mod+F5               exec --no-startup-id ~/.config/dunst/dunstx.sh darkest
@@ -279,10 +281,13 @@ bindsym Caps_Lock exec --no-startup-id pkill -RTMIN+12 i3blocks # TODO doesn't w
 bindsym Shift+Caps_Lock exec --no-startup-id pkill -RTMIN+12 i3blocks # TODO doesn't work ?
 
 # dont use xinput's device ids or prop ids because sometimes they change
-exec_always --no-startup-id xinput set-prop 'TPPS/2 Elan TrackPoint' 'libinput Accel Speed' -0.6 # trackpoint sensitivity
-exec_always --no-startup-id xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Accel Speed' 0.7 # touchpad sensitivity
-exec_always --no-startup-id xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Natural Scrolling Enabled' 1 # touchpad natural scrolling
-# exec_always --no-startup-id xinput set-prop 'Zalman FPSGUN Mouse' '' # external mouse scroll speed # TODO
+exec_always --no-startup-id xinput set-prop 'TPPS/2 IBM TrackPoint' 'libinput Accel Speed' -0.6
+
+exec_always --no-startup-id xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Accel Speed' 0.7
+exec_always --no-startup-id xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Natural Scrolling Enabled' 1
+
+exec_always --no-startup-id xinput set-prop 'Microsoft Arc Mouse Mouse' 'libinput Natural Scrolling Enabled' 1
+exec_always --no-startup-id xinput set-prop 'Microsoft Arc Mouse Mouse' 'Evdev Scrolling Distance' -12 1 1
 
 
 #############################################
@@ -307,7 +312,7 @@ set $ws8 "8:    8    "
 set $ws9 "9:    9    "
 
 set $app1 'kitty'
-set $app2 'chromium'
+set $app2 'google-chrome'
 set $app3 'slack'
 set $app4 'code'
 
