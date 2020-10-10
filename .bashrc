@@ -14,7 +14,7 @@ gotmux
 
 [ -f ~/.bash_env ] && source ~/.bash_env || export HOMEDIR=${HOME}
 
-export CDPATH=.:${HOMEDIR}:${HOMEDIR}/git:/var/lib/deluge
+export CDPATH=.:${HOMEDIR}:${HOMEDIR}/git:${HOMEDIR}/Dropbox:/var/lib/deluge
 export PATH=/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin
 export PATH=$PATH:${HOMEDIR}/.local/bin:${HOMEDIR}/bin:${HOMEDIR}/.bin
 export PATH=$PATH:${HOMEDIR}/.linuxbrew/bin:${HOMEDIR}/.linuxbrew/opt/go/libexec/bin:/home/linuxbrew/.linuxbrew/bin

@@ -1,6 +1,6 @@
 command=/usr/share/i3blocks/$BLOCK_NAME
 markup=pango
-separator_block_width=33
+separator_block_width=24
 separator=false
 
 

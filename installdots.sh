@@ -42,6 +42,7 @@ function doinstall() {
   move .config/i3blocks
   move .config/dunst
   move .config/kitty
+  move .config/ranger
 
   # ide
   move .atom

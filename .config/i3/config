@@ -88,6 +88,7 @@ bindsym $mod+t exec --no-startup-id kitty
 bindsym $mod+e exec --no-startup-id nemo
 bindsym $mod+c exec --no-startup-id gnome-calculator
 bindsym $mod+d exec --no-startup-id rofi -show run #-dmenu
+bindsym $mod+shift+d exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -dmenu -p RUN'
 bindsym $mod+l exec --no-startup-id i3lock-fancy -p -g
 bindsym $mod+k exec --no-startup-id ~/git/dotfiles/rofikill.sh
 bindsym $mod+s exec --no-startup-id flameshot gui
@@ -286,8 +287,7 @@ exec_always --no-startup-id xinput set-prop 'TPPS/2 IBM TrackPoint' 'libinput Ac
 exec_always --no-startup-id xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Accel Speed' 0.7
 exec_always --no-startup-id xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Natural Scrolling Enabled' 1
 
-exec_always --no-startup-id xinput set-prop 'Microsoft Arc Mouse Mouse' 'libinput Natural Scrolling Enabled' 1
-exec_always --no-startup-id xinput set-prop 'Microsoft Arc Mouse Mouse' 'Evdev Scrolling Distance' -12 1 1
+exec_always --no-startup-id xinput set-prop 'Microsoft Arc Mouse Mouse' 'libinput Natural Scrolling Enabled' 0
 
 
 #############################################
