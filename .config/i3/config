@@ -52,6 +52,7 @@ default_border pixel 4
 for_window [title=".*"] border pixel 4
 
 for_window [title="^Blueman.*"] floating enable
+for_window [title="^Bluetooth.*"] floating enable
 for_window [title="^Pick$"] floating enable
 for_window [title="^Software.*"] floating enable
 for_window [title="^Package Installer.*"] floating enable
@@ -79,6 +80,8 @@ exec --no-startup-id orage
 exec --no-startup-id dropbox start
 exec-always --no-startup-id /usr/bin/xautolock -locker "/usr/bin/i3lock-fancy -p -g -notify 5 -notifier /usr/bin/dunstify" -time 1
 
+#exec --no-startup-id /usr/libexec/gnome-settings-daemon-localeexec
+#exec --no-startup-id dconf write /org/gnome/settings-daemon/plugins/cursor/active false
 
 #############################################
 ################ PROGRAMS ###################
@@ -93,7 +96,7 @@ bindsym $mod+l exec --no-startup-id i3lock-fancy -p -g
 bindsym $mod+k exec --no-startup-id ~/git/dotfiles/rofikill.sh
 bindsym $mod+s exec --no-startup-id flameshot gui
 bindsym Print exec --no-startup-id flameshot gui
-bindsym $mod+Print exec --no-startup-id pick-colour-picker
+bindsym $mod+Print exec --no-startup-id /snap/bin/pick-colour-picker
 bindsym Pause exec --no-startup-id jgmenu --at-pointer
 bindsym XF86Calculator exec --no-startup-id gnome-calculator
 
@@ -108,7 +111,7 @@ mode --pango_markup $mode_apps {
         bindsym l exec --no-startup-id rofi -show run ; mode default
         bindsym k exec --no-startup-id ~/git/dotfiles/rofikill.sh ; mode default
         bindsym s exec --no-startup-id flameshot gui ; mode default
-        bindsym p exec --no-startup-id pick-colour-picker ; mode default
+        bindsym p exec --no-startup-id /snap/bin/pick-colour-picker ; mode default
 
         bindsym Escape mode default
         bindsym Return mode default

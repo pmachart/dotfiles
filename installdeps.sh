@@ -35,7 +35,7 @@ sudo systemctl enable ly.service --force # don't disable gdm
 
 cd
 
-sudo apt-get install curl git libevent-dev ncurses-dev htop arandr xbacklight amixer
+sudo apt-get install curl git libevent-dev ncurses-dev htop arandr xbacklight amixer lxappearance
 sudo apt-get install feh exa bat nemo ranger flameshot ranger xdotool xinput xserver-xorg-libinput
 sudo apt-get install kitty nodejs npm curl ripgrep thefuck bash-completion
 
