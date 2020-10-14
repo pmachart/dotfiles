@@ -31,14 +31,14 @@ interval=10
 [separator]
 
 
-#[vpn]
-#command=~/.config/i3blocks/icanhasvpn.sh
-#interval=5
-#signal=11
+[vpn]
+command=~/.config/i3blocks/icanhasvpn.sh
+interval=5
+signal=11
 
 [btmouse]
 command=~/.config/i3blocks/btmousebattery.sh
-interval=1
+interval=10
 signal=11
 
 
