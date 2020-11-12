@@ -43,3 +43,5 @@ alias apache='sudo service apache2 '
 alias rmjestcache='rm -rf /tmp/jest_rs/'
 
 md() { pandoc "$@" | lynx -stdin; } # the ultimate markdowm reading combo !
+
+alias gotop='gotop-cjbassi -am' # because i installed it via snap this time.
