@@ -13,6 +13,14 @@ signal=12
 [separator]
 
 
+[brightness]
+command=echo Brightness:$(xbacklight | cut -d. -f1)%
+interval=1
+
+
+[separator]
+
+
 [volume]
 label=♪
 instance=Master
