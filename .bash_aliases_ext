@@ -44,4 +44,4 @@ alias rmjestcache='rm -rf /tmp/jest_rs/'
 
 md() { pandoc "$@" | lynx -stdin; } # the ultimate markdowm reading combo !
 
-alias gotop='gotop-cjbassi -am' # because i installed it via snap this time.
+alias gotop='gotop-cjbassi' # because i installed it via snap this time.
